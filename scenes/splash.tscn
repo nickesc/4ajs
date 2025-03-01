@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy416m2fmimvo"]
+
+[ext_resource type="PackedScene" uid="uid://d4atqvq8oc1e" path="res://models/menu-bg.glb" id="1_8sys4"]
+[ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="1_ejd8g"]
+
+[node name="Splash" type="Node3D"]
+
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_ejd8g")
+
+[node name="menu" parent="." instance=ExtResource("1_8sys4")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.0023917, 0.883196, 0.00154328)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.849801, 0, 0.527104, 0, 1, 0, -0.527104, 0, -0.849801, 2.22398, -1.84889, -4.61953)
+fov = 16.4
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.422618, -0.694272, 0.582564, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 5.14614, 0, 0)
+shadow_enabled = true
+shadow_opacity = 0.75
