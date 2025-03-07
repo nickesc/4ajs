@@ -2,7 +2,7 @@
 
 [ext_resource type="Environment" uid="uid://cn54j8eqfhivp" path="res://scenes/bedroom-environment.tres" id="1_faqlx"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_lp6yp"]
-[ext_resource type="Script" path="res://scripts/view.gd" id="3_r6dl3"]
+[ext_resource type="Script" uid="uid://c5fsiecjo27n" path="res://scripts/view.gd" id="3_r6dl3"]
 [ext_resource type="PackedScene" uid="uid://811v4agpo5ue" path="res://objects/bed_double.tscn" id="8_n5dov"]
 [ext_resource type="PackedScene" uid="uid://cmh6kn4hy1qj" path="res://objects/desk.tscn" id="9_rg2nx"]
 [ext_resource type="PackedScene" uid="uid://ckbqrqxdb4ope" path="res://objects/cabinet_bed_drawer.tscn" id="10_8t8s3"]

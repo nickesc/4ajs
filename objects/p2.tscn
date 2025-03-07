@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://c2ao5sxxa7o2b"]
 
-[ext_resource type="Script" path="res://scripts/p2.gd" id="1_xb0fm"]
+[ext_resource type="Script" uid="uid://dowkbyxl8a6i2" path="res://scripts/p2.gd" id="1_xb0fm"]
 [ext_resource type="PackedScene" uid="uid://c0e27836xgmhi" path="res://objects/character.tscn" id="2_5kxft"]
 [ext_resource type="Texture2D" uid="uid://8ggihh27mlrr" path="res://sprites/blob_shadow.png" id="3_mq2qw"]
 [ext_resource type="ArrayMesh" uid="uid://deu06eho4c74" path="res://meshes/dust.res" id="4_hqy0m"]

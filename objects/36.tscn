@@ -1,6 +1,6 @@
 [gd_scene load_steps=550 format=4 uid="uid://dp8ju58ui52iu"]
 
-[ext_resource type="Script" path="res://scripts/turn_invisible.gd" id="1_lgb5b"]
+[ext_resource type="Script" uid="uid://ctxsg5mb5ctsb" path="res://scripts/turn_invisible.gd" id="1_lgb5b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_auyud"]
 resource_name = "stone(Clone)"
