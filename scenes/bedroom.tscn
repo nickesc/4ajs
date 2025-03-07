@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://do6r3r3j8ac8x"]
+[gd_scene load_steps=11 format=3 uid="uid://do6r3r3j8ac8x"]
 
 [ext_resource type="Environment" uid="uid://cn54j8eqfhivp" path="res://scenes/bedroom-environment.tres" id="1_faqlx"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_lp6yp"]
 [ext_resource type="Script" path="res://scripts/view.gd" id="3_r6dl3"]
-[ext_resource type="PackedScene" uid="uid://cnymdajj1vsqm" path="res://objects/platform.tscn" id="4_c5tqf"]
+[ext_resource type="PackedScene" uid="uid://811v4agpo5ue" path="res://objects/bed_double.tscn" id="8_n5dov"]
+[ext_resource type="PackedScene" uid="uid://cmh6kn4hy1qj" path="res://objects/desk.tscn" id="9_rg2nx"]
+[ext_resource type="PackedScene" uid="uid://ckbqrqxdb4ope" path="res://objects/cabinet_bed_drawer.tscn" id="10_8t8s3"]
+[ext_resource type="PackedScene" uid="uid://d0xtw0s7y2etw" path="res://objects/bookcase_closed_wide.tscn" id="11_n0sr1"]
+[ext_resource type="PackedScene" uid="uid://cs4veu8415y3y" path="res://objects/bookcase_open_low.tscn" id="12_bwnyf"]
+[ext_resource type="PackedScene" uid="uid://bi7tehyk4qu08" path="res://objects/table_round.tscn" id="13_x516s"]
+[ext_resource type="PackedScene" uid="uid://dp8ju58ui52iu" path="res://objects/36.tscn" id="15_hdgp0"]
 
 [node name="Bedroom" type="Node3D"]
 
@@ -11,12 +17,14 @@
 environment = ExtResource("1_faqlx")
 
 [node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("2_lp6yp")]
+transform = Transform3D(-0.653077, 0, 0.757291, 0, 1, 0, -0.757291, 0, -0.653077, 2.43858, -0.0499999, -2.83085)
 view = NodePath("../View")
 
 [node name="View" type="Node3D" parent="." node_paths=PackedStringArray("target")]
-transform = Transform3D(0.707107, -0.298836, 0.640856, 0, 0.906308, 0.422618, -0.707107, -0.298836, 0.640856, 0, 0, 0)
+transform = Transform3D(0.84051, -0.228973, 0.491033, 1.57535e-08, 0.906308, 0.422618, -0.541796, -0.355214, 0.76176, 2.36278, 8.9407e-08, -2.76548)
 script = ExtResource("3_r6dl3")
 target = NodePath("../Player")
+zoom_minimum = 6
 rotation_speed = 160
 
 [node name="Camera" type="Camera3D" parent="View"]
@@ -30,6 +38,25 @@ shadow_enabled = true
 shadow_opacity = 0.75
 
 [node name="World" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -33.6236)
 
-[node name="platform" parent="World" instance=ExtResource("4_c5tqf")]
-transform = Transform3D(0.993085, 0, -0.117399, 0, 1, 0, 0.117399, 0, 0.993085, 0, 0, 0)
+[node name="cabinetBedDrawer" parent="World" instance=ExtResource("10_8t8s3")]
+transform = Transform3D(-1.09278e-07, 0, -2.5, 0, 2.5, 0, 2.5, 0, -1.09278e-07, 3.45296, 1.3411e-07, 32.5005)
+
+[node name="bookcaseClosedWide" parent="World" instance=ExtResource("11_n0sr1")]
+transform = Transform3D(-6.513e-08, 0, 1.8, 0, 1.2, 0, -1.49, 0, -7.86805e-08, 0.582173, 1.3411e-07, 30.9289)
+
+[node name="bookcaseOpenLow" parent="World" instance=ExtResource("12_bwnyf")]
+transform = Transform3D(2.20103, 0, 0, 0, 1.8, 0, 0, 0, 1.8424, 0.119614, 7.45058e-08, 28.7569)
+
+[node name="tableRound" parent="World" instance=ExtResource("13_x516s")]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1.2, 0, -0.5, 0, 0.866025, 2.26995, 0.324, 33.673)
+
+[node name="bedDouble" parent="World" instance=ExtResource("8_n5dov")]
+transform = Transform3D(-1.8, 0, -1.57361e-07, 0, 1.8, 0, 1.57361e-07, 0, -1.8, 1.8642, 1.93715e-07, 31.4773)
+
+[node name="desk" parent="World" instance=ExtResource("9_rg2nx")]
+transform = Transform3D(-7.86805e-08, 0, -1.8, 0, 1.8, 0, 1.8, 0, -7.86805e-08, 3.36566, 7.45058e-08, 31.1208)
+
+[node name="36" parent="World" instance=ExtResource("15_hdgp0")]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 0, 0, 33.6236)
