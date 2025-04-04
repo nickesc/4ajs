@@ -30,9 +30,10 @@ environment = ExtResource("1_ahusb")
 [node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("2_onms2")]
 view = NodePath("../View")
 
-[node name="View" type="Node3D" parent="." node_paths=PackedStringArray("target")]
+[node name="View" type="Node3D" parent="." node_paths=PackedStringArray("camera", "target")]
 transform = Transform3D(0.707107, -0.298836, 0.640856, 0, 0.906308, 0.422618, -0.707107, -0.298836, 0.640856, 0, 0, 0)
 script = ExtResource("5_bg0fr")
+camera = NodePath("Camera")
 target = NodePath("../Player")
 rotation_speed = 160
 
