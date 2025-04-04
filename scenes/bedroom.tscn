@@ -1,24 +1,161 @@
-[gd_scene load_steps=11 format=3 uid="uid://do6r3r3j8ac8x"]
+[gd_scene load_steps=53 format=3 uid="uid://do6r3r3j8ac8x"]
 
+[ext_resource type="Script" uid="uid://ci5flxvcrd2ca" path="res://scripts/camera_controller.gd" id="1_cs7aj"]
 [ext_resource type="Environment" uid="uid://cn54j8eqfhivp" path="res://scenes/bedroom-environment.tres" id="1_faqlx"]
+[ext_resource type="Script" uid="uid://bk0i6gcxalt3w" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_k5fq4"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_lp6yp"]
 [ext_resource type="Script" uid="uid://c5fsiecjo27n" path="res://scripts/view.gd" id="3_r6dl3"]
-[ext_resource type="PackedScene" uid="uid://811v4agpo5ue" path="res://objects/bed_double.tscn" id="8_n5dov"]
-[ext_resource type="PackedScene" uid="uid://cmh6kn4hy1qj" path="res://objects/desk.tscn" id="9_rg2nx"]
-[ext_resource type="PackedScene" uid="uid://ckbqrqxdb4ope" path="res://objects/cabinet_bed_drawer.tscn" id="10_8t8s3"]
-[ext_resource type="PackedScene" uid="uid://d0xtw0s7y2etw" path="res://objects/bookcase_closed_wide.tscn" id="11_n0sr1"]
-[ext_resource type="PackedScene" uid="uid://cs4veu8415y3y" path="res://objects/bookcase_open_low.tscn" id="12_bwnyf"]
-[ext_resource type="PackedScene" uid="uid://bi7tehyk4qu08" path="res://objects/table_round.tscn" id="13_x516s"]
-[ext_resource type="PackedScene" uid="uid://dp8ju58ui52iu" path="res://objects/36.tscn" id="15_hdgp0"]
+[ext_resource type="PackedScene" uid="uid://c2ao5sxxa7o2b" path="res://objects/p2.tscn" id="7_sphvx"]
+[ext_resource type="PackedScene" uid="uid://811v4agpo5ue" path="res://objects/bedroom/bed_double.tscn" id="8_n5dov"]
+[ext_resource type="PackedScene" uid="uid://cmh6kn4hy1qj" path="res://objects/bedroom/desk.tscn" id="9_rg2nx"]
+[ext_resource type="PackedScene" uid="uid://ckbqrqxdb4ope" path="res://objects/bedroom/cabinet_bed_drawer.tscn" id="10_8t8s3"]
+[ext_resource type="PackedScene" uid="uid://bqqgyqafm7xwp" path="res://scenes/main.tscn" id="10_u3yip"]
+[ext_resource type="PackedScene" uid="uid://d0xtw0s7y2etw" path="res://objects/bedroom/bookcase_closed_wide.tscn" id="11_n0sr1"]
+[ext_resource type="Script" uid="uid://bc0qlk1bpglin" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="12_4wfg3"]
+[ext_resource type="PackedScene" uid="uid://cs4veu8415y3y" path="res://objects/bedroom/bookcase_open_low.tscn" id="12_bwnyf"]
+[ext_resource type="Script" uid="uid://ck8a6v2jj7rhj" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="13_mk2nf"]
+[ext_resource type="PackedScene" uid="uid://bi7tehyk4qu08" path="res://objects/bedroom/table_round.tscn" id="13_x516s"]
+[ext_resource type="PackedScene" uid="uid://hhvk6dlrh3jb" path="res://objects/bedroom/books.tscn" id="13_yv0u1"]
+[ext_resource type="PackedScene" uid="uid://c2etldl5snj74" path="res://objects/bedroom/bathtub.tscn" id="14_bd3ru"]
+[ext_resource type="PackedScene" uid="uid://kvc5gklofh0h" path="res://objects/bedroom/toilet.tscn" id="15_cs7aj"]
+[ext_resource type="PackedScene" uid="uid://dp8ju58ui52iu" path="res://objects/bedroom/36.tscn" id="15_hdgp0"]
+[ext_resource type="PackedScene" uid="uid://de425lv7e3ict" path="res://objects/bedroom/bathroom_sink_square.tscn" id="16_43jao"]
+[ext_resource type="PackedScene" uid="uid://e1c1fj4chpr5" path="res://objects/bedroom/bathroom_mirror.tscn" id="19_15if8"]
+[ext_resource type="PackedScene" uid="uid://bde7dxlwtccbx" path="res://objects/bedroom/lounge_sofa.tscn" id="19_43jao"]
+[ext_resource type="PackedScene" uid="uid://d36fdphpaycfa" path="res://objects/bedroom/side_table.tscn" id="20_qw8ek"]
+[ext_resource type="PackedScene" uid="uid://c4650lhthtct4" path="res://objects/bedroom/stool_bar_square.tscn" id="21_qbrme"]
+[ext_resource type="PackedScene" uid="uid://cf0eroplgl3k3" path="res://objects/bedroom/kitchen_fridge.tscn" id="22_lyvny"]
+[ext_resource type="PackedScene" uid="uid://ba1vx23bwahyl" path="res://objects/bedroom/kitchen_cabinet.tscn" id="23_ns14s"]
+[ext_resource type="PackedScene" uid="uid://maeqwkxjh0lk" path="res://objects/bedroom/pillow.tscn" id="23_wolxw"]
+[ext_resource type="PackedScene" uid="uid://5nhjen6ukowe" path="res://objects/bedroom/kitchen_cabinet_corner_inner.tscn" id="24_lwmpn"]
+[ext_resource type="PackedScene" uid="uid://b5biq85jr4nit" path="res://objects/bedroom/kitchen_stove.tscn" id="25_6lafe"]
+[ext_resource type="PackedScene" uid="uid://dfjtkr0724vg7" path="res://objects/bedroom/cabinet_television_doors.tscn" id="26_sphvx"]
+[ext_resource type="PackedScene" uid="uid://dj4fmxij3omle" path="res://objects/bedroom/cabinet_television.tscn" id="27_ipco6"]
+[ext_resource type="PackedScene" uid="uid://c4kw5b6kc8ujf" path="res://objects/bedroom/television_modern.tscn" id="28_08d0o"]
+[ext_resource type="PackedScene" uid="uid://bc5lph5phf15f" path="res://objects/bedroom/rug_rectangle.tscn" id="29_tl7to"]
+[ext_resource type="PackedScene" uid="uid://4ldi4xrfg125" path="res://objects/bedroom/lamp_round_floor.tscn" id="30_15if8"]
+[ext_resource type="PackedScene" uid="uid://c1rkn4rjihh0w" path="res://objects/bedroom/lamp_round_table.tscn" id="31_u3yip"]
+[ext_resource type="Script" uid="uid://c5r63c5favntp" path="res://scripts/doorbell.gd" id="33_ipco6"]
+[ext_resource type="PackedScene" uid="uid://cvmtfpq07iu1b" path="res://objects/bedroom/bookcase_open.tscn" id="33_tl7to"]
+[ext_resource type="AudioStream" uid="uid://b4i2ou0icb7my" path="res://sounds/doorbell.mp3" id="34_08d0o"]
+[ext_resource type="PackedScene" uid="uid://c3w0smun8bspm" path="res://objects/bedroom/bathroom_cabinet.tscn" id="34_15if8"]
+[ext_resource type="PackedScene" uid="uid://dyi0kv314lad6" path="res://objects/bedroom/bath_cart.tscn" id="38_2vgw0"]
+[ext_resource type="PackedScene" uid="uid://olx2lx86ee8y" path="res://objects/bedroom/chair_desk.tscn" id="39_wltlc"]
+[ext_resource type="PackedScene" uid="uid://cb7vybne0rgmc" path="res://objects/bedroom/laptop.tscn" id="40_styym"]
+[ext_resource type="PackedScene" uid="uid://cu641ft3p318v" path="res://objects/bedroom/computer_screen.tscn" id="41_6bpri"]
+[ext_resource type="PackedScene" uid="uid://cihfmar34xk6f" path="res://objects/bedroom/computer_keyboard.tscn" id="42_wolxw"]
+[ext_resource type="PackedScene" uid="uid://d0n107prhr3v2" path="res://objects/bedroom/computer_mouse.tscn" id="43_2vgw0"]
+[ext_resource type="PackedScene" uid="uid://b218o7k6vunsx" path="res://objects/bedroom/mirror.tscn" id="44_mn5e5"]
+[ext_resource type="PackedScene" uid="uid://dmstagjpaakvr" path="res://objects/bedroom/radiator.tscn" id="46_2vgw0"]
+[ext_resource type="PackedScene" uid="uid://d2qmhlitnhdwe" path="res://objects/bedroom/shower_rod.tscn" id="47_mn5e5"]
+[ext_resource type="PackedScene" uid="uid://c5kyqs1g5m2nu" path="res://objects/bedroom/shower_curtain.tscn" id="48_i3afc"]
+
+[sub_resource type="Resource" id="Resource_cixf6"]
+script = ExtResource("13_mk2nf")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_43jao"]
+script = ExtResource("13_mk2nf")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_08d0o"]
 
 [node name="Bedroom" type="Node3D"]
+
+[node name="CameraController" type="Timer" parent="." node_paths=PackedStringArray("Bed_PCam", "Bathroom_PCam", "Family_PCam", "Hallway_PCam", "P2_PCam", "Player", "P2")]
+script = ExtResource("1_cs7aj")
+Bed_PCam = NodePath("../Bed PCam")
+Bathroom_PCam = NodePath("../Bath PCam")
+Family_PCam = NodePath("../Family PCam")
+Hallway_PCam = NodePath("../Hallway PCam")
+P2_PCam = NodePath("../P2 PCam")
+Player = NodePath("../Player")
+P2 = NodePath("../P2")
+
+[node name="bedNode" type="Node3D" parent="CameraController"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.719588, 0, -3.33167)
+
+[node name="bathroomNode" type="Node3D" parent="CameraController"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4857, 0, -7.85564)
+
+[node name="hallwayNode" type="Node3D" parent="CameraController"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.89688, 0, -18.6092)
+
+[node name="familyNode" type="Node3D" parent="CameraController"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.732, 0, -10.999)
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(0.512019, -0.34391, 0.787123, 0, 0.916352, 0.400373, -0.858974, -0.204998, 0.46919, 8.8616, 4.1155, 0.73339)
+current = true
+fov = 40.0
+
+[node name="PhantomCameraHost" type="Node" parent="Camera"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("1_k5fq4")
+metadata/_custom_type_script = "uid://bk0i6gcxalt3w"
+
+[node name="Bed PCam" type="Node3D" parent="." node_paths=PackedStringArray("look_at_target")]
+transform = Transform3D(0.512019, -0.343909, 0.787122, 0, 0.916351, 0.400372, -0.858974, -0.204998, 0.469189, 8.8616, 4.1155, 0.73339)
+script = ExtResource("12_4wfg3")
+priority = 10
+look_at_mode = 2
+look_at_target = NodePath("../CameraController/bedNode")
+tween_resource = SubResource("Resource_cixf6")
+look_at_offset = Vector3(3, 1.5, 1)
+metadata/_custom_type_script = "uid://bc0qlk1bpglin"
+
+[node name="Bath PCam" type="Node3D" parent="." node_paths=PackedStringArray("look_at_target")]
+transform = Transform3D(-0.644525, -0.515296, 1.37079, 0, 1.49769, 0.562992, -1.46444, 0.226791, -0.603308, 6.39881, 2.42855, -8.4581)
+script = ExtResource("12_4wfg3")
+look_at_mode = 2
+look_at_target = NodePath("../CameraController/bathroomNode")
+tween_resource = SubResource("Resource_43jao")
+look_at_offset = Vector3(0, 0, 2)
+metadata/_custom_type_script = "uid://bc0qlk1bpglin"
+
+[node name="Family PCam" type="Node3D" parent="." node_paths=PackedStringArray("look_at_target")]
+transform = Transform3D(0.851877, -0.411775, 1.29025, -2.38419e-08, 1.52426, 0.486455, -1.35437, -0.259, 0.811546, 11.7343, 3.39408, -5.3367)
+script = ExtResource("12_4wfg3")
+look_at_mode = 2
+look_at_target = NodePath("../CameraController/familyNode")
+tween_resource = SubResource("Resource_43jao")
+metadata/_custom_type_script = "uid://bc0qlk1bpglin"
+
+[node name="Hallway PCam" type="Node3D" parent="." node_paths=PackedStringArray("look_at_target", "look_at_targets")]
+transform = Transform3D(-1.09874, -0.106536, 1.1582, 5.96048e-09, 1.59328, 0.146555, -1.16309, 0.100641, -1.09411, 17.4122, 2.42855, -19.4206)
+script = ExtResource("12_4wfg3")
+look_at_mode = 3
+look_at_target = NodePath("../Player")
+look_at_targets = []
+tween_resource = SubResource("Resource_43jao")
+look_at_offset = Vector3(0, 1, 0)
+metadata/_custom_type_script = "uid://bc0qlk1bpglin"
+metadata/_edit_pinned_properties_ = [&"look_at_targets"]
+
+[node name="P2 PCam" type="Node3D" parent="." node_paths=PackedStringArray("look_at_target")]
+transform = Transform3D(-1.32127, -0.087938, 0.898061, 5.96047e-09, 1.59239, 0.155926, -0.902356, 0.128763, -1.31498, 11.0075, 1.39963, -14.7907)
+script = ExtResource("12_4wfg3")
+look_at_mode = 2
+look_at_target = NodePath("../Player")
+tween_resource = SubResource("Resource_43jao")
+metadata/_custom_type_script = "uid://bc0qlk1bpglin"
 
 [node name="Environment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_faqlx")
 
 [node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("2_lp6yp")]
-transform = Transform3D(-0.653077, 0, 0.757291, 0, 1, 0, -0.757291, 0, -0.653077, 2.43858, -0.0499999, -2.83085)
-view = NodePath("../View")
+transform = Transform3D(-0.653077, 0, 0.757291, 0, 1, 0, -0.757291, 0, -0.653077, 2.65829, -0.0499999, -2.56541)
+view = NodePath("../Bed PCam")
+unlock_jump = false
+
+[node name="P2" parent="." node_paths=PackedStringArray("view") instance=ExtResource("7_sphvx")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.79677, -0.050001, -14.1994)
+view = NodePath("../Bed PCam")
 
 [node name="View" type="Node3D" parent="." node_paths=PackedStringArray("target")]
 transform = Transform3D(0.84051, -0.228973, 0.491033, 1.57535e-08, 0.906308, 0.422618, -0.541796, -0.355214, 0.76176, 2.36278, 8.9407e-08, -2.76548)
@@ -26,11 +163,6 @@ script = ExtResource("3_r6dl3")
 target = NodePath("../Player")
 zoom_minimum = 6
 rotation_speed = 160
-
-[node name="Camera" type="Camera3D" parent="View"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
-current = true
-fov = 40.0
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.422618, -0.694272, 0.582563, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 0, 0, 0)
@@ -40,11 +172,60 @@ shadow_opacity = 0.75
 [node name="World" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -33.6236)
 
+[node name="36" parent="World" instance=ExtResource("15_hdgp0")]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 0, 0, 33.6236)
+transition_to = ExtResource("10_u3yip")
+
 [node name="cabinetBedDrawer" parent="World" instance=ExtResource("10_8t8s3")]
 transform = Transform3D(-1.09278e-07, 0, -2.5, 0, 2.5, 0, 2.5, 0, -1.09278e-07, 3.45296, 1.3411e-07, 32.5005)
 
 [node name="bookcaseClosedWide" parent="World" instance=ExtResource("11_n0sr1")]
-transform = Transform3D(-6.513e-08, 0, 1.8, 0, 1.2, 0, -1.49, 0, -7.86805e-08, 0.582173, 1.3411e-07, 30.9289)
+transform = Transform3D(-6.513e-08, 0, 1.38526, 0, 1.2, 0, -1.49, 0, -6.05514e-08, 0.466518, 1.3411e-07, 30.9289)
+
+[node name="books" parent="World/bookcaseClosedWide" instance=ExtResource("13_yv0u1")]
+transform = Transform3D(0.671141, 0, -3.55271e-15, 0, 0.833333, 0, 1.77636e-14, 0, 0.721889, 0.566952, 0.55, -0.0793104)
+
+[node name="books2" parent="World/bookcaseClosedWide" instance=ExtResource("13_yv0u1")]
+transform = Transform3D(0.671141, 0, -3.55271e-15, 0, 0.833333, 0, 1.77636e-14, 0, 0.721889, 0.430711, 0.55, -0.0793104)
+
+[node name="books3" parent="World/bookcaseClosedWide" instance=ExtResource("13_yv0u1")]
+transform = Transform3D(0.671141, 0, -3.55271e-15, 0, 0.833333, 0, 1.77636e-14, 0, 0.721889, 0.29447, 0.55, -0.0793104)
+
+[node name="books4" parent="World/bookcaseClosedWide" instance=ExtResource("13_yv0u1")]
+transform = Transform3D(0.671141, 0, -3.55271e-15, 0, 0.833333, 0, 1.77636e-14, 0, 0.721889, 0.158229, 0.55, -0.0793104)
+
+[node name="books5" parent="World/bookcaseClosedWide" instance=ExtResource("13_yv0u1")]
+transform = Transform3D(0.671141, 0, -3.55271e-15, 0, 0.833333, 0, 1.77636e-14, 0, 0.721889, 0.0210037, 0.55, -0.0793104)
+
+[node name="books6" parent="World/bookcaseClosedWide" instance=ExtResource("13_yv0u1")]
+transform = Transform3D(0.671141, 0, -3.55271e-15, 0, 0.833333, 0, 1.77636e-14, 0, 0.721889, 0.566952, 0.305328, -0.0793104)
+
+[node name="books7" parent="World/bookcaseClosedWide" instance=ExtResource("13_yv0u1")]
+transform = Transform3D(0.671141, 0, -3.55271e-15, 0, 0.833333, 0, 1.77636e-14, 0, 0.721889, 0.430711, 0.305328, -0.0793104)
+
+[node name="books8" parent="World/bookcaseClosedWide" instance=ExtResource("13_yv0u1")]
+transform = Transform3D(0.671141, 0, -3.55271e-15, 0, 0.833333, 0, 1.77636e-14, 0, 0.721889, 0.29447, 0.305328, -0.0793104)
+
+[node name="books9" parent="World/bookcaseClosedWide" instance=ExtResource("13_yv0u1")]
+transform = Transform3D(0.671141, 0, -3.55271e-15, 0, 0.833333, 0, 1.77636e-14, 0, 0.721889, 0.158229, 0.305328, -0.0793104)
+
+[node name="books10" parent="World/bookcaseClosedWide" instance=ExtResource("13_yv0u1")]
+transform = Transform3D(0.671141, 0, -3.55271e-15, 0, 0.833333, 0, 1.77636e-14, 0, 0.721889, 0.0210037, 0.305328, -0.0793104)
+
+[node name="books11" parent="World/bookcaseClosedWide" instance=ExtResource("13_yv0u1")]
+transform = Transform3D(0.671141, 0, -3.55271e-15, 0, 0.833333, 0, 1.77636e-14, 0, 0.721889, 0.566952, 0.0677163, -0.0793104)
+
+[node name="books12" parent="World/bookcaseClosedWide" instance=ExtResource("13_yv0u1")]
+transform = Transform3D(0.671141, 0, -3.55271e-15, 0, 0.833333, 0, 1.77636e-14, 0, 0.721889, 0.430711, 0.0677163, -0.0793104)
+
+[node name="books13" parent="World/bookcaseClosedWide" instance=ExtResource("13_yv0u1")]
+transform = Transform3D(0.671141, 0, -3.55271e-15, 0, 0.833333, 0, 1.77636e-14, 0, 0.721889, 0.29447, 0.0677163, -0.0793104)
+
+[node name="books14" parent="World/bookcaseClosedWide" instance=ExtResource("13_yv0u1")]
+transform = Transform3D(0.671141, 0, -3.55271e-15, 0, 0.833333, 0, 1.77636e-14, 0, 0.721889, 0.158229, 0.0677163, -0.0793104)
+
+[node name="books15" parent="World/bookcaseClosedWide" instance=ExtResource("13_yv0u1")]
+transform = Transform3D(0.671141, 0, -3.55271e-15, 0, 0.833333, 0, 1.77636e-14, 0, 0.721889, 0.0210037, 0.0677163, -0.0793104)
 
 [node name="bookcaseOpenLow" parent="World" instance=ExtResource("12_bwnyf")]
 transform = Transform3D(2.20103, 0, 0, 0, 1.8, 0, 0, 0, 1.8424, 0.119614, 7.45058e-08, 28.7569)
@@ -58,5 +239,141 @@ transform = Transform3D(-1.8, 0, -1.57361e-07, 0, 1.8, 0, 1.57361e-07, 0, -1.8, 
 [node name="desk" parent="World" instance=ExtResource("9_rg2nx")]
 transform = Transform3D(-7.86805e-08, 0, -1.8, 0, 1.8, 0, 1.8, 0, -7.86805e-08, 3.36566, 7.45058e-08, 31.1208)
 
-[node name="36" parent="World" instance=ExtResource("15_hdgp0")]
-transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 0, 0, 33.6236)
+[node name="bathtub" parent="World" instance=ExtResource("14_bd3ru")]
+transform = Transform3D(-8.21401e-08, 0, -1.87732, 0, 1.38882, 0, 1.87915, 0, -8.20604e-08, 0.0813177, -4.76837e-07, 24.7364)
+
+[node name="toilet" parent="World" instance=ExtResource("15_cs7aj")]
+transform = Transform3D(1.385, 0, 0, 0, 1.479, 0, 0, 0, 1.13, 1.60644, -1.13999e-07, 24.7713)
+
+[node name="bathroomSinkSquare" parent="World" instance=ExtResource("16_43jao")]
+transform = Transform3D(-5.68248e-08, 0, -1.3, 0, 1.3, 0, 1.3, 0, -5.68248e-08, 1.88066, -0.0568081, 25.7826)
+
+[node name="bathroomMirror2" parent="World" instance=ExtResource("19_15if8")]
+transform = Transform3D(-6.55671e-08, 0, -1, 0, 1.5, 0, 1.5, 0, -4.37114e-08, 2.413, 0.86, 25.835)
+
+[node name="loungeSofa" parent="World" instance=ExtResource("19_43jao")]
+transform = Transform3D(-2.3777, 0, -2.05445e-07, 0, 1.8, 0, 2.07865e-07, 0, -2.35002, 5.34088, -1.62423e-06, 19.9226)
+
+[node name="pillow" parent="World/loungeSofa" instance=ExtResource("23_wolxw")]
+transform = Transform3D(1.34584, -9.22797e-09, 1.1009e-07, 5.34133e-08, 1.2598, -0.900434, -7.04626e-08, 0.379835, 1.75211, 0.58313, 0.154058, -0.237514)
+
+[node name="pillow2" parent="World/loungeSofa" instance=ExtResource("23_wolxw")]
+transform = Transform3D(1.34584, -9.22797e-09, 1.1009e-07, 5.34133e-08, 1.2598, -0.900434, -7.04626e-08, 0.379835, 1.75211, 0.332843, 0.154058, -0.237514)
+
+[node name="pillow3" parent="World/loungeSofa" instance=ExtResource("23_wolxw")]
+transform = Transform3D(1.34584, -9.22797e-09, 1.1009e-07, 5.34133e-08, 1.2598, -0.900434, -7.04626e-08, 0.379835, 1.75211, 0.0864434, 0.154058, -0.237514)
+
+[node name="sideTable" parent="World" instance=ExtResource("20_qw8ek")]
+transform = Transform3D(4.13248, 0, 0, 0, 2.36312, 0, 0, 0, 3.30616, 2.74373, 0.0293595, 21.6263)
+
+[node name="stoolBarSquare" parent="World" instance=ExtResource("21_qbrme")]
+transform = Transform3D(4.22512, 0, 0, 0, 1.57865, 0, 0, 0, 2.75528, 2.84241, 0.02936, 22.1813)
+
+[node name="stoolBarSquare2" parent="World" instance=ExtResource("21_qbrme")]
+transform = Transform3D(4.22512, 0, 0, 0, 1.57865, 0, 0, 0, 2.75528, 3.58867, 0.02936, 22.1813)
+
+[node name="lampRoundTable" parent="World" instance=ExtResource("31_u3yip")]
+transform = Transform3D(3, 0, 0, 0, 1.77103, 0, 0, 0, 3, 2.80039, 0.93776, 21.4084)
+
+[node name="kitchenFridge" parent="World" instance=ExtResource("22_lyvny")]
+transform = Transform3D(1.941, 0, -3.61786e-07, 0, 1.759, 0, -2.93083e-07, 0, -2.396, 5.89978, -1.40071e-06, 23.8573)
+
+[node name="kitchenCabinetCornerInner" parent="World" instance=ExtResource("24_lwmpn")]
+transform = Transform3D(-9.80158e-08, 0, -1.8019, 0, 1.6, 0, 2.24234, 0, -7.87637e-08, 6.74597, -1.43051e-06, 23.5054)
+
+[node name="kitchenCabinet2" parent="World" instance=ExtResource("23_ns14s")]
+transform = Transform3D(-6.53439e-08, 0, -1.8019, 0, 1.6, 0, 1.49489, 0, -7.87637e-08, 6.76299, -4.0561e-05, 22.8622)
+
+[node name="kitchenStove" parent="World" instance=ExtResource("25_6lafe")]
+transform = Transform3D(-8.16799e-08, 0, -1.8019, 0, 1.6, 0, 1.86862, 0, -7.87637e-08, 6.76301, -4.0561e-05, 22.0583)
+
+[node name="kitchenCabinet3" parent="World" instance=ExtResource("23_ns14s")]
+transform = Transform3D(-8.16799e-08, 0, -1.8019, 0, 1.6, 0, 1.86862, 0, -7.87637e-08, 6.76299, -4.0561e-05, 21.2547)
+
+[node name="cabinetTelevisionDoors" parent="World" instance=ExtResource("26_sphvx")]
+transform = Transform3D(-5.41326e-08, 0, -2.16119, 0, 2.15472, 0, 1.23841, 0, -9.44685e-08, 7.03594, -1.57952e-06, 20.1912)
+
+[node name="cabinetTelevision" parent="World" instance=ExtResource("27_ipco6")]
+transform = Transform3D(1.98592, 0, 0, 0, 1.88359, 0, 0, 0, 1.99598, 3.33289, -1.72853e-06, 18.424)
+
+[node name="televisionModern" parent="World" instance=ExtResource("28_08d0o")]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 4.13287, 0.534438, 18.2077)
+
+[node name="rugRectangle" parent="World" instance=ExtResource("29_tl7to")]
+transform = Transform3D(-7.29018e-08, 0, -2.53402, 0, 1, 0, 1.6678, 0, -1.10766e-07, 2.96083, -1.47521e-06, 18.1849)
+
+[node name="bookcaseOpenLow2" parent="World" instance=ExtResource("12_bwnyf")]
+transform = Transform3D(-7.86805e-08, 0, 1.16779, 0, 0.65505, 0, -1.8, 0, -5.10459e-08, 7.50698, -1.83284e-06, 18.777)
+
+[node name="lampRoundFloor" parent="World" instance=ExtResource("30_15if8")]
+transform = Transform3D(2, 0, 0, 0, 1.6, 0, 0, 0, 2, 5.22737, 0.00999828, 18.3191)
+
+[node name="bookcaseOpen" parent="World" instance=ExtResource("33_tl7to")]
+transform = Transform3D(1.51391, 0, 0, 0, 0.680425, 0, 0, 0, 1.52145, 3.43543, 1.49012e-08, 31.0692)
+
+[node name="bathroomCabinet" parent="World" instance=ExtResource("34_15if8")]
+transform = Transform3D(-1.2641e-07, 0.34099, -0.304544, 1.20472e-08, 3.57797, 0.0290239, 2.90503, 0, -1.33724e-08, 3.86533, 2.98023e-08, 29.3291)
+
+[node name="bathCart" parent="World" instance=ExtResource("38_2vgw0")]
+transform = Transform3D(-6.61627e-08, 0, -1.18802, 0, 0.770047, 0, 1.51363, 0, -5.19301e-08, 1.22952, -2.08616e-07, 27.1578)
+
+[node name="doorbell" type="Area3D" parent="." node_paths=PackedStringArray("ring")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.56071, 0, -14.2263)
+script = ExtResource("33_ipco6")
+ring = NodePath("ring")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="doorbell"]
+shape = SubResource("BoxShape3D_08d0o")
+
+[node name="ring" type="AudioStreamPlayer3D" parent="doorbell"]
+stream = ExtResource("34_08d0o")
+
+[node name="chairDesk" parent="." instance=ExtResource("39_wltlc")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 3.65161, -5.96046e-08, -1.46137)
+
+[node name="laptop" parent="." instance=ExtResource("40_styym")]
+transform = Transform3D(-5.68248e-08, 0, -1.3, 0, 1.3, 0, 1.3, 0, -5.68248e-08, 3.72396, 0.691933, -1.55454)
+
+[node name="computerScreen" parent="." instance=ExtResource("41_6bpri")]
+transform = Transform3D(-6.11959e-08, 0, -1.4, 0, 1.4, 0, 1.4, 0, -6.11959e-08, 3.67551, 0.691934, -2.02635)
+
+[node name="computerScreen2" parent="." instance=ExtResource("41_6bpri")]
+transform = Transform3D(0.628485, 0, -1.13798, 0, 1.3, 0, 1.13798, 0, 0.628485, 3.60151, 0.691934, -2.46808)
+
+[node name="computerKeyboard" parent="." instance=ExtResource("42_wolxw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.43877, 0.691934, -1.9134)
+
+[node name="computerMouse" parent="." instance=ExtResource("43_2vgw0")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.56944, 0.691934, -1.50102)
+
+[node name="mirror" parent="." instance=ExtResource("44_mn5e5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09993, 1.10145, -3.71055)
+
+[node name="radiator" parent="." instance=ExtResource("46_2vgw0")]
+transform = Transform3D(3.23853, 0, 0, 0, 2.39975, 0, 0, 0, 5.11539, 2.86684, -0.00742114, -0.163082)
+
+[node name="radiator2" parent="." instance=ExtResource("46_2vgw0")]
+transform = Transform3D(-1.58337e-07, 0, 5.11539, 0, 3.09095, 0, -3.62234, 0, -2.23601e-07, 2.86684, -0.00742114, -13.9609)
+
+[node name="showerRod" parent="." instance=ExtResource("47_mn5e5")]
+transform = Transform3D(-8.89572e-08, 0, 1, 0, 1, 0, -2.0351, 0, -4.37114e-08, 1.12183, 2.18662, -6.63966)
+
+[node name="showerRod2" parent="." instance=ExtResource("47_mn5e5")]
+transform = Transform3D(1.02526, 0, 0, 0, 1, 0, 0, 0, 1, 0.0879443, 2.18662, -8.62476)
+
+[node name="showerCurtain" parent="." instance=ExtResource("48_i3afc")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1.29571, 0, -1, 0, -4.37114e-08, 1.12508, 0.493306, -8.13157)
+
+[node name="showerRod3" parent="." instance=ExtResource("47_mn5e5")]
+transform = Transform3D(-1.18851e-07, -2.2, 0, 2.719, -9.61651e-08, 0, 0, 0, 2.2, 1.41055, 1.63913e-07, -5.63114)
+
+[connection signal="timeout" from="CameraController" to="CameraController" method="_set_view"]
+[connection signal="elevator_ready" from="World/36" to="World/36" method="swap_scenes"]
+[connection signal="enter_bathroom" from="World/36" to="CameraController" method="_on_enter_room" binds= ["Bathroom"]]
+[connection signal="enter_bed" from="World/36" to="CameraController" method="_on_enter_room" binds= ["Bed"]]
+[connection signal="enter_family" from="World/36" to="CameraController" method="_on_enter_room" binds= ["Family"]]
+[connection signal="enter_hallway" from="World/36" to="CameraController" method="_on_enter_room" binds= ["Hallway"]]
+[connection signal="enter_p2" from="World/36" to="CameraController" method="_on_enter_room" binds= ["P2"]]
+[connection signal="exit_bathroom" from="World/36" to="CameraController" method="_on_enter_room" binds= ["Family"]]
+[connection signal="body_entered" from="doorbell" to="doorbell" method="_on_body_entered"]
+[connection signal="body_exited" from="doorbell" to="doorbell" method="_on_body_exited"]
