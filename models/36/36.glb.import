@@ -32,6 +32,17 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"stone(Clone)": {
+"use_external/enabled": false,
+"use_external/path": "res://models/36/stone(Clone).tres"
+},
+"stoneDark(Clone)": {
+"use_external/enabled": false,
+"use_external/path": "res://materials/stoneDark(Clone).tres"
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1
