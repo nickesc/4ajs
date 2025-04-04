@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://deq74ug33831f"
-path="res://.godot/imported/bedDouble.glb-c8fb722a9ac726e871fe6aba2a293d5e.scn"
+uid="uid://c07q5gui55yte"
+path="res://.godot/imported/trashcan.glb-e870f9ce3e0385a51d1f2146d2e37ef8.scn"
 
 [deps]
 
-source_file="res://models/furniture/bedDouble.glb"
-dest_files=["res://.godot/imported/bedDouble.glb-c8fb722a9ac726e871fe6aba2a293d5e.scn"]
+source_file="res://models/furniture/trashcan.glb"
+dest_files=["res://.godot/imported/trashcan.glb-e870f9ce3e0385a51d1f2146d2e37ef8.scn"]
 
 [params]
 
@@ -34,16 +34,7 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:bedDouble(Clone)": {
-"generate/physics": true
-},
-"PATH:bedDouble(Clone)/cover": {
-"generate/physics": true
-},
-"PATH:bedDouble(Clone)/pillowLeft": {
-"generate/physics": true
-},
-"PATH:bedDouble(Clone)/pillowRight": {
+"PATH:trashcan(Clone)": {
 "generate/physics": true
 }
 }

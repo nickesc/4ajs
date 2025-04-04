@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://deq74ug33831f"
-path="res://.godot/imported/bedDouble.glb-c8fb722a9ac726e871fe6aba2a293d5e.scn"
+uid="uid://ekvyif5n2bnh"
+path="res://.godot/imported/bathroomSinkSquare.glb-114e640c545e2ac49e6306ba3809ab22.scn"
 
 [deps]
 
-source_file="res://models/furniture/bedDouble.glb"
-dest_files=["res://.godot/imported/bedDouble.glb-c8fb722a9ac726e871fe6aba2a293d5e.scn"]
+source_file="res://models/furniture/bathroomSinkSquare.glb"
+dest_files=["res://.godot/imported/bathroomSinkSquare.glb-114e640c545e2ac49e6306ba3809ab22.scn"]
 
 [params]
 
@@ -34,16 +34,7 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:bedDouble(Clone)": {
-"generate/physics": true
-},
-"PATH:bedDouble(Clone)/cover": {
-"generate/physics": true
-},
-"PATH:bedDouble(Clone)/pillowLeft": {
-"generate/physics": true
-},
-"PATH:bedDouble(Clone)/pillowRight": {
+"PATH:bathroomSinkSquare(Clone)": {
 "generate/physics": true
 }
 }

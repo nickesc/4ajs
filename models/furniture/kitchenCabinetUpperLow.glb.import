@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://deq74ug33831f"
-path="res://.godot/imported/bedDouble.glb-c8fb722a9ac726e871fe6aba2a293d5e.scn"
+uid="uid://c10figysim8fp"
+path="res://.godot/imported/kitchenCabinetUpperLow.glb-926b805fd5309df1024f52cb0d5aa026.scn"
 
 [deps]
 
-source_file="res://models/furniture/bedDouble.glb"
-dest_files=["res://.godot/imported/bedDouble.glb-c8fb722a9ac726e871fe6aba2a293d5e.scn"]
+source_file="res://models/furniture/kitchenCabinetUpperLow.glb"
+dest_files=["res://.godot/imported/kitchenCabinetUpperLow.glb-926b805fd5309df1024f52cb0d5aa026.scn"]
 
 [params]
 
@@ -34,16 +34,10 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:bedDouble(Clone)": {
+"PATH:kitchenCabinetUpperLow(Clone)": {
 "generate/physics": true
 },
-"PATH:bedDouble(Clone)/cover": {
-"generate/physics": true
-},
-"PATH:bedDouble(Clone)/pillowLeft": {
-"generate/physics": true
-},
-"PATH:bedDouble(Clone)/pillowRight": {
+"PATH:kitchenCabinetUpperLow(Clone)/door": {
 "generate/physics": true
 }
 }

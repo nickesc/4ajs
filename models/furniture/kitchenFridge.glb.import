@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://deq74ug33831f"
-path="res://.godot/imported/bedDouble.glb-c8fb722a9ac726e871fe6aba2a293d5e.scn"
+uid="uid://bwxwgx7hdaie3"
+path="res://.godot/imported/kitchenFridge.glb-159b7c99a868c16615289a9ca5c91cad.scn"
 
 [deps]
 
-source_file="res://models/furniture/bedDouble.glb"
-dest_files=["res://.godot/imported/bedDouble.glb-c8fb722a9ac726e871fe6aba2a293d5e.scn"]
+source_file="res://models/furniture/kitchenFridge.glb"
+dest_files=["res://.godot/imported/kitchenFridge.glb-159b7c99a868c16615289a9ca5c91cad.scn"]
 
 [params]
 
@@ -34,16 +34,13 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:bedDouble(Clone)": {
+"PATH:kitchenFridge(Clone)": {
 "generate/physics": true
 },
-"PATH:bedDouble(Clone)/cover": {
+"PATH:kitchenFridge(Clone)/doorFreezer": {
 "generate/physics": true
 },
-"PATH:bedDouble(Clone)/pillowLeft": {
-"generate/physics": true
-},
-"PATH:bedDouble(Clone)/pillowRight": {
+"PATH:kitchenFridge(Clone)/doorFridge": {
 "generate/physics": true
 }
 }

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://deq74ug33831f"
-path="res://.godot/imported/bedDouble.glb-c8fb722a9ac726e871fe6aba2a293d5e.scn"
+uid="uid://bm7w4idckeyuk"
+path="res://.godot/imported/computerScreen.glb-c086598cd9b5f23cce3d67b88a6b7d4d.scn"
 
 [deps]
 
-source_file="res://models/furniture/bedDouble.glb"
-dest_files=["res://.godot/imported/bedDouble.glb-c8fb722a9ac726e871fe6aba2a293d5e.scn"]
+source_file="res://models/furniture/computerScreen.glb"
+dest_files=["res://.godot/imported/computerScreen.glb-c086598cd9b5f23cce3d67b88a6b7d4d.scn"]
 
 [params]
 
@@ -34,16 +34,7 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:bedDouble(Clone)": {
-"generate/physics": true
-},
-"PATH:bedDouble(Clone)/cover": {
-"generate/physics": true
-},
-"PATH:bedDouble(Clone)/pillowLeft": {
-"generate/physics": true
-},
-"PATH:bedDouble(Clone)/pillowRight": {
+"PATH:computerScreen(Clone)": {
 "generate/physics": true
 }
 }

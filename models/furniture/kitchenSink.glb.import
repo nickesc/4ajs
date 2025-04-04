@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://deq74ug33831f"
-path="res://.godot/imported/bedDouble.glb-c8fb722a9ac726e871fe6aba2a293d5e.scn"
+uid="uid://dyi6p1f2ijst2"
+path="res://.godot/imported/kitchenSink.glb-0065d08fee3e342cd36fa9521b7b335b.scn"
 
 [deps]
 
-source_file="res://models/furniture/bedDouble.glb"
-dest_files=["res://.godot/imported/bedDouble.glb-c8fb722a9ac726e871fe6aba2a293d5e.scn"]
+source_file="res://models/furniture/kitchenSink.glb"
+dest_files=["res://.godot/imported/kitchenSink.glb-0065d08fee3e342cd36fa9521b7b335b.scn"]
 
 [params]
 
@@ -34,16 +34,10 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:bedDouble(Clone)": {
+"PATH:kitchenSink(Clone)": {
 "generate/physics": true
 },
-"PATH:bedDouble(Clone)/cover": {
-"generate/physics": true
-},
-"PATH:bedDouble(Clone)/pillowLeft": {
-"generate/physics": true
-},
-"PATH:bedDouble(Clone)/pillowRight": {
+"PATH:kitchenSink(Clone)/door": {
 "generate/physics": true
 }
 }
