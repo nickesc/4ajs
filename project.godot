@@ -21,6 +21,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Audio="*res://scripts/audio.gd"
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 
 [display]
 
@@ -31,9 +32,18 @@ window/size/viewport_height=1080
 
 movie_writer/movie_file="C:/Users/Kenney/Desktop/video-footage.avi"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg", "res://addons/script-ide/plugin.cfg")
+
 [filesystem]
 
 import/blender/enabled=false
+
+[global_group]
+
+Player=""
+P2=""
 
 [input]
 
@@ -146,6 +156,15 @@ jump_p2={
 "events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":1,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
+action_p2={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":1,"button_index":2,"pressure":0.0,"pressed":false,"script":null)
+]
+}
+
+[phantom_camera]
+
+tips/show_jitter_tips=false
 
 [rendering]
 
