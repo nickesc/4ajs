@@ -8,6 +8,9 @@ signal coin_collected
 @export_subgroup("Properties")
 @export var movement_speed = 250
 @export var jump_strength = 7
+@export var unlock_x = true
+@export var unlock_z = true
+@export var unlock_jump = true
 
 var movement_velocity: Vector3
 var rotation_direction: float
@@ -104,10 +107,13 @@ func handle_controls(delta):
 
     var input := Vector3.ZERO
 
-    input.x = Input.get_axis("move_left", "move_right")
-    input.z = Input.get_axis("move_forward", "move_back")
+    if (unlock_x):
+        input.x = Input.get_axis("move_left", "move_right")
+    if (unlock_z):
+        input.z = Input.get_axis("move_forward", "move_back")
 
-    input = input.rotated(Vector3.UP, view.rotation.y)
+    if (view):
+        input = input.rotated(Vector3.UP, view.rotation.y)
 
     if input.length() > 1:
         input = input.normalized()
@@ -115,11 +121,12 @@ func handle_controls(delta):
     movement_velocity = input * movement_speed * delta
 
     # Jumping
+    
+    if (unlock_jump):
+        if Input.is_action_just_pressed("jump"):
 
-    if Input.is_action_just_pressed("jump"):
-
-        if jump_single or jump_double:
-            jump()
+            if jump_single or jump_double:
+                jump()
 
 # Handle gravity
 
@@ -155,3 +162,7 @@ func collect_coin():
     coins += 1
 
     coin_collected.emit(coins)
+
+
+func set_view(newView: Node3D):
+    view = newView

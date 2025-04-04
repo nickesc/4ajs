@@ -1,5 +1,8 @@
 extends Node3D
 
+@export_group("Components")
+@export var camera: Camera3D
+
 @export_group("Properties")
 @export var target: Node
 
@@ -14,7 +17,7 @@ extends Node3D
 var camera_rotation:Vector3
 var zoom = 10
 
-@onready var camera = $Camera
+
 
 func _ready():
     
@@ -29,7 +32,8 @@ func _physics_process(delta):
     self.position = self.position.lerp(target.position, delta * 4)
     rotation_degrees = rotation_degrees.lerp(camera_rotation, delta * 6)
     
-    camera.position = camera.position.lerp(Vector3(0, 1, zoom), 8 * delta)
+    if (camera):
+        camera.position = camera.position.lerp(Vector3(0, 1, zoom), 8 * delta)
     
     handle_input(delta)
 

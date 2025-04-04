@@ -8,6 +8,9 @@ signal coin_collected
 @export_subgroup("Properties")
 @export var movement_speed = 250
 @export var jump_strength = 7
+@export var unlock_x = true
+@export var unlock_z = true
+@export var unlock_jump = true
 
 var movement_velocity: Vector3
 var rotation_direction: float
@@ -162,3 +165,6 @@ func collect_coin():
     coins += 1
 
     coin_collected.emit(coins)
+
+func set_view(newView: Node3D):
+    view = newView
