@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://chrguycnpx8n4"]
+
+[ext_resource type="PackedScene" uid="uid://djevt667rddbl" path="res://models/furniture/kitchenCabinetUpper.glb" id="1_yltwa"]
+
+[node name="kitchenCabinetUpper" instance=ExtResource("1_yltwa")]
+
+[node name="kitchenCabinetUpper(Clone)" parent="." index="0"]
+transparency = 0.7
+
+[node name="door" parent="kitchenCabinetUpper(Clone)" index="0"]
+transparency = 0.7

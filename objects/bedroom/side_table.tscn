@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://d36fdphpaycfa"]
+
+[ext_resource type="PackedScene" uid="uid://71ckq0adswyx" path="res://models/furniture/sideTable.glb" id="1_b0ykn"]
+[ext_resource type="Material" uid="uid://bauh2aavlbmk2" path="res://materials/stoneBlack(Clone).tres" id="2_clb31"]
+[ext_resource type="Material" uid="uid://cldqk78etexw6" path="res://materials/stone(Clone).tres" id="3_hm76w"]
+
+[node name="sideTable" instance=ExtResource("1_b0ykn")]
+
+[node name="sideTable(Clone)" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_clb31")
+surface_material_override/1 = ExtResource("3_hm76w")

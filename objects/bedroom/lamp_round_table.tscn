@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1rkn4rjihh0w"]
+
+[ext_resource type="PackedScene" uid="uid://caa5bo0thqp7r" path="res://models/furniture/lampRoundTable.glb" id="1_0hnlm"]
+
+[node name="lampRoundTable" instance=ExtResource("1_0hnlm")]

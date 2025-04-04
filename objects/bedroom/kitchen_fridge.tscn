@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf0eroplgl3k3"]
+
+[ext_resource type="PackedScene" uid="uid://bwxwgx7hdaie3" path="res://models/furniture/kitchenFridge.glb" id="1_e4b8g"]
+[ext_resource type="Material" uid="uid://blkfhqrec67xm" path="res://materials/stoneDark(Clone).tres" id="2_rd8c3"]
+
+[node name="kitchenFridge" instance=ExtResource("1_e4b8g")]
+
+[node name="kitchenFridge(Clone)" parent="." index="0"]
+transparency = 0.8
+surface_material_override/0 = ExtResource("2_rd8c3")
+surface_material_override/1 = ExtResource("2_rd8c3")
+
+[node name="doorFreezer" parent="kitchenFridge(Clone)" index="0"]
+transparency = 0.9
+surface_material_override/0 = ExtResource("2_rd8c3")
+
+[node name="doorFridge" parent="kitchenFridge(Clone)" index="1"]
+transparency = 0.9
+surface_material_override/0 = ExtResource("2_rd8c3")

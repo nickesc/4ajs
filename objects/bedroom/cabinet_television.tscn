@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dj4fmxij3omle"]
+
+[ext_resource type="PackedScene" uid="uid://tek2gp4f3emo" path="res://models/furniture/cabinetTelevision.glb" id="1_d7l1r"]
+[ext_resource type="Material" uid="uid://bauh2aavlbmk2" path="res://materials/stoneBlack(Clone).tres" id="2_qnylr"]
+
+[node name="cabinetTelevision" instance=ExtResource("1_d7l1r")]
+
+[node name="cabinetTelevision(Clone)" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_qnylr")

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4kw5b6kc8ujf"]
+
+[ext_resource type="PackedScene" uid="uid://x7hs2ifem67e" path="res://models/furniture/televisionModern.glb" id="1_4of04"]
+
+[node name="televisionModern" instance=ExtResource("1_4of04")]

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://4ldi4xrfg125"]
+
+[ext_resource type="PackedScene" uid="uid://76hhahrrqccg" path="res://models/furniture/lampRoundFloor.glb" id="1_77kt5"]
+
+[node name="lampRoundFloor" instance=ExtResource("1_77kt5")]

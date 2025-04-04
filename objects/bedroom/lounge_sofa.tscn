@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bde7dxlwtccbx"]
+
+[ext_resource type="PackedScene" uid="uid://cgxivf4jpa0nv" path="res://models/furniture/loungeSofa.glb" id="1_myroc"]
+[ext_resource type="Material" uid="uid://cqtxhu5kskono" path="res://materials/sofa.tres" id="2_e48r6"]
+
+[node name="loungeSofa" instance=ExtResource("1_myroc")]
+
+[node name="loungeSofa(Clone)" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_e48r6")

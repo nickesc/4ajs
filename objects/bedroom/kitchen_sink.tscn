@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7di5nxh6f4hs"]
+
+[ext_resource type="PackedScene" uid="uid://dyi6p1f2ijst2" path="res://models/furniture/kitchenSink.glb" id="1_2elpg"]
+
+[node name="kitchenSink" instance=ExtResource("1_2elpg")]
+
+[node name="kitchenSink(Clone)" parent="." index="0"]
+transparency = 0.7
+
+[node name="door" parent="kitchenSink(Clone)" index="0"]
+transparency = 0.7

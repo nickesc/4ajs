@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://olx2lx86ee8y"]
+
+[ext_resource type="PackedScene" uid="uid://bgksf5i4bgqe7" path="res://models/furniture/chairDesk.glb" id="1_btaeh"]
+[ext_resource type="Material" uid="uid://cm5ckcynukw0q" path="res://materials/desk_chair.tres" id="2_myrq0"]
+
+[node name="chairDesk" instance=ExtResource("1_btaeh")]
+
+[node name="chairDesk(Clone)" parent="." index="0"]
+transparency = 0.7
+
+[node name="chair" parent="chairDesk(Clone)" index="0"]
+transparency = 0.7
+surface_material_override/0 = ExtResource("2_myrq0")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0xtw0s7y2etw"]
+
+[ext_resource type="PackedScene" uid="uid://csum4fu3lh4kr" path="res://models/furniture/bookcaseClosedWide.glb" id="1_qs31i"]
+
+[node name="bookcaseClosedWide" instance=ExtResource("1_qs31i")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)

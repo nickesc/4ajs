@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cb7vybne0rgmc"]
+
+[ext_resource type="PackedScene" uid="uid://ctuuo65nksaoi" path="res://models/furniture/laptop.glb" id="1_gonka"]
+
+[node name="laptop" instance=ExtResource("1_gonka")]

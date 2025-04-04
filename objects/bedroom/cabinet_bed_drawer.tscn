@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckbqrqxdb4ope"]
+
+[ext_resource type="PackedScene" uid="uid://b8o5d0j1wt3lv" path="res://models/furniture/cabinetBedDrawer.glb" id="1_itu1p"]
+[ext_resource type="Material" uid="uid://cldqk78etexw6" path="res://materials/stone(Clone).tres" id="2_nytq1"]
+
+[node name="cabinetBedDrawer" instance=ExtResource("1_itu1p")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
+
+[node name="cabinetBedDrawer(Clone)" parent="." index="0"]
+transparency = 0.7
+surface_material_override/0 = ExtResource("2_nytq1")
+
+[node name="door" parent="cabinetBedDrawer(Clone)" index="0"]
+transparency = 0.7
+surface_material_override/0 = ExtResource("2_nytq1")
+
+[node name="drawer" parent="cabinetBedDrawer(Clone)" index="1"]
+transparency = 0.7
+surface_material_override/0 = ExtResource("2_nytq1")

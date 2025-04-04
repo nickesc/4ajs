@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5biq85jr4nit"]
+
+[ext_resource type="PackedScene" uid="uid://chbb1cr8nfdu2" path="res://models/furniture/kitchenStove.glb" id="1_q43k2"]
+
+[node name="kitchenStove" instance=ExtResource("1_q43k2")]
+
+[node name="kitchenStove(Clone)" parent="." index="0"]
+transparency = 0.7
+
+[node name="door" parent="kitchenStove(Clone)" index="0"]
+transparency = 0.7

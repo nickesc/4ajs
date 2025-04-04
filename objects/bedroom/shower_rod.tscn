@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2qmhlitnhdwe"]
+
+[ext_resource type="PackedScene" uid="uid://cn62n6giiu5wh" path="res://models/furniture/wall.glb" id="1_y7yur"]
+[ext_resource type="Material" uid="uid://blkfhqrec67xm" path="res://materials/stoneDark(Clone).tres" id="2_6kqjm"]
+
+[node name="showerRod" instance=ExtResource("1_y7yur")]
+
+[node name="wall(Clone)" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.0375962, 0, 0, 0, 1, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_6kqjm")
+surface_material_override/1 = ExtResource("2_6kqjm")
+surface_material_override/2 = ExtResource("2_6kqjm")

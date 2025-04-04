@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi7tehyk4qu08"]
+
+[ext_resource type="PackedScene" uid="uid://b885o7l62asg8" path="res://models/furniture/tableRound.glb" id="1_xpygj"]
+[ext_resource type="Material" uid="uid://cldqk78etexw6" path="res://materials/stone(Clone).tres" id="2_e3wwq"]
+
+[node name="tableRound" instance=ExtResource("1_xpygj")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0.49, 0)
+
+[node name="tableRound(Clone)" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_e3wwq")

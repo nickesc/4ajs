@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4650lhthtct4"]
+
+[ext_resource type="PackedScene" uid="uid://bmw5ss0py015u" path="res://models/furniture/stoolBarSquare.glb" id="1_3pcfe"]
+[ext_resource type="Material" uid="uid://bauh2aavlbmk2" path="res://materials/stoneBlack(Clone).tres" id="2_arow3"]
+
+[node name="stoolBarSquare" instance=ExtResource("1_3pcfe")]
+
+[node name="stoolBarSquare(Clone)" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_arow3")
+surface_material_override/1 = ExtResource("2_arow3")

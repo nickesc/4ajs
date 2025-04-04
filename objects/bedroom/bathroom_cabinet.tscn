@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3w0smun8bspm"]
+
+[ext_resource type="PackedScene" uid="uid://bx4letkq1awsb" path="res://models/furniture/bathroomCabinet.glb" id="1_uw1bc"]
+[ext_resource type="Material" uid="uid://bauh2aavlbmk2" path="res://materials/stoneBlack(Clone).tres" id="2_hrwrf"]
+
+[node name="bathroomCabinet" instance=ExtResource("1_uw1bc")]
+
+[node name="bathroomCabinet(Clone)" parent="." index="0"]
+transparency = 0.7
+surface_material_override/0 = ExtResource("2_hrwrf")
+
+[node name="door" parent="bathroomCabinet(Clone)" index="0"]
+transparency = 0.7
+surface_material_override/0 = ExtResource("2_hrwrf")
+surface_material_override/1 = ExtResource("2_hrwrf")

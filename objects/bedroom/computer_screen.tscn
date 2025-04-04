@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cu641ft3p318v"]
+
+[ext_resource type="PackedScene" uid="uid://bm7w4idckeyuk" path="res://models/furniture/computerScreen.glb" id="1_w7qtg"]
+[ext_resource type="Material" uid="uid://bauh2aavlbmk2" path="res://materials/stoneBlack(Clone).tres" id="2_ecly3"]
+
+[node name="computerScreen" instance=ExtResource("1_w7qtg")]
+
+[node name="computerScreen(Clone)" parent="." index="0"]
+transparency = 0.7
+surface_material_override/0 = ExtResource("2_ecly3")

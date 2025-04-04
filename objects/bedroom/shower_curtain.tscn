@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5kyqs1g5m2nu"]
+
+[ext_resource type="PackedScene" uid="uid://c65an1ifufcv1" path="res://models/furniture/wallCornerRond.glb" id="1_t1ns1"]
+[ext_resource type="Material" uid="uid://xgrvonlxkyr3" path="res://materials/glass.tres" id="2_6vb04"]
+
+[node name="showerCurtain" instance=ExtResource("1_t1ns1")]
+
+[node name="wallCornerRond(Clone)" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_6vb04")
+surface_material_override/1 = ExtResource("2_6vb04")
+surface_material_override/2 = ExtResource("2_6vb04")

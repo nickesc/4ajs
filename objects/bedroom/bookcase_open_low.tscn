@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cs4veu8415y3y"]
+
+[ext_resource type="PackedScene" uid="uid://b81skflib4bvy" path="res://models/furniture/bookcaseOpenLow.glb" id="1_sv1lf"]
+
+[node name="bookcaseOpenLow" instance=ExtResource("1_sv1lf")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxvdfk5yyndmu"]
+
+[ext_resource type="PackedScene" uid="uid://c10figysim8fp" path="res://models/furniture/kitchenCabinetUpperLow.glb" id="1_p2cm5"]
+
+[node name="kitchenCabinetUpperLow" instance=ExtResource("1_p2cm5")]
+
+[node name="kitchenCabinetUpperLow(Clone)" parent="." index="0"]
+transparency = 0.7
+
+[node name="door" parent="kitchenCabinetUpperLow(Clone)" index="0"]
+transparency = 0.7

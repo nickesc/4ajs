@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://5nhjen6ukowe"]
+
+[ext_resource type="PackedScene" uid="uid://cvyet7nmou8e5" path="res://models/furniture/kitchenCabinetCornerInner.glb" id="1_pmyyd"]
+
+[node name="kitchenCabinetCornerInner" instance=ExtResource("1_pmyyd")]
+
+[node name="kitchenCabinetCornerInner(Clone)" parent="." index="0"]
+transparency = 0.7

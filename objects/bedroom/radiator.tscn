@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmstagjpaakvr"]
+
+[ext_resource type="PackedScene" uid="uid://btga2v5hw6pj4" path="res://models/furniture/pillowLong.glb" id="1_0vidx"]
+[ext_resource type="Material" uid="uid://blkfhqrec67xm" path="res://materials/stoneDark(Clone).tres" id="2_4st0k"]
+
+[node name="radiator" instance=ExtResource("1_0vidx")]
+
+[node name="pillowLong(Clone)" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.964179, -0.265253, 0, 0.265253, 0.964179, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_4st0k")

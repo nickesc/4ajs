@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://kvc5gklofh0h"]
+
+[ext_resource type="PackedScene" uid="uid://dqq7dadg47abd" path="res://models/furniture/toilet.glb" id="1_o0yum"]
+
+[node name="toilet" instance=ExtResource("1_o0yum")]

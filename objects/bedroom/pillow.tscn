@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://maeqwkxjh0lk"]
+
+[ext_resource type="PackedScene" uid="uid://dbreyhoqqfrhs" path="res://models/furniture/pillow.glb" id="1_c08j0"]
+[ext_resource type="Material" uid="uid://cqtxhu5kskono" path="res://materials/sofa.tres" id="2_a600x"]
+
+[node name="pillow" instance=ExtResource("1_c08j0")]
+
+[node name="pillow(Clone)" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_a600x")

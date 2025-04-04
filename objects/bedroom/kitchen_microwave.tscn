@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfgkkvm0rps44"]
+
+[ext_resource type="PackedScene" uid="uid://8vs58gjx3uju" path="res://models/furniture/kitchenMicrowave.glb" id="1_o1uor"]
+
+[node name="kitchenMicrowave" instance=ExtResource("1_o1uor")]
+
+[node name="kitchenMicrowave(Clone)" parent="." index="0"]
+transparency = 0.7
+
+[node name="Group" parent="kitchenMicrowave(Clone)" index="0"]
+transparency = 0.7

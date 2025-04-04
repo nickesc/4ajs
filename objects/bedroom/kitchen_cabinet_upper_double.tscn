@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://mx7112pvvatx"]
+
+[ext_resource type="PackedScene" uid="uid://b73nlx8m6j227" path="res://models/furniture/kitchenCabinetUpperDouble.glb" id="1_kkdpe"]
+
+[node name="kitchenCabinetUpperDouble" instance=ExtResource("1_kkdpe")]
+
+[node name="kitchenCabinetUpperDouble(Clone)" parent="." index="0"]
+transparency = 0.7
+
+[node name="doorLeft" parent="kitchenCabinetUpperDouble(Clone)" index="0"]
+transparency = 0.7
+
+[node name="doorRight" parent="kitchenCabinetUpperDouble(Clone)" index="1"]
+transparency = 0.7

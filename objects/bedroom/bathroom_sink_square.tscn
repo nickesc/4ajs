@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://de425lv7e3ict"]
+
+[ext_resource type="PackedScene" uid="uid://ekvyif5n2bnh" path="res://models/furniture/bathroomSinkSquare.glb" id="1_jlhhi"]
+
+[node name="bathroomSinkSquare" instance=ExtResource("1_jlhhi")]
+
+[node name="bathroomSinkSquare(Clone)" parent="." index="0"]
+transparency = 0.7

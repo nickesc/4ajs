@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyi0kv314lad6"]
+
+[ext_resource type="PackedScene" uid="uid://dqt1s6vuo2git" path="res://models/furniture/bookcaseOpen.glb" id="1_4mkan"]
+[ext_resource type="Material" uid="uid://cldqk78etexw6" path="res://materials/stone(Clone).tres" id="2_txyo0"]
+
+[node name="bathCart" instance=ExtResource("1_4mkan")]
+
+[node name="bookcaseOpen(Clone)" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_txyo0")

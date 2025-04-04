@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cihfmar34xk6f"]
+
+[ext_resource type="PackedScene" uid="uid://nnv3hisnvsqu" path="res://models/furniture/computerKeyboard.glb" id="1_j3437"]
+
+[node name="computerKeyboard" instance=ExtResource("1_j3437")]
+
+[node name="computerKeyboard(Clone)" parent="." index="0"]
+transparency = 0.7

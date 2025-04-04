@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfjtkr0724vg7"]
+
+[ext_resource type="PackedScene" uid="uid://dmyxectfdsk5r" path="res://models/furniture/cabinetTelevisionDoors.glb" id="1_4hd0y"]
+
+[node name="cabinetTelevisionDoors" instance=ExtResource("1_4hd0y")]
+
+[node name="cabinetTelevisionDoors(Clone)" parent="." index="0"]
+transparency = 0.7
+
+[node name="doorLeft" parent="cabinetTelevisionDoors(Clone)" index="0"]
+transparency = 0.7
+
+[node name="doorRight" parent="cabinetTelevisionDoors(Clone)" index="1"]
+transparency = 0.7

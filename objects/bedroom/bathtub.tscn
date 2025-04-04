@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2etldl5snj74"]
+
+[ext_resource type="PackedScene" uid="uid://bo8krluhr3q1b" path="res://models/furniture/bathtub.glb" id="1_mdq8d"]
+
+[node name="bathtub" instance=ExtResource("1_mdq8d")]

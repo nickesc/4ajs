@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://e1c1fj4chpr5"]
+
+[ext_resource type="PackedScene" uid="uid://ce3tsw0j1xqbb" path="res://models/furniture/bathroomMirror.glb" id="1_8y1sa"]
+[ext_resource type="Material" uid="uid://bauh2aavlbmk2" path="res://materials/stoneBlack(Clone).tres" id="2_iibkh"]
+
+[node name="bathroomMirror" instance=ExtResource("1_8y1sa")]
+
+[node name="bathroomMirror(Clone)" parent="." index="0"]
+transparency = 0.7
+surface_material_override/0 = ExtResource("2_iibkh")
+surface_material_override/2 = ExtResource("2_iibkh")

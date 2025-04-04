@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b218o7k6vunsx"]
+
+[ext_resource type="PackedScene" uid="uid://ld5ertq3sh1d" path="res://models/furniture/rugRound.glb" id="1_yntx3"]
+[ext_resource type="Material" uid="uid://s8bdduwgnqbi" path="res://materials/mirror.tres" id="2_xnh26"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_74rt6"]
+resource_name = "stone(Clone)"
+albedo_color = Color(0.655012, 0.61855, 0.343732, 1)
+metallic = 0.5
+
+[node name="mirror" instance=ExtResource("1_yntx3")]
+
+[node name="rugRound(Clone)" parent="." index="0"]
+transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 0, -3.82137e-15, -8.74228e-08, -1, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_xnh26")
+surface_material_override/1 = SubResource("StandardMaterial3D_74rt6")
