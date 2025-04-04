@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://b1shq5pt8lykb"]
+
+[ext_resource type="PackedScene" uid="uid://hwg0cy2o58mm" path="res://models/platformer/platformer.glb" id="1_j2uy2"]
+[ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_85uu4"]
+[ext_resource type="Script" uid="uid://bk0i6gcxalt3w" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_xlal6"]
+[ext_resource type="Script" uid="uid://bc0qlk1bpglin" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_qcnyv"]
+[ext_resource type="Script" uid="uid://ck8a6v2jj7rhj" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_no5jp"]
+[ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="6_qcnyv"]
+
+[sub_resource type="Resource" id="Resource_bareo"]
+script = ExtResource("5_no5jp")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="Curve3D" id="Curve3D_xlal6"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -9, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[node name="Platformer" type="Node3D"]
+
+[node name="platformer" parent="." instance=ExtResource("1_j2uy2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.83717, 0, -0.244491)
+
+[node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("2_85uu4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.94427, 0.950001, -0.186127)
+view = NodePath("../PhantomCamera3D")
+unlock_z = false
+
+[node name="Camera3D" type="Camera3D" parent="."]
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.94427, 1.95, 3.81387)
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("3_xlal6")
+metadata/_custom_type_script = "uid://bk0i6gcxalt3w"
+
+[node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target", "follow_path")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.94427, 1.95, 3.81387)
+top_level = true
+script = ExtResource("4_qcnyv")
+follow_mode = 5
+follow_target = NodePath("../Player")
+follow_path = NodePath("../Path3D")
+tween_resource = SubResource("Resource_bareo")
+follow_offset = Vector3(0, 1, 3)
+dead_zone_width = 0.738
+dead_zone_height = 0.785
+metadata/_custom_type_script = "uid://bc0qlk1bpglin"
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.606668, 0.794955, 0, -0.794955, 0.606668, 4.69674, 2.20664, 4.87753)
+curve = SubResource("Curve3D_xlal6")
+
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = ExtResource("6_qcnyv")
