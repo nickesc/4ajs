@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://lm7da4yr47ju"
-path="res://.godot/imported/platformer.glb-19ea80c7564b71d7c38885075c52481d.scn"
+uid="uid://dhyv2c0mhc7"
+path="res://.godot/imported/platforms.glb-3669f995c7c5b9095f577871a0889045.scn"
 
 [deps]
 
-source_file="res://models/platformer/platformer.glb"
-dest_files=["res://.godot/imported/platformer.glb-19ea80c7564b71d7c38885075c52481d.scn"]
+source_file="res://models/platformer/platforms.glb"
+dest_files=["res://.godot/imported/platforms.glb-3669f995c7c5b9095f577871a0889045.scn"]
 
 [params]
 
