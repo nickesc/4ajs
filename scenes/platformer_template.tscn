@@ -1,0 +1,114 @@
+[gd_scene load_steps=14 format=3 uid="uid://cgadioxafekia"]
+
+[ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="1_jgcd8"]
+[ext_resource type="PackedScene" uid="uid://c2ao5sxxa7o2b" path="res://objects/p2.tscn" id="2_cqmxb"]
+[ext_resource type="Script" uid="uid://bk0i6gcxalt3w" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_exoaj"]
+[ext_resource type="Script" uid="uid://bc0qlk1bpglin" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_wp0tc"]
+[ext_resource type="Script" uid="uid://ck8a6v2jj7rhj" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_wxp7w"]
+[ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="6_kd1ll"]
+[ext_resource type="Script" uid="uid://cp1ic67oqpvir" path="res://scripts/hud.gd" id="9_b2pgx"]
+[ext_resource type="Texture2D" uid="uid://cd7oyc56ehkx1" path="res://sprites/coin.png" id="10_hek2y"]
+[ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="11_bhyse"]
+[ext_resource type="PackedScene" uid="uid://84rx62v6cb2y" path="res://objects/flag.tscn" id="12_2iyho"]
+
+[sub_resource type="Resource" id="Resource_bareo"]
+script = ExtResource("5_wxp7w")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v4035"]
+size = Vector3(1, 9.96002, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qoqfw"]
+font = ExtResource("11_bhyse")
+font_size = 48
+shadow_color = Color(0, 0, 0, 0.376471)
+shadow_offset = Vector2(2, 2)
+
+[node name="Platformer" type="Node3D"]
+
+[node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("1_jgcd8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2.95, 0)
+view = NodePath("../PhantomCamera3D")
+unlock_z = false
+
+[node name="Player2" parent="." node_paths=PackedStringArray("view") instance=ExtResource("2_cqmxb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2.9, 0)
+view = NodePath("../PhantomCamera3D")
+unlock_z = false
+
+[node name="Camera3D" type="Camera3D" parent="."]
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 3.95, 5)
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("3_exoaj")
+metadata/_custom_type_script = "uid://bk0i6gcxalt3w"
+
+[node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target", "follow_path")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 3.95, 5)
+top_level = true
+script = ExtResource("4_wp0tc")
+follow_mode = 5
+follow_target = NodePath("../Player")
+follow_path = NodePath("")
+tween_resource = SubResource("Resource_bareo")
+follow_offset = Vector3(0, 1, 0)
+follow_distance = 5.0
+dead_zone_width = 0.3
+dead_zone_height = 0.2
+spring_length = 5.0
+metadata/_custom_type_script = "uid://bc0qlk1bpglin"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.48001, 0)
+shape = SubResource("BoxShape3D_v4035")
+
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = ExtResource("6_kd1ll")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 8, 8.36814, 6.48087)
+sky_mode = 1
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="flag" parent="World" node_paths=PackedStringArray("player") instance=ExtResource("12_2iyho")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 31, 1, 0)
+transition_to = "uid://bqqgyqafm7xwp"
+player = NodePath("../../Player")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("9_b2pgx")
+
+[node name="Icon" type="TextureRect" parent="HUD"]
+offset_left = 57.0
+offset_top = 67.0
+offset_right = 313.0
+offset_bottom = 323.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_hek2y")
+
+[node name="x" type="Label" parent="HUD"]
+offset_left = 112.0
+offset_top = 64.0
+offset_right = 144.0
+offset_bottom = 123.0
+text = "×"
+label_settings = SubResource("LabelSettings_qoqfw")
+
+[node name="Coins" type="Label" parent="HUD"]
+offset_left = 144.0
+offset_top = 64.0
+offset_right = 368.0
+offset_bottom = 123.0
+text = "0"
+label_settings = SubResource("LabelSettings_qoqfw")
+
+[connection signal="coin_collected" from="Player" to="HUD" method="_on_coin_collected"]
