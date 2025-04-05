@@ -114,10 +114,13 @@ func handle_controls(delta):
 
     var input := Vector3.ZERO
 
-    input.x = Input.get_axis("move_left_p2", "move_right_p2")
-    input.z = Input.get_axis("move_forward_p2", "move_back_p2")
+    if (unlock_x):
+        input.x = Input.get_axis("move_left_p2", "move_right_p2")
+    if (unlock_z):
+        input.z = Input.get_axis("move_forward_p2", "move_back_p2")
 
-    input = input.rotated(Vector3.UP, view.rotation.y)
+    if (view):
+        input = input.rotated(Vector3.UP, view.rotation.y)
 
     if input.length() > 1:
         input = input.normalized()
@@ -125,11 +128,12 @@ func handle_controls(delta):
     movement_velocity = input * movement_speed * delta
 
     # Jumping
+    
+    if (unlock_jump):
+        if Input.is_action_just_pressed("jump_p2"):
 
-    if Input.is_action_just_pressed("jump_p2"):
-
-        if jump_single or jump_double:
-            jump()
+            if jump_single or jump_double:
+                jump()
 
 # Handle gravity
 
