@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://do6r3r3j8ac8x"]
+[gd_scene load_steps=52 format=3 uid="uid://do6r3r3j8ac8x"]
 
 [ext_resource type="Script" uid="uid://ci5flxvcrd2ca" path="res://scripts/camera_controller.gd" id="1_cs7aj"]
 [ext_resource type="Environment" uid="uid://cn54j8eqfhivp" path="res://scenes/bedroom-environment.tres" id="1_faqlx"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://811v4agpo5ue" path="res://objects/bedroom/bed_double.tscn" id="8_n5dov"]
 [ext_resource type="PackedScene" uid="uid://cmh6kn4hy1qj" path="res://objects/bedroom/desk.tscn" id="9_rg2nx"]
 [ext_resource type="PackedScene" uid="uid://ckbqrqxdb4ope" path="res://objects/bedroom/cabinet_bed_drawer.tscn" id="10_8t8s3"]
-[ext_resource type="PackedScene" uid="uid://bqqgyqafm7xwp" path="res://scenes/main.tscn" id="10_u3yip"]
 [ext_resource type="PackedScene" uid="uid://d0xtw0s7y2etw" path="res://objects/bedroom/bookcase_closed_wide.tscn" id="11_n0sr1"]
 [ext_resource type="Script" uid="uid://bc0qlk1bpglin" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="12_4wfg3"]
 [ext_resource type="PackedScene" uid="uid://cs4veu8415y3y" path="res://objects/bedroom/bookcase_open_low.tscn" id="12_bwnyf"]
@@ -174,7 +173,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -33.6236)
 
 [node name="36" parent="World" instance=ExtResource("15_hdgp0")]
 transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 0, 0, 33.6236)
-transition_to = ExtResource("10_u3yip")
+transition_to = "uid://b1shq5pt8lykb"
+one_player_mode = true
 
 [node name="cabinetBedDrawer" parent="World" instance=ExtResource("10_8t8s3")]
 transform = Transform3D(-1.09278e-07, 0, -2.5, 0, 2.5, 0, 2.5, 0, -1.09278e-07, 3.45296, 1.3411e-07, 32.5005)

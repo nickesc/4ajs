@@ -7,13 +7,15 @@ extends Node3D
 @export var P2Tearaway: Node3D
 @export var ElevatorTearaway: Node3D
 
-@export var transition_to: PackedScene
+@export_file('*.tscn') var transition_to: String
+
+@export var one_player_mode = false
 
 var p1_elevator = false
 var p2_elevator = false
 
-var transparentStone: StandardMaterial3D = preload("res://materials/stone_transparent.tres")
-var transparentStoneDark: StandardMaterial3D = preload("res://materials/stoneDark_transparent.tres")
+#var transparentStone: StandardMaterial3D = preload("res://materials/stone_transparent.tres")
+#var transparentStoneDark: StandardMaterial3D = preload("res://materials/stoneDark_transparent.tres")
 
 signal enter_bed
 signal enter_family
@@ -74,7 +76,7 @@ func _on_Area3D_body_entered(body, tearawayString):
                 elif (body.name == "P2"):
                     p2_elevator = true
                 
-                if p1_elevator and p2_elevator:
+                if (p1_elevator and p2_elevator) or (p1_elevator and one_player_mode):
                     emit_signal("elevator_ready")
                 
         emit_signal("enter_"+tearawayString.to_lower())
@@ -106,5 +108,6 @@ func _process(delta: float) -> void:
     
     
 func swap_scenes():
-    print("help")
-    get_tree().change_scene_to_packed(transition_to)
+    print("Elevator reached. Transition incoming.")
+    var next_scene = load(transition_to)
+    get_tree().change_scene_to_packed(next_scene)
