@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="4ajs"
+config/version="0.0.1"
 config/tags=PackedStringArray("starterkit")
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="uid://do6r3r3j8ac8x"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/bg_color=Color(0.92549, 0.92549, 0.960784, 1)
 boot_splash/image="res://splash-screen.png"
@@ -170,4 +171,5 @@ tips/show_jitter_tips=false
 
 [rendering]
 
+textures/vram_compression/import_etc2_astc=true
 anti_aliasing/quality/screen_space_aa=1
