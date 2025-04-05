@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bqqgyqafm7xwp"]
+[gd_scene load_steps=16 format=3 uid="uid://bqqgyqafm7xwp"]
 
 [ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="1_ahusb"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_onms2"]
@@ -7,8 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://rjh4ifidqrfp" path="res://objects/platform_medium.tscn" id="7_ixpj3"]
 [ext_resource type="PackedScene" uid="uid://uqr4hswv6d2g" path="res://objects/platform_grass_large_round.tscn" id="8_4oh1e"]
 [ext_resource type="PackedScene" uid="uid://c8up71en5djgm" path="res://objects/platform_falling.tscn" id="9_2fnpo"]
-[ext_resource type="PackedScene" uid="uid://do6r3r3j8ac8x" path="res://scenes/bedroom.tscn" id="9_dl5qr"]
-[ext_resource type="PackedScene" uid="uid://dfpisimsgf5ce" path="res://objects/coin.tscn" id="10_fwhys"]
+[ext_resource type="PackedScene" uid="uid://dfpisimsgf5ce" path="res://objects/platformer/coin.tscn" id="10_fwhys"]
 [ext_resource type="Script" uid="uid://cp1ic67oqpvir" path="res://scripts/hud.gd" id="11_apvpm"]
 [ext_resource type="PackedScene" uid="uid://84rx62v6cb2y" path="res://objects/flag.tscn" id="13_3ctwm"]
 [ext_resource type="PackedScene" uid="uid://dy017k58p20sk" path="res://objects/cloud.tscn" id="13_drtpy"]
@@ -82,7 +81,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1, -2)
 
 [node name="flag" parent="World" node_paths=PackedStringArray("player") instance=ExtResource("13_3ctwm")]
 transform = Transform3D(0.705711, 0, -0.7085, 0, 1, 0, 0.7085, 0, 0.705711, 0.0326405, 3.5, -6.04442)
-transition_to = ExtResource("9_dl5qr")
+transition_to = "uid://do6r3r3j8ac8x"
 player = NodePath("../../Player")
 
 [node name="coin" parent="World" instance=ExtResource("10_fwhys")]
