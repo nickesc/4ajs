@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bqqgyqafm7xwp"]
+[gd_scene load_steps=15 format=3 uid="uid://bqqgyqafm7xwp"]
 
 [ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="1_ahusb"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_onms2"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://84rx62v6cb2y" path="res://objects/flag.tscn" id="13_3ctwm"]
 [ext_resource type="PackedScene" uid="uid://dy017k58p20sk" path="res://objects/cloud.tscn" id="13_drtpy"]
 [ext_resource type="Texture2D" uid="uid://cd7oyc56ehkx1" path="res://sprites/coin.png" id="13_jfda3"]
-[ext_resource type="PackedScene" uid="uid://c2ao5sxxa7o2b" path="res://objects/p2.tscn" id="15_qqoki"]
 [ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="17_tk810"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_38ys3"]
@@ -28,6 +27,11 @@ environment = ExtResource("1_ahusb")
 
 [node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("2_onms2")]
 view = NodePath("../View")
+
+[node name="Player 2" parent="." node_paths=PackedStringArray("view") instance=ExtResource("2_onms2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.08719, 1.45, -2.06025)
+view = NodePath("../View")
+player_2 = true
 
 [node name="View" type="Node3D" parent="." node_paths=PackedStringArray("camera", "target")]
 transform = Transform3D(0.707107, -0.298836, 0.640856, 0, 0.906308, 0.422618, -0.707107, -0.298836, 0.640856, 0, 0, 0)
@@ -81,7 +85,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1, -2)
 
 [node name="flag" parent="World" node_paths=PackedStringArray("player") instance=ExtResource("13_3ctwm")]
 transform = Transform3D(0.705711, 0, -0.7085, 0, 1, 0, 0.7085, 0, 0.705711, 0.0326405, 3.5, -6.04442)
-transition_to = "uid://do6r3r3j8ac8x"
+transition_to = "uid://cp8unablbekso"
 player = NodePath("../../Player")
 
 [node name="coin" parent="World" instance=ExtResource("10_fwhys")]
@@ -167,8 +171,5 @@ offset_bottom = 123.0
 text = "0"
 label_settings = SubResource("LabelSettings_38ys3")
 
-[node name="Player2" parent="." node_paths=PackedStringArray("view") instance=ExtResource("15_qqoki")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25199, 0.518751, -0.0378768)
-view = NodePath("../View")
-
 [connection signal="coin_collected" from="Player" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="Player 2" to="HUD" method="_on_coin_collected"]

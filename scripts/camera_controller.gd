@@ -7,7 +7,7 @@ extends Timer
 @export var P2_PCam: PhantomCamera3D
 
 @export var Player: CharacterBody3D
-@export var P2: CharacterBody3D
+@export var Player_2: CharacterBody3D
 
 @onready var currCam: PhantomCamera3D = Bed_PCam
 
@@ -15,7 +15,7 @@ func _ready() -> void:
     set_hallway_cam_targets()
 
 func set_hallway_cam_targets():
-    Hallway_PCam.set_look_at_targets([Player, P2])
+    Hallway_PCam.set_look_at_targets([Player, Player_2])
 
 func _on_enter_room(roomString):
     match roomString:
@@ -40,4 +40,4 @@ func setPCamPriority(pcam: PhantomCamera3D):
 
 func _set_view():
     Player.set_view(currCam)
-    P2.set_view(currCam)
+    Player_2.set_view(currCam)

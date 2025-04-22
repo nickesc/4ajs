@@ -1,11 +1,10 @@
-[gd_scene load_steps=52 format=3 uid="uid://do6r3r3j8ac8x"]
+[gd_scene load_steps=51 format=3 uid="uid://do6r3r3j8ac8x"]
 
 [ext_resource type="Script" uid="uid://ci5flxvcrd2ca" path="res://scripts/camera_controller.gd" id="1_cs7aj"]
 [ext_resource type="Environment" uid="uid://cn54j8eqfhivp" path="res://scenes/bedroom-environment.tres" id="1_faqlx"]
 [ext_resource type="Script" uid="uid://bk0i6gcxalt3w" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_k5fq4"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_lp6yp"]
 [ext_resource type="Script" uid="uid://c5fsiecjo27n" path="res://scripts/view.gd" id="3_r6dl3"]
-[ext_resource type="PackedScene" uid="uid://c2ao5sxxa7o2b" path="res://objects/p2.tscn" id="7_sphvx"]
 [ext_resource type="PackedScene" uid="uid://811v4agpo5ue" path="res://objects/bedroom/bed_double.tscn" id="8_n5dov"]
 [ext_resource type="PackedScene" uid="uid://cmh6kn4hy1qj" path="res://objects/bedroom/desk.tscn" id="9_rg2nx"]
 [ext_resource type="PackedScene" uid="uid://ckbqrqxdb4ope" path="res://objects/bedroom/cabinet_bed_drawer.tscn" id="10_8t8s3"]
@@ -65,7 +64,7 @@ ease = 2
 
 [node name="Bedroom" type="Node3D"]
 
-[node name="CameraController" type="Timer" parent="." node_paths=PackedStringArray("Bed_PCam", "Bathroom_PCam", "Family_PCam", "Hallway_PCam", "P2_PCam", "Player", "P2")]
+[node name="CameraController" type="Timer" parent="." node_paths=PackedStringArray("Bed_PCam", "Bathroom_PCam", "Family_PCam", "Hallway_PCam", "P2_PCam", "Player", "Player_2")]
 script = ExtResource("1_cs7aj")
 Bed_PCam = NodePath("../Bed PCam")
 Bathroom_PCam = NodePath("../Bath PCam")
@@ -73,7 +72,7 @@ Family_PCam = NodePath("../Family PCam")
 Hallway_PCam = NodePath("../Hallway PCam")
 P2_PCam = NodePath("../P2 PCam")
 Player = NodePath("../Player")
-P2 = NodePath("../P2")
+Player_2 = NodePath("../Player 2")
 
 [node name="bedNode" type="Node3D" parent="CameraController"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.719588, 0, -3.33167)
@@ -152,9 +151,11 @@ transform = Transform3D(-0.653077, 0, 0.757291, 0, 1, 0, -0.757291, 0, -0.653077
 view = NodePath("../Bed PCam")
 unlock_jump = false
 
-[node name="P2" parent="." node_paths=PackedStringArray("view") instance=ExtResource("7_sphvx")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.79677, -0.050001, -14.1994)
+[node name="Player 2" parent="." node_paths=PackedStringArray("view") instance=ExtResource("2_lp6yp")]
+transform = Transform3D(0.0236645, 0, -0.99972, 0, 1, 0, 0.99972, 0, 0.0236645, 8.81098, -0.0500017, -14.2024)
 view = NodePath("../Bed PCam")
+unlock_jump = false
+player_2 = true
 
 [node name="View" type="Node3D" parent="." node_paths=PackedStringArray("target")]
 transform = Transform3D(0.84051, -0.228973, 0.491033, 1.57535e-08, 0.906308, 0.422618, -0.541796, -0.355214, 0.76176, 2.36278, 8.9407e-08, -2.76548)

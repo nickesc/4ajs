@@ -11,6 +11,7 @@ signal coin_collected
 @export var unlock_x = true
 @export var unlock_z = true
 @export var unlock_jump = true
+@export var player_2 = false
 
 var movement_velocity: Vector3
 var rotation_direction: float
@@ -22,6 +23,7 @@ var jump_single = true
 var jump_double = true
 
 var coins = 0
+var initial_position: Vector3
 
 @onready var particles_trail = $ParticlesTrail
 @onready var sound_footsteps = $SoundFootsteps
@@ -29,6 +31,11 @@ var coins = 0
 @onready var animation = $Character/AnimationPlayer
 
 # Functions
+
+func _ready() -> void:
+    initial_position = self.get_position()
+    if player_2:
+        add_to_group("P2")
 
 func _physics_process(delta):
 
@@ -59,7 +66,10 @@ func _physics_process(delta):
     # Falling/respawning
 
     if position.y < -10:
-        get_tree().reload_current_scene()
+        if not player_2:
+            get_tree().reload_current_scene()
+        else:
+            position = initial_position
 
     # Animation for scale (jumping and landing)
 
@@ -108,9 +118,15 @@ func handle_controls(delta):
     var input := Vector3.ZERO
 
     if (unlock_x):
-        input.x = Input.get_axis("move_left", "move_right")
+        if not player_2:
+            input.x = Input.get_axis("move_left", "move_right")
+        else:
+            input.x = Input.get_axis("move_left_p2", "move_right_p2")
     if (unlock_z):
-        input.z = Input.get_axis("move_forward", "move_back")
+        if not player_2:
+            input.z = Input.get_axis("move_forward", "move_back")
+        else:
+            input.z = Input.get_axis("move_forward_p2", "move_back_p2")
 
     if (view):
         input = input.rotated(Vector3.UP, view.rotation.y)
@@ -123,8 +139,14 @@ func handle_controls(delta):
     # Jumping
     
     if (unlock_jump):
-        if Input.is_action_just_pressed("jump"):
-
+        var jumped
+        
+        if not player_2:
+            jumped = Input.is_action_just_pressed("jump")
+        else:
+            jumped = Input.is_action_just_pressed("jump_p2")
+            
+        if jumped:
             if jump_single or jump_double:
                 jump()
 
@@ -162,7 +184,6 @@ func collect_coin():
     coins += 1
 
     coin_collected.emit(coins)
-
 
 func set_view(newView: Node3D):
     view = newView
