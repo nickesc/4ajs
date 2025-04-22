@@ -2,6 +2,7 @@ Models
 https://kenney.nl/assets/mini-characters-1
 https://kenney.nl/assets/furniture-kit
 https://kenney.nl/assets/nature-kit
+https://kenney.nl/assets/platformer-kit
 
 Audio
 https://pixabay.com/sound-effects/doorbell-223669/
@@ -10,6 +11,7 @@ Tools
 https://kenney.nl/tools/asset-forge
 https://godotengine.org/
 https://github.com/KenneyNL/Starter-Kit-3D-Platformer
+https://github.com/KenneyNL/Starter-Kit-FPS
 [Script-IDE](https://godotengine.org/asset-library/asset/2206)
 
 
