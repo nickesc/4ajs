@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://biqvbf15aow1f"]
 
 [ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="1_oksiu"]
-[ext_resource type="Script" uid="uid://dkbmefpfu2a4y" path="res://scripts/v_box_container.gd" id="1_sgilr"]
+[ext_resource type="Script" uid="uid://dkbmefpfu2a4y" path="res://scripts/v_box_container_input_passthrough.gd" id="1_sgilr"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybgg2" path="res://objects/fps_player.tscn" id="1_xpi2j"]
 [ext_resource type="PackedScene" uid="uid://cnymdajj1vsqm" path="res://objects/platform.tscn" id="4_ot723"]
 [ext_resource type="PackedScene" uid="uid://rjh4ifidqrfp" path="res://objects/platform_medium.tscn" id="5_r863s"]
@@ -49,12 +49,16 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="VBoxContainer/SubViewportContainer"]
 handle_input_locally = false
+audio_listener_enable_3d = true
 size = Vector2i(1920, 540)
 render_target_update_mode = 4
 
-[node name="FPSPlayer" parent="VBoxContainer/SubViewportContainer/SubViewport" node_paths=PackedStringArray("subviewport", "crosshair") instance=ExtResource("1_xpi2j")]
+[node name="FPSPlayer" parent="VBoxContainer/SubViewportContainer/SubViewport" node_paths=PackedStringArray("root_node", "crosshair") instance=ExtResource("1_xpi2j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.165161, 0.45, -0.00104237)
-subviewport = NodePath("..")
+movement_speed = null
+jump_strength = null
+player_2 = null
+root_node = NodePath("..")
 crosshair = NodePath("../HUD/Crosshair")
 
 [node name="HUD" type="CanvasLayer" parent="VBoxContainer/SubViewportContainer/SubViewport"]
@@ -221,13 +225,16 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="VBoxContainer/SubViewportContainer2"]
 handle_input_locally = false
+audio_listener_enable_3d = true
 size = Vector2i(1920, 540)
 render_target_update_mode = 4
 
-[node name="FPSPlayer 2" parent="VBoxContainer/SubViewportContainer2/SubViewport" node_paths=PackedStringArray("subviewport", "crosshair") instance=ExtResource("1_xpi2j")]
+[node name="FPSPlayer 2" parent="VBoxContainer/SubViewportContainer2/SubViewport" node_paths=PackedStringArray("root_node", "crosshair") instance=ExtResource("1_xpi2j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.37727, 1.45, -1.69694)
+movement_speed = null
+jump_strength = null
 player_2 = true
-subviewport = NodePath("..")
+root_node = NodePath("..")
 crosshair = NodePath("../HUD/Crosshair")
 
 [node name="HUD" type="CanvasLayer" parent="VBoxContainer/SubViewportContainer2/SubViewport"]

@@ -6,10 +6,10 @@
 [ext_resource type="Script" uid="uid://cuhqd7mkk0rda" path="res://scripts/weapon.gd" id="2_i825w"]
 [ext_resource type="Resource" uid="uid://c56y8pqoyk15f" path="res://weapons/blaster.tres" id="3_kr4p8"]
 [ext_resource type="SpriteFrames" uid="uid://dbv3sy5qjatnl" path="res://sprites/burst_animation.tres" id="4_m6ukc"]
-[ext_resource type="AudioStream" uid="uid://cydjn1ct3hps2" path="res://sounds/walking.ogg" id="5_ics1s"]
 [ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="5_sk6nt"]
 [ext_resource type="PackedScene" uid="uid://c0e27836xgmhi" path="res://objects/character.tscn" id="8_bv10t"]
 [ext_resource type="ArrayMesh" uid="uid://deu06eho4c74" path="res://meshes/dust.res" id="9_ehlg1"]
+[ext_resource type="AudioStream" uid="uid://e532kioqwfvt" path="res://sounds/walking_fps.ogg" id="10_ehlg1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gdq8c"]
 radius = 0.3
@@ -31,9 +31,10 @@ proximity_fade_distance = 0.25
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.249284, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[node name="Player" type="CharacterBody3D" groups=["Player"]]
+[node name="FPSPlayer" type="CharacterBody3D" node_paths=PackedStringArray("sound_footsteps") groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 script = ExtResource("1_ffboj")
+sound_footsteps = NodePath("SoundFootsteps")
 weapons = Array[ExtResource("2_i825w")]([ExtResource("3_kr4p8"), ExtResource("2_6epbw")])
 
 [node name="Collider" type="CollisionShape3D" parent="."]
@@ -63,6 +64,8 @@ world_3d = SubResource("World3D_ehlg1")
 transparent_bg = true
 handle_input_locally = false
 msaa_3d = 1
+audio_listener_enable_2d = true
+audio_listener_enable_3d = true
 size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
@@ -107,9 +110,15 @@ gravity = Vector3(0, 0.1, 0)
 scale_amount_min = 0.75
 scale_amount_curve = SubResource("Curve_4lapl")
 
-[node name="SoundFootsteps" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_ics1s")
+[node name="SoundFootsteps" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+stream = ExtResource("10_ehlg1")
 volume_db = -5.0
+autoplay = true
+
+[node name="SoundFootsteps_og" type="AudioStreamPlayer" parent="."]
+volume_db = -5.0
+pitch_scale = 1.25
 autoplay = true
 
 [node name="Cooldown" type="Timer" parent="."]
