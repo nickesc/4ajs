@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dl2ed4gkybgg2"]
+[gd_scene load_steps=17 format=3 uid="uid://dl2ed4gkybgg2"]
 
 [ext_resource type="Script" uid="uid://rb3oig3hnpnj" path="res://scripts/fps_player.gd" id="1_ffboj"]
 [ext_resource type="Resource" uid="uid://cu2gtxlcmbb34" path="res://weapons/blaster-repeater.tres" id="2_6epbw"]
@@ -7,13 +7,15 @@
 [ext_resource type="Resource" uid="uid://c56y8pqoyk15f" path="res://weapons/blaster.tres" id="3_kr4p8"]
 [ext_resource type="SpriteFrames" uid="uid://dbv3sy5qjatnl" path="res://sprites/burst_animation.tres" id="4_m6ukc"]
 [ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="5_sk6nt"]
+[ext_resource type="PackedScene" uid="uid://d2p5ed7ppa0e1" path="res://objects/characters/aj.tscn" id="7_4lapl"]
+[ext_resource type="PackedScene" uid="uid://c04i4gy4k8q6p" path="res://objects/characters/ne.tscn" id="8_7s401"]
 [ext_resource type="PackedScene" uid="uid://c0e27836xgmhi" path="res://objects/character.tscn" id="8_bv10t"]
 [ext_resource type="ArrayMesh" uid="uid://deu06eho4c74" path="res://meshes/dust.res" id="9_ehlg1"]
 [ext_resource type="AudioStream" uid="uid://e532kioqwfvt" path="res://sounds/walking_fps.ogg" id="10_ehlg1"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gdq8c"]
-radius = 0.3
-height = 1.0
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_63ccy"]
+radius = 0.164129
+height = 0.652199
 
 [sub_resource type="World3D" id="World3D_ehlg1"]
 environment = ExtResource("5_sk6nt")
@@ -31,22 +33,20 @@ proximity_fade_distance = 0.25
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.249284, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[node name="FPSPlayer" type="CharacterBody3D" node_paths=PackedStringArray("sound_footsteps") groups=["Player"]]
+[node name="FPSPlayer" type="CharacterBody3D" groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 script = ExtResource("1_ffboj")
-sound_footsteps = NodePath("SoundFootsteps")
 weapons = Array[ExtResource("2_i825w")]([ExtResource("3_kr4p8"), ExtResource("2_6epbw")])
 
 [node name="Collider" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
-shape = SubResource("CapsuleShape3D_gdq8c")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.364, 0)
+shape = SubResource("CapsuleShape3D_63ccy")
 
 [node name="Head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.469532, -0.192934)
 
 [node name="Camera" type="Camera3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.415815, -0.324014)
-cull_mask = 1048573
+cull_mask = 1048569
 current = true
 fov = 80.0
 
@@ -87,8 +87,31 @@ exclude_parent = false
 target_position = Vector3(0, 0, -20)
 collide_with_areas = true
 
-[node name="Character" parent="." instance=ExtResource("8_bv10t")]
+[node name="AJ" parent="." instance=ExtResource("7_4lapl")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="NE" parent="." instance=ExtResource("8_7s401")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+visible = false
+
+[node name="Character-old" parent="." instance=ExtResource("8_bv10t")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+visible = false
+
+[node name="leg-left" parent="Character-old/character/root" index="0"]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 0.125, 0.17625, -0.02375)
+
+[node name="leg-right" parent="Character-old/character/root" index="1"]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -0.125, 0.17625, -0.02375)
+
+[node name="torso" parent="Character-old/character/root" index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.996194, 0.0871557, 0, -0.0871557, 0.996194, -1.80478e-15, 0.17625, -0.02375)
+
+[node name="arm-left" parent="Character-old/character/root/torso" index="0"]
+transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, 0.3, 0.175, 0)
+
+[node name="arm-right" parent="Character-old/character/root/torso" index="1"]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, -0.3, 0.1195, 0)
 
 [node name="Shadow" type="Decal" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
@@ -124,4 +147,4 @@ autoplay = true
 [node name="Cooldown" type="Timer" parent="."]
 one_shot = true
 
-[editable path="Character"]
+[editable path="Character-old"]

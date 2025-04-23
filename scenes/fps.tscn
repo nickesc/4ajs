@@ -55,9 +55,6 @@ render_target_update_mode = 4
 
 [node name="FPSPlayer" parent="VBoxContainer/SubViewportContainer/SubViewport" node_paths=PackedStringArray("root_node", "crosshair") instance=ExtResource("1_xpi2j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.165161, 0.45, -0.00104237)
-movement_speed = null
-jump_strength = null
-player_2 = null
 root_node = NodePath("..")
 crosshair = NodePath("../HUD/Crosshair")
 
@@ -231,8 +228,6 @@ render_target_update_mode = 4
 
 [node name="FPSPlayer 2" parent="VBoxContainer/SubViewportContainer2/SubViewport" node_paths=PackedStringArray("root_node", "crosshair") instance=ExtResource("1_xpi2j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.37727, 1.45, -1.69694)
-movement_speed = null
-jump_strength = null
 player_2 = true
 root_node = NodePath("..")
 crosshair = NodePath("../HUD/Crosshair")

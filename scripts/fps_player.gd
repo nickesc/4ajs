@@ -45,8 +45,8 @@ signal health_updated
 @onready var container = $Head/Camera/SubViewportContainer/SubViewport/CameraItem/Container
 @onready var sound_footsteps = $SoundFootsteps
 @onready var blaster_cooldown = $Cooldown
-@onready var model = $Character
-@onready var animation = $Character/AnimationPlayer
+@onready var model = $AJ
+@onready var animation = $AJ/AnimationPlayer
 @onready var particles_trail = $ParticlesTrail
 
 @export var crosshair:TextureRect
@@ -63,11 +63,18 @@ func _ready():
     og_position = position
     og_rotation  = rotation
 
-    if not player_2:
-        Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
     if player_2:
         add_to_group("P2")
+        $AJ.visible = false
+        $NE.visible = true
+        camera.set_cull_mask_value(3, true)
+        camera.set_cull_mask_value(4, false)
+        model = $NE
+        animation = $NE/AnimationPlayer
+        scale = Vector3(1.4, 1.4, 1.4)
+    else:
+        Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+        scale = Vector3(1.3, 1.3, 1.3)
 
     weapon = weapons[weapon_index] # Weapon must never be nil
     initiate_change_weapon(weapon_index)

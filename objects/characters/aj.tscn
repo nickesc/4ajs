@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2p5ed7ppa0e1"]
+
+[ext_resource type="PackedScene" uid="uid://cwl7phuha3vg1" path="res://models/characters/character-female-f.glb" id="1_1kd3y"]
+
+[node name="AJ" instance=ExtResource("1_1kd3y")]
+
+[node name="head-mesh" parent="character-female-f/Skeleton3D" index="1"]
+layers = 4

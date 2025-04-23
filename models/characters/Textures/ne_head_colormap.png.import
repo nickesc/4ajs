@@ -2,21 +2,18 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c314pdxtmjl4o"
-path.s3tc="res://.godot/imported/ne_colormap.png-48ceec0a96cc9fe2c09ca1ac1f042b2d.s3tc.ctex"
-path.etc2="res://.godot/imported/ne_colormap.png-48ceec0a96cc9fe2c09ca1ac1f042b2d.etc2.ctex"
+uid="uid://b76rv6o57s6pp"
+path.s3tc="res://.godot/imported/ne_head_colormap.png-c40bcceebe73c8f3030e49890f5b6e3f.s3tc.ctex"
+path.etc2="res://.godot/imported/ne_head_colormap.png-c40bcceebe73c8f3030e49890f5b6e3f.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "76084aa0c65dc2c593e6532f1f61f968"
-}
 
 [deps]
 
-source_file="res://models/characters/ne_colormap.png"
-dest_files=["res://.godot/imported/ne_colormap.png-48ceec0a96cc9fe2c09ca1ac1f042b2d.s3tc.ctex", "res://.godot/imported/ne_colormap.png-48ceec0a96cc9fe2c09ca1ac1f042b2d.etc2.ctex"]
+source_file="res://models/characters/Textures/ne_head_colormap.png"
+dest_files=["res://.godot/imported/ne_head_colormap.png-c40bcceebe73c8f3030e49890f5b6e3f.s3tc.ctex", "res://.godot/imported/ne_head_colormap.png-c40bcceebe73c8f3030e49890f5b6e3f.etc2.ctex"]
 
 [params]
 

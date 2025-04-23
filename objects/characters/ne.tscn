@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c04i4gy4k8q6p"]
+
+[ext_resource type="PackedScene" uid="uid://bd8kmybodf1rs" path="res://models/characters/character-male-a.glb" id="1_o6uyp"]
+[ext_resource type="ArrayMesh" uid="uid://pandjhoocal7" path="res://models/characters/heads/ne_head.tres" id="2_q2uju"]
+
+[node name="NE" instance=ExtResource("1_o6uyp")]
+
+[node name="head-mesh" parent="character-male-a/Skeleton3D" index="1"]
+layers = 8
+mesh = ExtResource("2_q2uju")

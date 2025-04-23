@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bnj0jlxgk0h60"
-path="res://.godot/imported/aj.glb-ae418643e69626b35e7ae62e83b8d6a8.scn"
+uid="uid://cwl7phuha3vg1"
+path="res://.godot/imported/character-female-f.glb-4f805984f91a53ba7ab71e04c9723eee.scn"
 
 [deps]
 
-source_file="res://models/characters/aj.glb"
-dest_files=["res://.godot/imported/aj.glb-ae418643e69626b35e7ae62e83b8d6a8.scn"]
+source_file="res://models/characters/character-female-f.glb"
+dest_files=["res://.godot/imported/character-female-f.glb-4f805984f91a53ba7ab71e04c9723eee.scn"]
 
 [params]
 
@@ -35,9 +35,9 @@ import_script/path=""
 _subresources={
 "animations": {
 "walk": {
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "uid://cgnxjpo2ld03o",
+"save_to_file/path": "res://animations/walk_aj.tres",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -1836,8 +1836,8 @@ _subresources={
 },
 "materials": {
 "colormap": {
-"use_external/enabled": false,
-"use_external/path": "uid://bxkief3j0anvb"
+"use_external/enabled": true,
+"use_external/path": "uid://bgaouqx4sn5w1"
 }
 }
 }

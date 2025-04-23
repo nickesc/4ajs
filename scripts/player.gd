@@ -27,8 +27,8 @@ var initial_position: Vector3
 
 @onready var particles_trail = $ParticlesTrail
 @onready var sound_footsteps = $SoundFootsteps
-@onready var model = $Character
-@onready var animation = $Character/AnimationPlayer
+@onready var model = $AJ
+@onready var animation = $AJ/AnimationPlayer
 
 # Functions
 
@@ -36,6 +36,13 @@ func _ready() -> void:
     initial_position = self.get_position()
     if player_2:
         add_to_group("P2")
+        $AJ.visible = false
+        $NE.visible = true
+        model = $NE
+        animation = $NE/AnimationPlayer
+        scale = Vector3(1.4, 1.4, 1.4)
+    else:
+        scale = Vector3(1.3, 1.3, 1.3)
 
 func _physics_process(delta):
 

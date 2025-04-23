@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://brvvj1rvvb1ft"
-path="res://.godot/imported/ne.glb-481ee82966280553e77f00b66f646164.scn"
+uid="uid://l2hjfi2wi0rn"
+path="res://.godot/imported/character-male-c.glb-a8fb11c9917001dee75ce207a82d5541.scn"
 
 [deps]
 
-source_file="res://models/characters/ne.glb"
-dest_files=["res://.godot/imported/ne.glb-481ee82966280553e77f00b66f646164.scn"]
+source_file="res://models/characters/character-male-c.glb"
+dest_files=["res://.godot/imported/character-male-c.glb-a8fb11c9917001dee75ce207a82d5541.scn"]
 
 [params]
 
@@ -33,10 +33,14 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
-"materials": {
-"colormap": {
-"use_external/enabled": false,
-"use_external/path": "uid://g1pcoghusi3t"
+"meshes": {
+"character-male-c_head-mesh": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://textures/head.res"
 }
 }
 }

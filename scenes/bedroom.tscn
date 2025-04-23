@@ -147,7 +147,7 @@ metadata/_custom_type_script = "uid://bc0qlk1bpglin"
 environment = ExtResource("1_faqlx")
 
 [node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("2_lp6yp")]
-transform = Transform3D(-0.653077, 0, 0.757291, 0, 1, 0, -0.757291, 0, -0.653077, 2.65829, -0.0499999, -2.56541)
+transform = Transform3D(-0.849, 0, 0.984479, 0, 1.3, 0, -0.984479, 0, -0.849, 2.65829, -0.0499999, -2.56541)
 view = NodePath("../Bed PCam")
 unlock_jump = false
 

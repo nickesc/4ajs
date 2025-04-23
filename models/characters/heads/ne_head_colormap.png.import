@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t2xwmjtb4xgk"
-path.s3tc="res://.godot/imported/aj_colormap.png-69917b2162636d4b1f28e50029a38e37.s3tc.ctex"
-path.etc2="res://.godot/imported/aj_colormap.png-69917b2162636d4b1f28e50029a38e37.etc2.ctex"
+uid="uid://bl18g7w35hijv"
+path.s3tc="res://.godot/imported/ne_head_colormap.png-d292815044d03798700c036863d091c6.s3tc.ctex"
+path.etc2="res://.godot/imported/ne_head_colormap.png-d292815044d03798700c036863d091c6.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -15,8 +15,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://models/characters/aj_colormap.png"
-dest_files=["res://.godot/imported/aj_colormap.png-69917b2162636d4b1f28e50029a38e37.s3tc.ctex", "res://.godot/imported/aj_colormap.png-69917b2162636d4b1f28e50029a38e37.etc2.ctex"]
+source_file="res://models/characters/heads/ne_head_colormap.png"
+dest_files=["res://.godot/imported/ne_head_colormap.png-d292815044d03798700c036863d091c6.s3tc.ctex", "res://.godot/imported/ne_head_colormap.png-d292815044d03798700c036863d091c6.etc2.ctex"]
 
 [params]
 
