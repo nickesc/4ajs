@@ -60,7 +60,7 @@ func _on_Area3D_body_entered(body, tearawayString):
                 turnInvisible(BedTearaway)
             "Family":
                 turnInvisible(FamilyTearaway)
-                turnOpaque(HallwayTearaway)
+                #turnOpaque(HallwayTearaway)
             "Bathroom":
                 turnInvisible(BathroomTearaway)
             "Hallway":

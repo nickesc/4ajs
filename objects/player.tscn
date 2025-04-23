@@ -45,24 +45,6 @@ visible = false
 [node name="Character-old" parent="." instance=ExtResource("2_nero3")]
 visible = false
 
-[node name="leg-left" parent="Character-old/character/root" index="0"]
-transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 0.125, 0.17625, -0.02375)
-
-[node name="leg-right" parent="Character-old/character/root" index="1"]
-transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -0.125, 0.17625, -0.02375)
-
-[node name="torso" parent="Character-old/character/root" index="2"]
-transform = Transform3D(1, 0, 0, 0, 0.996194, 0.0871557, 0, -0.0871557, 0.996194, -1.80478e-15, 0.17625, -0.02375)
-
-[node name="arm-left" parent="Character-old/character/root/torso" index="0"]
-transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, 0.3, 0.175, 0)
-
-[node name="arm-right" parent="Character-old/character/root/torso" index="1"]
-transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, -0.3, 0.1195, 0)
-
-[node name="antenna" parent="Character-old/character/root/torso" index="2"]
-transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0.6, 0)
-
 [node name="Shadow" type="Decal" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
 size = Vector3(1, 2, 1)
@@ -84,7 +66,7 @@ scale_amount_min = 0.75
 scale_amount_curve = SubResource("Curve_xh1e2")
 
 [node name="ParticlesHearts" type="CPUParticles3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.440624, 0.216467)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.440624, 0.170703)
 emitting = false
 lifetime = 1.83
 speed_scale = 0.5
@@ -92,7 +74,7 @@ randomness = 0.5
 lifetime_randomness = 0.5
 mesh = ExtResource("9_4vq5b")
 emission_shape = 1
-emission_sphere_radius = 0.3
+emission_sphere_radius = 0.25
 particle_flag_align_y = true
 direction = Vector3(0, 1, 0)
 spread = 104.51

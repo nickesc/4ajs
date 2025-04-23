@@ -85,7 +85,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1, -2)
 
 [node name="flag" parent="World" node_paths=PackedStringArray("player") instance=ExtResource("13_3ctwm")]
 transform = Transform3D(0.705711, 0, -0.7085, 0, 1, 0, 0.7085, 0, 0.705711, 0.0326405, 3.5, -6.04442)
-transition_to = "uid://cp8unablbekso"
+transition_to = "uid://biqvbf15aow1f"
 player = NodePath("../../Player")
 
 [node name="coin" parent="World" instance=ExtResource("10_fwhys")]
