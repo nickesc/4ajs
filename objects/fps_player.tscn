@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dl2ed4gkybgg2"]
+[gd_scene load_steps=18 format=3 uid="uid://dl2ed4gkybgg2"]
 
 [ext_resource type="Script" uid="uid://rb3oig3hnpnj" path="res://scripts/fps_player.gd" id="1_ffboj"]
 [ext_resource type="Resource" uid="uid://cu2gtxlcmbb34" path="res://weapons/blaster-repeater.tres" id="2_6epbw"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c0e27836xgmhi" path="res://objects/character.tscn" id="8_bv10t"]
 [ext_resource type="ArrayMesh" uid="uid://deu06eho4c74" path="res://meshes/dust.res" id="9_ehlg1"]
 [ext_resource type="AudioStream" uid="uid://e532kioqwfvt" path="res://sounds/walking_fps.ogg" id="10_ehlg1"]
+[ext_resource type="ArrayMesh" uid="uid://ddhnkmaoy3tmm" path="res://models/particles/heart.tres" id="12_7s401"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_63ccy"]
 radius = 0.164129
@@ -43,7 +44,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.364, 0)
 shape = SubResource("CapsuleShape3D_63ccy")
 
 [node name="Head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.469532, -0.192934)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.469532, -0.101328)
 
 [node name="Camera" type="Camera3D" parent="Head"]
 cull_mask = 1048569
@@ -98,21 +99,6 @@ visible = false
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 visible = false
 
-[node name="leg-left" parent="Character-old/character/root" index="0"]
-transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 0.125, 0.17625, -0.02375)
-
-[node name="leg-right" parent="Character-old/character/root" index="1"]
-transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -0.125, 0.17625, -0.02375)
-
-[node name="torso" parent="Character-old/character/root" index="2"]
-transform = Transform3D(1, 0, 0, 0, 0.996194, 0.0871557, 0, -0.0871557, 0.996194, -1.80478e-15, 0.17625, -0.02375)
-
-[node name="arm-left" parent="Character-old/character/root/torso" index="0"]
-transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, 0.3, 0.175, 0)
-
-[node name="arm-right" parent="Character-old/character/root/torso" index="1"]
-transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, -0.3, 0.1195, 0)
-
 [node name="Shadow" type="Decal" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
 size = Vector3(1, 2, 1)
@@ -132,6 +118,21 @@ direction = Vector3(0, 0, 0)
 gravity = Vector3(0, 0.1, 0)
 scale_amount_min = 0.75
 scale_amount_curve = SubResource("Curve_4lapl")
+
+[node name="ParticlesDamage" type="CPUParticles3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.700653, 0.0798855)
+emitting = false
+amount = 3
+lifetime = 0.35
+one_shot = true
+mesh = ExtResource("12_7s401")
+emission_shape = 3
+emission_box_extents = Vector3(0.25, 0.01, 0.1)
+direction = Vector3(0, 1, 0)
+spread = 98.47
+gravity = Vector3(0, 2, 0)
+scale_amount_min = 0.03
+scale_amount_max = 0.05
 
 [node name="SoundFootsteps" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)

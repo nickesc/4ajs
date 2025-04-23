@@ -1,12 +1,16 @@
 extends CharacterBody3D
 
 signal coin_collected
+signal killed_by_damage(is_player_2: bool)
 
 @export_subgroup("Properties")
 @export var movement_speed = 5
 @export var jump_strength = 8
 @export var player_2 = false
 @export var root_node: Node
+@export var rotation_target: Vector3 = Vector3(0,-1,0)
+@export_enum("idle", "holding-right", "static") var regular_animation: String = "idle"
+@export var spawn_points: Array[Node3D]
 
 @export_subgroup("Weapons")
 @export var weapons: Array[Weapon] = []
@@ -20,13 +24,15 @@ var gamepad_sensitivity := 0.075
 var mouse_captured := true
 
 var movement_velocity: Vector3
-var rotation_target: Vector3
+
 
 var input_mouse: Vector2
 
 var health:int = 100
 var coins: int = 0
 var gravity := 0.0
+
+var score: int = 0
 
 var previously_floored := false
 
@@ -47,7 +53,8 @@ signal health_updated
 @onready var blaster_cooldown = $Cooldown
 @onready var model = $AJ
 @onready var animation = $AJ/AnimationPlayer
-@onready var particles_trail = $ParticlesTrail
+@onready var particles_trail: CPUParticles3D = $ParticlesTrail
+@onready var particles_damage: CPUParticles3D = $ParticlesDamage
 
 @export var crosshair:TextureRect
 
@@ -136,6 +143,7 @@ func _physics_process(delta):
     # Falling/respawning
 
     if position.y < -10:
+        remove_kill()
         kill()
 
 # Mouse movement
@@ -149,6 +157,7 @@ func _input(event):
 
             rotation_target.y -= event.relative.x / mouse_sensitivity
             rotation_target.x -= event.relative.y / mouse_sensitivity
+            #print(rotation_target)
 
 func handle_controls(_delta):
 
@@ -251,8 +260,8 @@ func handle_effects(delta):
             if speed_factor > 0.75:
                 particles_trail.emitting = true
 
-        elif animation.current_animation != "idle":
-            animation.play("idle", 0.1)
+        elif animation.current_animation != regular_animation:
+            animation.play(regular_animation, 0.1)
     elif animation.current_animation != "jump":
         animation.play("jump", 0.1)
 
@@ -415,16 +424,40 @@ func damage(amount):
 
     health -= amount
     health_updated.emit(health) # Update health on HUD
+    
+    particles_damage.emitting = true
+    #particles_damage.mesh.text = "%d" % amount
 
     if health <= 0:
+        killed_by_damage.emit(player_2)
         kill() # Reset when out of health
 
-func kill():
-    position = og_position
-    rotation = og_rotation
+func respawn():
+    var respawn_position: Vector3 = og_position
+    var respawn_rotation: Vector3 = og_rotation
+    
+    if spawn_points:
+        var respawn_point = spawn_points.pick_random()
+        
+        while not respawn_point.is_available(player_2):
+            respawn_point = spawn_points.pick_random()
+        respawn_position = respawn_point.get_global_position()
+        respawn_rotation = respawn_point.get_global_rotation()
+    
+    position = respawn_position
+    rotation = respawn_rotation
+    
     health = 100
     health_updated.emit(health)
 
+func kill():
+    respawn()
+
+func add_kill():
+    score += 1
+
+func remove_kill():
+    score -= 1
 
 func collect_coin():
 

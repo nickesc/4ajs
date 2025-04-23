@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://biqvbf15aow1f"]
+[gd_scene load_steps=20 format=3 uid="uid://biqvbf15aow1f"]
 
+[ext_resource type="Script" uid="uid://ykulnhi7ev2a" path="res://scripts/score_hud.gd" id="1_a6map"]
 [ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="1_oksiu"]
 [ext_resource type="Script" uid="uid://dkbmefpfu2a4y" path="res://scripts/v_box_container_input_passthrough.gd" id="1_sgilr"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybgg2" path="res://objects/fps_player.tscn" id="1_xpi2j"]
@@ -7,12 +8,19 @@
 [ext_resource type="PackedScene" uid="uid://rjh4ifidqrfp" path="res://objects/platform_medium.tscn" id="5_r863s"]
 [ext_resource type="PackedScene" uid="uid://c8up71en5djgm" path="res://objects/platform_falling.tscn" id="6_1kggl"]
 [ext_resource type="PackedScene" uid="uid://uqr4hswv6d2g" path="res://objects/platform_grass_large_round.tscn" id="7_e6bvh"]
+[ext_resource type="Script" uid="uid://bh0s3u5xokpo4" path="res://scripts/spawn_point.gd" id="7_pw7qi"]
 [ext_resource type="PackedScene" uid="uid://84rx62v6cb2y" path="res://objects/flag.tscn" id="8_o0832"]
 [ext_resource type="PackedScene" uid="uid://dfpisimsgf5ce" path="res://objects/platformer/coin.tscn" id="9_3ty3t"]
 [ext_resource type="PackedScene" uid="uid://dy017k58p20sk" path="res://objects/cloud.tscn" id="10_e4ksv"]
 [ext_resource type="Script" uid="uid://cp1ic67oqpvir" path="res://scripts/hud.gd" id="11_aqt6k"]
 [ext_resource type="Texture2D" uid="uid://cd7oyc56ehkx1" path="res://sprites/coin.png" id="12_vpaey"]
 [ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="13_twobp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_v8ptp"]
+font = ExtResource("13_twobp")
+font_size = 48
+shadow_color = Color(0, 0, 0, 0.376471)
+shadow_offset = Vector2(2, 2)
 
 [sub_resource type="LabelSettings" id="LabelSettings_38ys3"]
 font = ExtResource("13_twobp")
@@ -26,7 +34,58 @@ font_size = 36
 outline_size = 12
 outline_color = Color(0, 0, 0, 0.470588)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_pw7qi"]
+
 [node name="Main" type="Node3D"]
+
+[node name="ScoreHUD" type="CanvasLayer" parent="." node_paths=PackedStringArray("player", "player_2")]
+script = ExtResource("1_a6map")
+player = NodePath("../VBoxContainer/SubViewportContainer/SubViewport/FPSPlayer")
+player_2 = NodePath("../VBoxContainer/SubViewportContainer2/SubViewport/FPSPlayer 2")
+
+[node name="ScoreContainer" type="HBoxContainer" parent="ScoreHUD"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -103.0
+offset_top = 12.0
+offset_right = 103.0
+offset_bottom = 68.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="PlayerScore" type="Label" parent="ScoreHUD/ScoreContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_v8ptp")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Separator" type="Control" parent="ScoreHUD/ScoreContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="GameTimerLabel" type="Label" parent="ScoreHUD/ScoreContainer"]
+layout_mode = 2
+text = "00:00"
+label_settings = SubResource("LabelSettings_v8ptp")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="GameTimer" type="Timer" parent="ScoreHUD/ScoreContainer/GameTimerLabel"]
+wait_time = 180.0
+autostart = true
+
+[node name="Separator2" type="Control" parent="ScoreHUD/ScoreContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="Player2Score" type="Label" parent="ScoreHUD/ScoreContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_v8ptp")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." node_paths=PackedStringArray("player_1")]
 anchors_preset = 15
@@ -53,9 +112,11 @@ audio_listener_enable_3d = true
 size = Vector2i(1920, 540)
 render_target_update_mode = 4
 
-[node name="FPSPlayer" parent="VBoxContainer/SubViewportContainer/SubViewport" node_paths=PackedStringArray("root_node", "crosshair") instance=ExtResource("1_xpi2j")]
+[node name="FPSPlayer" parent="VBoxContainer/SubViewportContainer/SubViewport" node_paths=PackedStringArray("root_node", "spawn_points", "crosshair") instance=ExtResource("1_xpi2j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.165161, 0.45, -0.00104237)
 root_node = NodePath("..")
+rotation_target = Vector3(0, 1.174, 0)
+spawn_points = [NodePath("../SpawnPoints/Node3D"), NodePath("../SpawnPoints/Node3D2"), NodePath("../SpawnPoints/Node3D3"), NodePath("../SpawnPoints/Node3D4")]
 crosshair = NodePath("../HUD/Crosshair")
 
 [node name="HUD" type="CanvasLayer" parent="VBoxContainer/SubViewportContainer/SubViewport"]
@@ -121,6 +182,48 @@ environment = ExtResource("1_oksiu")
 transform = Transform3D(-0.422618, -0.694272, 0.582564, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 0, 0, 0)
 shadow_enabled = true
 shadow_opacity = 0.75
+
+[node name="SpawnPoints" type="Node3D" parent="VBoxContainer/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8586, 1.54194, 0.544944)
+
+[node name="Node3D" type="Area3D" parent="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8586, -1.04194, -0.544944)
+collision_layer = 0
+script = ExtResource("7_pw7qi")
+player_2_allowed = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.501083, 0)
+shape = SubResource("BoxShape3D_pw7qi")
+
+[node name="Node3D2" type="Area3D" parent="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.558842, -0.0510831, -0.544944)
+collision_layer = 0
+script = ExtResource("7_pw7qi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.501083, 0)
+shape = SubResource("BoxShape3D_pw7qi")
+
+[node name="Node3D3" type="Area3D" parent="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2743, -0.993024, 4.39598)
+collision_layer = 0
+script = ExtResource("7_pw7qi")
+player_2_allowed = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.501083, 0)
+shape = SubResource("BoxShape3D_pw7qi")
+
+[node name="Node3D4" type="Area3D" parent="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.93191, -0.0430242, -3.49398)
+collision_layer = 0
+script = ExtResource("7_pw7qi")
+player_allowed = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.501083, 0)
+shape = SubResource("BoxShape3D_pw7qi")
 
 [node name="World" type="Node3D" parent="VBoxContainer/SubViewportContainer/SubViewport"]
 
@@ -226,10 +329,12 @@ audio_listener_enable_3d = true
 size = Vector2i(1920, 540)
 render_target_update_mode = 4
 
-[node name="FPSPlayer 2" parent="VBoxContainer/SubViewportContainer2/SubViewport" node_paths=PackedStringArray("root_node", "crosshair") instance=ExtResource("1_xpi2j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.37727, 1.45, -1.69694)
+[node name="FPSPlayer 2" parent="VBoxContainer/SubViewportContainer2/SubViewport" node_paths=PackedStringArray("root_node", "spawn_points", "crosshair") instance=ExtResource("1_xpi2j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.28399, 1.45, -1.69694)
 player_2 = true
 root_node = NodePath("..")
+rotation_target = Vector3(0, 10.956, 0)
+spawn_points = [NodePath("../../../SubViewportContainer/SubViewport/SpawnPoints/Node3D"), NodePath("../../../SubViewportContainer/SubViewport/SpawnPoints/Node3D2"), NodePath("../../../SubViewportContainer/SubViewport/SpawnPoints/Node3D3"), NodePath("../../../SubViewportContainer/SubViewport/SpawnPoints/Node3D4")]
 crosshair = NodePath("../HUD/Crosshair")
 
 [node name="HUD" type="CanvasLayer" parent="VBoxContainer/SubViewportContainer2/SubViewport"]
@@ -290,5 +395,15 @@ vertical_alignment = 2
 
 [connection signal="coin_collected" from="VBoxContainer/SubViewportContainer/SubViewport/FPSPlayer" to="VBoxContainer/SubViewportContainer/SubViewport/HUD" method="_on_coin_collected"]
 [connection signal="health_updated" from="VBoxContainer/SubViewportContainer/SubViewport/FPSPlayer" to="VBoxContainer/SubViewportContainer/SubViewport/HUD" method="_on_health_updated"]
+[connection signal="killed_by_damage" from="VBoxContainer/SubViewportContainer/SubViewport/FPSPlayer" to="ScoreHUD" method="_on_killed_by_damage"]
+[connection signal="body_entered" from="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D" to="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D" method="_on_body_entered"]
+[connection signal="body_exited" from="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D" to="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D" method="_on_body_exited"]
+[connection signal="body_entered" from="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D2" to="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D2" method="_on_body_entered"]
+[connection signal="body_exited" from="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D2" to="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D2" method="_on_body_exited"]
+[connection signal="body_entered" from="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D3" to="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D3" method="_on_body_entered"]
+[connection signal="body_exited" from="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D3" to="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D3" method="_on_body_exited"]
+[connection signal="body_entered" from="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D4" to="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D4" method="_on_body_entered"]
+[connection signal="body_exited" from="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D4" to="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D4" method="_on_body_exited"]
 [connection signal="coin_collected" from="VBoxContainer/SubViewportContainer2/SubViewport/FPSPlayer 2" to="VBoxContainer/SubViewportContainer2/SubViewport/HUD" method="_on_coin_collected"]
 [connection signal="health_updated" from="VBoxContainer/SubViewportContainer2/SubViewport/FPSPlayer 2" to="VBoxContainer/SubViewportContainer2/SubViewport/HUD" method="_on_health_updated"]
+[connection signal="killed_by_damage" from="VBoxContainer/SubViewportContainer2/SubViewport/FPSPlayer 2" to="ScoreHUD" method="_on_killed_by_damage"]
