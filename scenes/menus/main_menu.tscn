@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://cqmves5lu370k"]
+
+[ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="1_2o76q"]
+[ext_resource type="Script" uid="uid://bk0i6gcxalt3w" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_ng0o5"]
+[ext_resource type="PackedScene" uid="uid://uqr4hswv6d2g" path="res://objects/platform_grass_large_round.tscn" id="2_6bivr"]
+[ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="3_2o76q"]
+[ext_resource type="Script" uid="uid://bc0qlk1bpglin" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_8r73w"]
+[ext_resource type="Script" uid="uid://ck8a6v2jj7rhj" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_1hnlc"]
+
+[sub_resource type="Resource" id="Resource_50h1w"]
+script = ExtResource("4_1hnlc")
+duration = 1.0
+transition = 0
+ease = 2
+
+[node name="MainMenu" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.965955, 0.00742669, 0.258604, 0, 0.999588, -0.0287066, -0.25871, 0.0277293, 0.965557, 0.120942, 0.575569, 4.18529)
+fov = 93.6
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("1_ng0o5")
+metadata/_custom_type_script = "uid://bk0i6gcxalt3w"
+
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_2o76q")
+
+[node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("look_at_target")]
+transform = Transform3D(0.965955, 0.00742669, 0.258604, 0, 0.999588, -0.0287066, -0.25871, 0.0277293, 0.965557, 0.120942, 0.575569, 4.18529)
+script = ExtResource("3_8r73w")
+look_at_mode = 2
+look_at_target = NodePath("../World")
+tween_resource = SubResource("Resource_50h1w")
+look_at_offset = Vector3(-1, 0.7, 0)
+metadata/_custom_type_script = "uid://bc0qlk1bpglin"
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="platform-grass-large-round" parent="World" instance=ExtResource("2_6bivr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.653058, 0)
+
+[node name="Player" parent="World" instance=ExtResource("3_2o76q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.68468, -0.190555, 1.42584)
+unlock_x = false
+unlock_z = false
+unlock_jump = false
+
+[node name="Player2" parent="World" instance=ExtResource("3_2o76q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.147829, -0.190555, 1.35119)
+unlock_x = false
+unlock_z = false
+unlock_jump = false
+player_2 = true
