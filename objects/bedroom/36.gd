@@ -99,7 +99,8 @@ func _on_Area3D_body_exited(body, tearawayString):
                 pass
                 
             "Elevator":
-                turnOpaque(ElevatorTearaway)
+                #turnOpaque(ElevatorTearaway)
+                pass
         emit_signal("exit_"+tearawayString.to_lower())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

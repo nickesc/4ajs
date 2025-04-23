@@ -25,7 +25,10 @@ var jump_double = true
 var coins = 0
 var initial_position: Vector3
 
+var testing_emit_hearts: bool = false
+
 @onready var particles_trail = $ParticlesTrail
+@onready var particles_hearts: CPUParticles3D = $ParticlesHearts
 @onready var sound_footsteps = $SoundFootsteps
 @onready var model = $AJ
 @onready var animation = $AJ/AnimationPlayer
@@ -194,3 +197,29 @@ func collect_coin():
 
 func set_view(newView: Node3D):
     view = newView
+
+
+
+func start_emitting_hearts():
+    particles_hearts.emitting = true
+    
+func stop_emitting_hearts():
+    particles_hearts.emitting = false
+
+
+func _on_hearts_entered(area: Node3D) -> void:
+    if area.is_in_group("kissable") and not player_2:
+        testing_emit_hearts = true
+        $ParticlesHearts/HeartsTimer.start(1)
+        
+
+
+func _on_hearts_exited(area: Node3D) -> void:
+    if area.is_in_group("kissable") and not player_2:
+        testing_emit_hearts = false
+        stop_emitting_hearts()
+
+
+func _on_heart_timer_timeout() -> void:
+    if testing_emit_hearts:
+        start_emitting_hearts()

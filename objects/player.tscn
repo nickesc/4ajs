@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dl2ed4gkybggf"]
+[gd_scene load_steps=13 format=3 uid="uid://dl2ed4gkybggf"]
 
 [ext_resource type="Script" uid="uid://wabr558rc0f4" path="res://scripts/player.gd" id="1_ffboj"]
 [ext_resource type="PackedScene" uid="uid://d2p5ed7ppa0e1" path="res://objects/characters/aj.tscn" id="2_3rerk"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c04i4gy4k8q6p" path="res://objects/characters/ne.tscn" id="3_i825w"]
 [ext_resource type="ArrayMesh" uid="uid://deu06eho4c74" path="res://meshes/dust.res" id="4_mvhqy"]
 [ext_resource type="AudioStream" uid="uid://cydjn1ct3hps2" path="res://sounds/walking.ogg" id="5_ics1s"]
+[ext_resource type="ArrayMesh" uid="uid://ddhnkmaoy3tmm" path="res://models/particles/heart.tres" id="9_4vq5b"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gdq8c"]
 radius = 0.164129
@@ -24,6 +25,9 @@ proximity_fade_distance = 0.25
 [sub_resource type="Curve" id="Curve_xh1e2"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.249284, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3nfmf"]
+radius = 0.1
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -79,10 +83,39 @@ gravity = Vector3(0, 0.1, 0)
 scale_amount_min = 0.75
 scale_amount_curve = SubResource("Curve_xh1e2")
 
+[node name="ParticlesHearts" type="CPUParticles3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.440624, 0.216467)
+emitting = false
+lifetime = 1.83
+speed_scale = 0.5
+randomness = 0.5
+lifetime_randomness = 0.5
+mesh = ExtResource("9_4vq5b")
+emission_shape = 1
+emission_sphere_radius = 0.3
+particle_flag_align_y = true
+direction = Vector3(0, 1, 0)
+spread = 104.51
+gravity = Vector3(0, 1, 0)
+scale_amount_min = 0.03
+scale_amount_max = 0.09
+
+[node name="HeartsTimer" type="Timer" parent="ParticlesHearts"]
+
 [node name="SoundFootsteps" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_ics1s")
 volume_db = -5.0
 pitch_scale = 1.25
 autoplay = true
+
+[node name="HeartArea3D" type="Area3D" parent="." groups=["kissable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.393471, 0.155828)
+
+[node name="HeartCollider" type="CollisionShape3D" parent="HeartArea3D" groups=["kissable"]]
+shape = SubResource("SphereShape3D_3nfmf")
+
+[connection signal="timeout" from="ParticlesHearts/HeartsTimer" to="." method="_on_heart_timer_timeout"]
+[connection signal="area_entered" from="HeartArea3D" to="." method="_on_hearts_entered"]
+[connection signal="area_exited" from="HeartArea3D" to="." method="_on_hearts_exited"]
 
 [editable path="Character-old"]

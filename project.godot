@@ -46,6 +46,7 @@ import/blender/enabled=false
 
 Player=""
 P2=""
+kissable=""
 
 [input]
 
