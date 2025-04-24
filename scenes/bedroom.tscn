@@ -177,6 +177,8 @@ transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 0, 0, 33.6236)
 transition_to = "uid://b1shq5pt8lykb"
 one_player_mode = true
 
+[node name="ElevatorTimer" type="Timer" parent="World/36"]
+
 [node name="cabinetBedDrawer" parent="World" instance=ExtResource("10_8t8s3")]
 transform = Transform3D(-1.09278e-07, 0, -2.5, 0, 2.5, 0, 2.5, 0, -1.09278e-07, 3.45296, 1.3411e-07, 32.5005)
 
@@ -376,5 +378,6 @@ transform = Transform3D(-1.18851e-07, -2.2, 0, 2.719, -9.61651e-08, 0, 0, 0, 2.2
 [connection signal="enter_hallway" from="World/36" to="CameraController" method="_on_enter_room" binds= ["Hallway"]]
 [connection signal="enter_p2" from="World/36" to="CameraController" method="_on_enter_room" binds= ["P2"]]
 [connection signal="exit_bathroom" from="World/36" to="CameraController" method="_on_enter_room" binds= ["Family"]]
+[connection signal="timeout" from="World/36/ElevatorTimer" to="World/36" method="move_elevator"]
 [connection signal="body_entered" from="doorbell" to="doorbell" method="_on_body_entered"]
 [connection signal="body_exited" from="doorbell" to="doorbell" method="_on_body_exited"]

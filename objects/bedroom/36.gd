@@ -7,6 +7,8 @@ extends Node3D
 @export var P2Tearaway: Node3D
 @export var ElevatorTearaway: Node3D
 
+@onready var elevator_timer: Timer = $ElevatorTimer
+
 @export_file('*.tscn') var transition_to: String
 
 @export var one_player_mode = false
@@ -99,16 +101,23 @@ func _on_Area3D_body_exited(body, tearawayString):
                 pass
                 
             "Elevator":
-                #turnOpaque(ElevatorTearaway)
-                pass
+                left_elevator()
         emit_signal("exit_"+tearawayString.to_lower())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
     pass
     
-    
+var swapping: bool = false
 func swap_scenes():
     print("Elevator reached. Transition incoming.")
-    var next_scene = load(transition_to)
-    get_tree().change_scene_to_packed(next_scene)
+    swapping = true
+    elevator_timer.start(2)
+
+func left_elevator():
+    swapping = false
+
+func move_elevator():
+    if swapping:
+        var next_scene = load(transition_to)
+        get_tree().change_scene_to_packed(next_scene)

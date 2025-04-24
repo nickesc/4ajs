@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddpj6cisi2u2g"]
+
+[ext_resource type="PackedScene" uid="uid://cwl7phuha3vg1" path="res://models/characters/character-female-f.glb" id="1_idyun"]
+[ext_resource type="Script" uid="uid://j5qj1gd6west" path="res://scripts/aj_sitting.gd" id="2_dim64"]
+
+[node name="AJ" instance=ExtResource("1_idyun")]
+script = ExtResource("2_dim64")
+
+[node name="Skeleton3D" parent="character-female-f" index="0"]
+bones/0/position = Vector3(0, -0.15, 0)
+bones/1/rotation = Quaternion(-0.608761, 0, 0, 0.793353)
+bones/2/rotation = Quaternion(-0.608761, 0, 0, 0.793353)
+bones/4/rotation = Quaternion(0, 0, -0.382683, 0.92388)
+bones/5/rotation = Quaternion(0, 0, 0.382683, 0.92388)
+
+[node name="body-mesh" parent="character-female-f/Skeleton3D" index="0"]
+layers = 4
+
+[node name="head-mesh" parent="character-female-f/Skeleton3D" index="1"]
+layers = 4
+
+[node name="AnimationPlayer" parent="." index="1"]
+reset_on_save = false

@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bi2ljde3os7o5"
+uid="uid://bs06pok5qp47v"
 path="res://.godot/imported/tree.glb-ae6327b8edf18f35a4bcedfb9614716a.scn"
 
 [deps]
@@ -32,15 +32,6 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"nodes": {
-"PATH:tree": {
-"generate/physics": true
-},
-"PATH:tree/Group": {
-"generate/physics": true
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

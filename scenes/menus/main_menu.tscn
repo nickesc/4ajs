@@ -1,13 +1,24 @@
-[gd_scene load_steps=10 format=3 uid="uid://cqmves5lu370k"]
+[gd_scene load_steps=16 format=3 uid="uid://cqmves5lu370k"]
 
 [ext_resource type="Script" uid="uid://bk0i6gcxalt3w" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_ng0o5"]
 [ext_resource type="Environment" uid="uid://bfq7dy3hvuv7r" path="res://scenes/menu-environment.tres" id="2_1hnlc"]
-[ext_resource type="PackedScene" uid="uid://uqr4hswv6d2g" path="res://objects/platform_grass_large_round.tscn" id="2_6bivr"]
+[ext_resource type="Script" uid="uid://cev68yrqenliq" path="res://scripts/menu_ui.gd" id="2_uxao6"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="3_2o76q"]
 [ext_resource type="Script" uid="uid://bc0qlk1bpglin" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_8r73w"]
+[ext_resource type="StyleBox" uid="uid://dccunsuv5okc5" path="res://themes/green_button_normal.tres" id="3_bre17"]
 [ext_resource type="Script" uid="uid://ck8a6v2jj7rhj" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_1hnlc"]
-[ext_resource type="PackedScene" uid="uid://bi2ljde3os7o5" path="res://models/platformer/tree.glb" id="7_1hnlc"]
+[ext_resource type="StyleBox" uid="uid://dbdlcxl1fm303" path="res://themes/green_button_pressed.tres" id="4_88kup"]
+[ext_resource type="StyleBox" uid="uid://dtk5e74jj0jn0" path="res://themes/red_button_normal.tres" id="5_bh4e2"]
+[ext_resource type="StyleBox" uid="uid://b4sf8lpl5lkb" path="res://themes/red_button_pressed.tres" id="6_3w8rc"]
 [ext_resource type="PackedScene" uid="uid://dy017k58p20sk" path="res://objects/cloud.tscn" id="8_50h1w"]
+[ext_resource type="Theme" uid="uid://wvbnk4qn4yfe" path="res://themes/ui_theme.tres" id="9_50h1w"]
+[ext_resource type="PackedScene" uid="uid://c362i70qeiha3" path="res://objects/menu_platter.tscn" id="13_bh4e2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3w8rc"]
+font_size = 250
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.666667)
+shadow_offset = Vector2(4, 4)
 
 [sub_resource type="Resource" id="Resource_50h1w"]
 script = ExtResource("4_1hnlc")
@@ -17,8 +28,71 @@ ease = 2
 
 [node name="MainMenu" type="Node3D"]
 
+[node name="Menu" type="CanvasLayer" parent="."]
+
+[node name="MenuUIContainer" type="VBoxContainer" parent="Menu"]
+custom_minimum_size = Vector2(400, 0)
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 475.0
+offset_top = -473.0
+offset_right = 1373.0
+offset_bottom = 501.0
+grow_vertical = 2
+script = ExtResource("2_uxao6")
+
+[node name="Label" type="Label" parent="Menu/MenuUIContainer"]
+layout_mode = 2
+theme = ExtResource("9_50h1w")
+text = "Arielle's
+Big Day"
+label_settings = SubResource("LabelSettings_3w8rc")
+horizontal_alignment = 1
+
+[node name="Logo" type="TextureRect" parent="Menu/MenuUIContainer"]
+layout_mode = 2
+
+[node name="Separator" type="Control" parent="Menu/MenuUIContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Start" type="Button" parent="Menu/MenuUIContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Quit")
+focus_neighbor_bottom = NodePath("../Quit")
+focus_next = NodePath("../Quit")
+focus_previous = NodePath("../Quit")
+mouse_default_cursor_shape = 2
+theme = ExtResource("9_50h1w")
+theme_override_colors/font_color = Color(0.0459, 0.40171, 0.51, 1)
+theme_override_styles/hover = ExtResource("3_bre17")
+theme_override_styles/pressed = ExtResource("4_88kup")
+theme_override_styles/normal = ExtResource("3_bre17")
+text = "Start Day"
+
+[node name="Separator2" type="Control" parent="Menu/MenuUIContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="Quit" type="Button" parent="Menu/MenuUIContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Start")
+focus_neighbor_bottom = NodePath("../Start")
+focus_next = NodePath("../Start")
+focus_previous = NodePath("../Start")
+mouse_default_cursor_shape = 2
+theme = ExtResource("9_50h1w")
+theme_override_colors/font_color = Color(0.5, 0, 0.166667, 1)
+theme_override_styles/hover = ExtResource("5_bh4e2")
+theme_override_styles/pressed = ExtResource("6_3w8rc")
+theme_override_styles/normal = ExtResource("5_bh4e2")
+text = "Quit"
+
+[node name="StartDelay" type="Timer" parent="Menu/MenuUIContainer"]
+
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.971975, -0.00758261, -0.234963, -2.32831e-10, 0.99948, -0.0322547, 0.235085, 0.0313508, 0.971469, -1.90643, 0.575569, 3.74769)
+transform = Transform3D(0.984772, 0.024526, -0.172112, 9.31323e-10, 0.989999, 0.141075, 0.173851, -0.138927, 0.974923, -1.90643, 0.575569, 3.74769)
 fov = 93.6
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
@@ -31,60 +105,56 @@ metadata/_custom_type_script = "uid://bk0i6gcxalt3w"
 environment = ExtResource("2_1hnlc")
 
 [node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("look_at_target")]
-transform = Transform3D(0.971975, -0.00758261, -0.234963, -2.32831e-10, 0.99948, -0.0322548, 0.235085, 0.0313508, 0.971469, -1.90643, 0.575569, 3.74769)
+transform = Transform3D(0.984772, 0.024526, -0.172112, 9.31323e-10, 0.989999, 0.141075, 0.173851, -0.138927, 0.974923, -1.90643, 0.575569, 3.74769)
 script = ExtResource("3_8r73w")
 look_at_mode = 2
-look_at_target = NodePath("../World")
+look_at_target = NodePath("../Platter")
 tween_resource = SubResource("Resource_50h1w")
 look_at_offset = Vector3(-1, 0.7, 0)
 metadata/_custom_type_script = "uid://bc0qlk1bpglin"
 
-[node name="World" type="Node3D" parent="."]
-
-[node name="Player" parent="World" node_paths=PackedStringArray("view") instance=ExtResource("3_2o76q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0776706, -0.190555, 0.957328)
-view = NodePath("../../PhantomCamera3D")
-unlock_x = false
-unlock_z = false
-unlock_jump = false
-regular_animation = "sit"
-
-[node name="Player2" parent="World" instance=ExtResource("3_2o76q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.147829, -0.190555, 1.35119)
+[node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("3_2o76q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.151874, 0.658237, -0.18496)
 visible = false
+view = NodePath("../PhantomCamera3D")
 unlock_x = false
 unlock_z = false
 unlock_jump = false
-player_2 = true
+regular_animation = "attack-kick-left"
 
-[node name="platform-grass-large-round" parent="World" instance=ExtResource("2_6bivr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.653058, 0)
+[node name="Clouds" type="Node3D" parent="."]
+transform = Transform3D(0.957817, 0, -0.287377, 0, 1, 0, 0.287377, 0, 0.957817, -2.6141, -0.704889, -1.01348)
 
-[node name="tree2" parent="World" instance=ExtResource("7_1hnlc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.574648, -0.153058, -0.053082)
+[node name="cube8" parent="Clouds" instance=ExtResource("8_50h1w")]
+transform = Transform3D(0.957817, 0, 0.287377, 0, 1, 0, -0.287377, 0, 0.957817, 1.21236, 6.03784, -9.11692)
 
-[node name="cube8" parent="World" instance=ExtResource("8_50h1w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.54877, 1.10741, -1.68263)
+[node name="cube9" parent="Clouds" instance=ExtResource("8_50h1w")]
+transform = Transform3D(1.12333, -0.297547, 0.786103, 0.471408, 1.30937, -0.178025, -0.695895, 0.406672, 1.14835, 4.33222, 6.30189, -7.93754)
 
-[node name="cube9" parent="World" instance=ExtResource("8_50h1w")]
-transform = Transform3D(1.27593, -0.401864, 0.422933, 0.471408, 1.30937, -0.178025, -0.343721, 0.304009, 1.32582, 6.33465, 1.37146, -3.20983)
+[node name="cube15" parent="Clouds" instance=ExtResource("8_50h1w")]
+transform = Transform3D(0.476646, 0.924607, 0.941422, -0.929853, 0.945559, -0.457882, -0.93624, -0.468385, 0.934041, 20.4717, 2.03819, -14.5758)
 
-[node name="cube10" parent="World" instance=ExtResource("8_50h1w")]
-transform = Transform3D(1.32811, 0.370441, 0.259369, -0.293866, 1.3186, -0.37854, -0.34372, 0.30401, 1.32582, -4.8389, 2.03819, -4.13472)
+[node name="cube16" parent="Clouds" instance=ExtResource("8_50h1w")]
+transform = Transform3D(-1.02876, -0.695523, 0.652885, -0.929853, 0.945557, -0.457881, -0.213027, -0.768461, -1.15432, 20.7374, 2.79508, -12.342)
 
-[node name="cube11" parent="World" instance=ExtResource("8_50h1w")]
-transform = Transform3D(0.476646, 0.924607, 0.941422, -0.929853, 0.945559, -0.457882, -0.93624, -0.468385, 0.934042, 1.56948, 2.03819, -8.43577)
+[node name="cube17" parent="Clouds" instance=ExtResource("8_50h1w")]
+transform = Transform3D(1.56209, -1.37982, 1.71508, 1.97375, 1.80907, -0.342241, -0.974547, 1.4522, 2.05595, 15.7872, 2.03819, -16.02)
 
-[node name="cube12" parent="World" instance=ExtResource("8_50h1w")]
-transform = Transform3D(-1.02876, -0.695523, 0.652886, -0.929853, 0.945557, -0.457881, -0.213027, -0.768461, -1.15432, 1.83518, 2.79508, -6.20197)
+[node name="cube10" parent="Clouds" instance=ExtResource("8_50h1w")]
+transform = Transform3D(1.32811, 0.370441, 0.259369, -0.293866, 1.3186, -0.37854, -0.34372, 0.30401, 1.32582, -5.42032, 4.17115, -8.6827)
 
-[node name="cube13" parent="World" instance=ExtResource("8_50h1w")]
-transform = Transform3D(1.56209, -1.37982, 1.71508, 1.97375, 1.80907, -0.342241, -0.974547, 1.4522, 2.05595, -8.5682, 2.03819, -4.43956)
-
-[node name="cube14" parent="World" instance=ExtResource("8_50h1w")]
-transform = Transform3D(1.56209, -1.37982, 1.71508, 1.97375, 1.80907, -0.342241, -0.974547, 1.4522, 2.05595, -3.11502, 2.03819, -9.87995)
+[node name="cube13" parent="Clouds" instance=ExtResource("8_50h1w")]
+transform = Transform3D(1.56209, -1.37982, 1.71508, 1.97375, 1.80907, -0.342241, -0.974547, 1.4522, 2.05595, -3.74817, 4.17115, -13.001)
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.422618, -0.694272, 0.582563, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 0, 0, 0)
 shadow_enabled = true
 shadow_opacity = 0.75
+
+[node name="Platter" parent="." instance=ExtResource("13_bh4e2")]
+transform = Transform3D(-0.999255, 0, 0.0385796, 0, 1, 0, -0.0385796, 0, -0.999255, -0.222378, -0.685129, -0.127106)
+rotation_speed = 0.02
+
+[connection signal="pressed" from="Menu/MenuUIContainer/Start" to="Menu/MenuUIContainer" method="_on_start_pressed"]
+[connection signal="pressed" from="Menu/MenuUIContainer/Quit" to="Menu/MenuUIContainer" method="_on_quit_pressed"]
+[connection signal="timeout" from="Menu/MenuUIContainer/StartDelay" to="Menu/MenuUIContainer" method="_on_start_delay_timeout"]

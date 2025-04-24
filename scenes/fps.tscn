@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://biqvbf15aow1f"]
+[gd_scene load_steps=21 format=3 uid="uid://biqvbf15aow1f"]
 
 [ext_resource type="Script" uid="uid://ykulnhi7ev2a" path="res://scripts/score_hud.gd" id="1_a6map"]
 [ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="1_oksiu"]
@@ -19,6 +19,12 @@
 [sub_resource type="LabelSettings" id="LabelSettings_v8ptp"]
 font = ExtResource("13_twobp")
 font_size = 48
+shadow_color = Color(0, 0, 0, 0.376471)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_a6map"]
+font = ExtResource("13_twobp")
+font_size = 60
 shadow_color = Color(0, 0, 0, 0.376471)
 shadow_offset = Vector2(2, 2)
 
@@ -68,7 +74,7 @@ layout_mode = 2
 [node name="GameTimerLabel" type="Label" parent="ScoreHUD/ScoreContainer"]
 layout_mode = 2
 text = "00:00"
-label_settings = SubResource("LabelSettings_v8ptp")
+label_settings = SubResource("LabelSettings_a6map")
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
