@@ -35,14 +35,15 @@ custom_minimum_size = Vector2(400, 0)
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 475.0
-offset_top = -473.0
-offset_right = 1373.0
-offset_bottom = 501.0
+offset_left = 439.0
+offset_top = -67.0
+offset_right = 1337.0
+offset_bottom = 396.0
 grow_vertical = 2
 script = ExtResource("2_uxao6")
 
 [node name="Label" type="Label" parent="Menu/MenuUIContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("9_50h1w")
 text = "Arielle's
@@ -92,7 +93,7 @@ text = "Quit"
 [node name="StartDelay" type="Timer" parent="Menu/MenuUIContainer"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.984772, 0.024526, -0.172112, 9.31323e-10, 0.989999, 0.141075, 0.173851, -0.138927, 0.974923, -1.90643, 0.575569, 3.74769)
+transform = Transform3D(0.9986, 0.0101766, -0.0519095, 4.65661e-10, 0.98132, 0.192383, 0.0528977, -0.192113, 0.979946, -1.42763, 0.575569, 3.74769)
 fov = 93.6
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
@@ -105,12 +106,12 @@ metadata/_custom_type_script = "uid://bk0i6gcxalt3w"
 environment = ExtResource("2_1hnlc")
 
 [node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("look_at_target")]
-transform = Transform3D(0.984772, 0.024526, -0.172112, 9.31323e-10, 0.989999, 0.141075, 0.173851, -0.138927, 0.974923, -1.90643, 0.575569, 3.74769)
+transform = Transform3D(0.9986, 0.0101766, -0.0519095, 4.65661e-10, 0.98132, 0.192382, 0.0528977, -0.192113, 0.979945, -1.42763, 0.575569, 3.74769)
 script = ExtResource("3_8r73w")
 look_at_mode = 2
 look_at_target = NodePath("../Platter")
 tween_resource = SubResource("Resource_50h1w")
-look_at_offset = Vector3(-1, 0.7, 0)
+look_at_offset = Vector3(-1, 0.5, 0)
 metadata/_custom_type_script = "uid://bc0qlk1bpglin"
 
 [node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("3_2o76q")]
@@ -152,7 +153,7 @@ shadow_enabled = true
 shadow_opacity = 0.75
 
 [node name="Platter" parent="." instance=ExtResource("13_bh4e2")]
-transform = Transform3D(-0.999255, 0, 0.0385796, 0, 1, 0, -0.0385796, 0, -0.999255, -0.222378, -0.685129, -0.127106)
+transform = Transform3D(-0.996119, 0, 0.0880076, 0, 1, 0, -0.0880076, 0, -0.996119, -0.222378, -0.685129, -0.127106)
 rotation_speed = 0.02
 
 [connection signal="pressed" from="Menu/MenuUIContainer/Start" to="Menu/MenuUIContainer" method="_on_start_pressed"]

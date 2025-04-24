@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://c362i70qeiha3"]
+[gd_scene load_steps=23 format=4 uid="uid://c362i70qeiha3"]
 
 [ext_resource type="PackedScene" uid="uid://fqfc0dtl2xlc" path="res://models/platform-grass-large-round.glb" id="1_hdp0d"]
 [ext_resource type="Script" uid="uid://bpw8f44dyntkg" path="res://scripts/menu_platter.gd" id="2_h6ipi"]
@@ -9,12 +9,25 @@
 [ext_resource type="PackedScene" uid="uid://maeqwkxjh0lk" path="res://objects/bedroom/pillow.tscn" id="6_lwwyb"]
 [ext_resource type="PackedScene" uid="uid://d36fdphpaycfa" path="res://objects/bedroom/side_table.tscn" id="7_pmovh"]
 [ext_resource type="PackedScene" uid="uid://c4650lhthtct4" path="res://objects/bedroom/stool_bar_square.tscn" id="8_srg4j"]
+[ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="9_p0bmv"]
 [ext_resource type="PackedScene" uid="uid://c1rkn4rjihh0w" path="res://objects/bedroom/lamp_round_table.tscn" id="9_yh6d1"]
 [ext_resource type="PackedScene" uid="uid://dj4fmxij3omle" path="res://objects/bedroom/cabinet_television.tscn" id="10_4w5m2"]
 [ext_resource type="PackedScene" uid="uid://c4kw5b6kc8ujf" path="res://objects/bedroom/television_modern.tscn" id="11_4o2f1"]
 [ext_resource type="PackedScene" uid="uid://bc5lph5phf15f" path="res://objects/bedroom/rug_rectangle.tscn" id="12_omnn0"]
 [ext_resource type="PackedScene" uid="uid://4ldi4xrfg125" path="res://objects/bedroom/lamp_round_floor.tscn" id="13_x1yi7"]
 [ext_resource type="PackedScene" uid="uid://ddpj6cisi2u2g" path="res://objects/characters/aj_sitting.tscn" id="15_h6ipi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxao6"]
+metallic_specular = 0.2
+
+[sub_resource type="TextMesh" id="TextMesh_vcptj"]
+material = SubResource("StandardMaterial3D_uxao6")
+text = "Arielle's
+Big Day"
+font = ExtResource("9_p0bmv")
+font_size = 26
+line_spacing = -5.0
+depth = 0.1
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2ibqt"]
 points = PackedVector3Array(-0.000489473, 0.19998, -2.5, -0.000489473, 0.5, -2.5, 0.956343, 0.19998, -2.3101, -0.000489473, 0, -2.25039, -0.956832, 0.19998, -2.3101, -0.956832, 0.5, -2.3101, 0.956343, 0.5, -2.3101, 0.860904, 0, -2.07909, 1.76733, 0.19998, -1.76782, -0.861394, 0, -2.07909, -1.76782, 0.19998, -1.76782, -1.76782, 0.5, -1.76782, 1.76733, 0.5, -1.76782, 1.59064, 0, -1.59113, 2.30961, 0.19998, -0.956832, 2.0786, 0, -0.861394, -1.59113, 0, -1.59113, -2.07909, 0, -0.861394, -2.3101, 0.19998, -0.956832, -2.3101, 0.5, -0.956832, 2.30961, 0.5, -0.956832, 2.5, 0.19998, -0.000489473, 2.2499, 0, -0.000489473, -2.25039, 0, -0.000489473, -2.5, 0.19998, -0.000489473, -2.5, 0.5, -0.000489473, 2.5, 0.5, -0.000489473, 2.30961, 0.19998, 0.956343, 2.0786, 0, 0.860904, -2.3101, 0.19998, 0.956343, -2.07909, 0, 0.860904, -2.3101, 0.5, 0.956343, 2.30961, 0.5, 0.956343, 1.76733, 0.19998, 1.76733, 1.59064, 0, 1.59064, -1.76782, 0.19998, 1.76733, -1.59113, 0, 1.59064, -1.76782, 0.5, 1.76733, 1.76733, 0.5, 1.76733, 0.956343, 0.19998, 2.30961, 0.860904, 0, 2.0786, -0.861394, 0, 2.0786, -0.956832, 0.19998, 2.30961, -0.956832, 0.5, 2.30961, 0.956343, 0.5, 2.30961, -0.000489473, 0.19998, 2.5, -0.000489473, 0, 2.2499, -0.000489473, 0.5, 2.5)
@@ -61,7 +74,12 @@ shadow_mesh = SubResource("ArrayMesh_dmoft")
 [node name="Platter" instance=ExtResource("1_hdp0d")]
 script = ExtResource("2_h6ipi")
 
-[node name="platform-grass-large-round2" parent="." index="0"]
+[node name="Title" type="MeshInstance3D" parent="." index="0"]
+transform = Transform3D(-4.13248, 0, -3.61273e-07, 0, 2.36312, 0, 2.89034e-07, 0, -3.30616, 1.60144, 1.66079, 1.15922)
+mesh = SubResource("TextMesh_vcptj")
+skeleton = NodePath("../sideTable")
+
+[node name="platform-grass-large-round2" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.629904, 0)
 surface_material_override/0 = ExtResource("2_rxp38")
 
@@ -70,13 +88,13 @@ surface_material_override/0 = ExtResource("2_rxp38")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="platform-grass-large-round2/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_2ibqt")
 
-[node name="platform-grass-large-round3" type="MeshInstance3D" parent="." index="1"]
+[node name="platform-grass-large-round3" type="MeshInstance3D" parent="." index="2"]
 transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 0, -0.694726, 0)
 mesh = SubResource("ArrayMesh_iu3tl")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("4_p0bmv")
 
-[node name="loungeSofa" parent="." index="2" instance=ExtResource("5_vcptj")]
+[node name="loungeSofa" parent="." index="3" instance=ExtResource("5_vcptj")]
 transform = Transform3D(-2.3777, 0, -2.05445e-07, 0, 1.8, 0, 2.07865e-07, 0, -2.35002, 1.27272, -0.119904, -0.125017)
 
 [node name="pillow" parent="loungeSofa" index="1" instance=ExtResource("6_lwwyb")]
@@ -88,19 +106,19 @@ transform = Transform3D(1.34584, -9.22797e-09, 1.1009e-07, 5.34133e-08, 1.2598, 
 [node name="pillow3" parent="loungeSofa" index="3" instance=ExtResource("6_lwwyb")]
 transform = Transform3D(1.34584, -9.22797e-09, 1.1009e-07, 5.34133e-08, 1.2598, -0.900434, -7.04626e-08, 0.379835, 1.75211, 0.0864434, 0.154058, -0.237514)
 
-[node name="sideTable" parent="." index="3" instance=ExtResource("7_pmovh")]
+[node name="sideTable" parent="." index="4" instance=ExtResource("7_pmovh")]
 transform = Transform3D(4.13248, 0, 0, 0, 2.36312, 0, 0, 0, 3.30616, -0.969328, -0.129904, 1.57868)
 
-[node name="stoolBarSquare" parent="." index="4" instance=ExtResource("8_srg4j")]
+[node name="stoolBarSquare" parent="." index="5" instance=ExtResource("8_srg4j")]
 transform = Transform3D(4.22512, 0, 0, 0, 1.57865, 0, 0, 0, 2.75528, -0.870648, -0.129904, 2.13368)
 
-[node name="stoolBarSquare2" parent="." index="5" instance=ExtResource("8_srg4j")]
+[node name="stoolBarSquare2" parent="." index="6" instance=ExtResource("8_srg4j")]
 transform = Transform3D(4.22512, 0, 0, 0, 1.57865, 0, 0, 0, 2.75528, -0.124388, -0.129904, 2.13368)
 
-[node name="lampRoundTable" parent="." index="6" instance=ExtResource("9_yh6d1")]
+[node name="lampRoundTable" parent="." index="7" instance=ExtResource("9_yh6d1")]
 transform = Transform3D(3, 0, 0, 0, 1.77103, 0, 0, 0, 3, -0.912668, 0.778497, 1.36078)
 
-[node name="Node3D" type="Node3D" parent="." index="7"]
+[node name="Node3D" type="Node3D" parent="." index="8"]
 transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 0.0647087, 0.404536, -1.83992)
 
 [node name="cabinetTelevision" parent="Node3D" index="0" instance=ExtResource("10_4w5m2")]
@@ -108,11 +126,11 @@ transform = Transform3D(1.2412, 0, 0, 0, 1.17724, 0, 0, 0, 1.24749, -0.499988, -
 
 [node name="televisionModern" parent="Node3D" index="1" instance=ExtResource("11_4o2f1")]
 
-[node name="rugRectangle" parent="." index="8" instance=ExtResource("12_omnn0")]
+[node name="rugRectangle" parent="." index="9" instance=ExtResource("12_omnn0")]
 transform = Transform3D(-7.29018e-08, 0, -2.53402, 0, 1, 0, 1.6678, 0, -1.10766e-07, -1.10733, -0.129904, -1.86272)
 
-[node name="lampRoundFloor" parent="." index="9" instance=ExtResource("13_x1yi7")]
+[node name="lampRoundFloor" parent="." index="10" instance=ExtResource("13_x1yi7")]
 transform = Transform3D(2, 0, 0, 0, 1.6, 0, 0, 0, 2, 1.15921, -0.129904, -1.72852)
 
-[node name="AJ" parent="." index="10" instance=ExtResource("15_h6ipi")]
+[node name="AJ" parent="." index="11" instance=ExtResource("15_h6ipi")]
 transform = Transform3D(-1.29999, 0, -0.00419745, 0, 1.3, 0, 0.00419745, 0, -1.29999, 0.282713, 0.376317, -0.0140744)
