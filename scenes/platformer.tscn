@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b1shq5pt8lykb"]
+[gd_scene load_steps=18 format=3 uid="uid://b1shq5pt8lykb"]
 
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_85uu4"]
 [ext_resource type="Script" uid="uid://bk0i6gcxalt3w" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_xlal6"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cd7oyc56ehkx1" path="res://sprites/coin.png" id="9_v4035"]
 [ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="10_6yj8j"]
 [ext_resource type="PackedScene" uid="uid://84rx62v6cb2y" path="res://objects/flag.tscn" id="11_6yj8j"]
+[ext_resource type="PackedScene" uid="uid://cvk5bgrnc3oc8" path="res://objects/platformer/platforms_back.tscn" id="12_6yj8j"]
 [ext_resource type="PackedScene" uid="uid://cnmjwp27yyw75" path="res://objects/platformer/building.tscn" id="13_qoqfw"]
 
 [sub_resource type="Resource" id="Resource_bareo"]
@@ -146,7 +147,7 @@ text = "0"
 label_settings = SubResource("LabelSettings_qoqfw")
 
 [node name="flag" parent="." node_paths=PackedStringArray("player") instance=ExtResource("11_6yj8j")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 31, 1, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 105.392, -2.83479, 0)
 transition_to = "uid://bqqgyqafm7xwp"
 player = NodePath("../Player")
 
@@ -157,7 +158,52 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 1, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 1, 0)
 
 [node name="coin12" parent="." instance=ExtResource("7_bareo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 1, 0)
+
+[node name="coin14" parent="." instance=ExtResource("7_bareo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 1, 0)
+
+[node name="coin15" parent="." instance=ExtResource("7_bareo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 1, 0)
+
+[node name="coin16" parent="." instance=ExtResource("7_bareo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.5, 3, 0)
+
+[node name="coin17" parent="." instance=ExtResource("7_bareo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.5, 3, 0)
+
+[node name="coin18" parent="." instance=ExtResource("7_bareo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39, 3, 0)
+
+[node name="coin19" parent="." instance=ExtResource("7_bareo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39, -5, 0)
+
+[node name="coin20" parent="." instance=ExtResource("7_bareo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, -5, 0)
+
+[node name="coin21" parent="." instance=ExtResource("7_bareo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, -3.7, 0)
+
+[node name="coin22" parent="." instance=ExtResource("7_bareo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43, -3.7, 0)
+
+[node name="coin23" parent="." instance=ExtResource("7_bareo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47, -5, 0)
+
+[node name="coin25" parent="." instance=ExtResource("7_bareo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49, -4, 0)
+
+[node name="coin27" parent="." instance=ExtResource("7_bareo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52, -5, 0)
+
+[node name="coin28" parent="." instance=ExtResource("7_bareo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54, -3.6, 0)
+
+[node name="coin29" parent="." instance=ExtResource("7_bareo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, 0.3, 0)
+
+[node name="coin26" parent="." instance=ExtResource("7_bareo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, -4, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
@@ -168,6 +214,8 @@ shape = SubResource("BoxShape3D_v4035")
 
 [node name="building" parent="." instance=ExtResource("13_qoqfw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
+
+[node name="platforms_back" parent="." instance=ExtResource("12_6yj8j")]
 
 [connection signal="coin_collected" from="Player" to="HUD" method="_on_coin_collected"]
 [connection signal="coin_collected" from="Player 2" to="HUD" method="_on_coin_collected"]

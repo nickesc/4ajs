@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://ddpj6cisi2u2g" path="res://objects/characters/aj_sitting.tscn" id="15_h6ipi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxao6"]
+diffuse_mode = 3
 metallic_specular = 0.2
 
 [sub_resource type="TextMesh" id="TextMesh_vcptj"]
