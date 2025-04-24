@@ -12,6 +12,7 @@ signal coin_collected
 @export var unlock_z = true
 @export var unlock_jump = true
 @export var player_2 = false
+@export_enum("idle", "sit") var regular_animation: String = "idle"
 
 var movement_velocity: Vector3
 var rotation_direction: float
@@ -114,8 +115,8 @@ func handle_effects(delta):
             if speed_factor > 0.75:
                 particles_trail.emitting = true
 
-        elif animation.current_animation != "idle":
-            animation.play("idle", 0.1)
+        elif animation.current_animation != regular_animation:
+            animation.play(regular_animation, 0.1)
     elif animation.current_animation != "jump":
         animation.play("jump", 0.1)
 

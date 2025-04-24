@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://cqmves5lu370k"]
+[gd_scene load_steps=10 format=3 uid="uid://cqmves5lu370k"]
 
-[ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="1_2o76q"]
 [ext_resource type="Script" uid="uid://bk0i6gcxalt3w" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_ng0o5"]
+[ext_resource type="Environment" uid="uid://bfq7dy3hvuv7r" path="res://scenes/menu-environment.tres" id="2_1hnlc"]
 [ext_resource type="PackedScene" uid="uid://uqr4hswv6d2g" path="res://objects/platform_grass_large_round.tscn" id="2_6bivr"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="3_2o76q"]
 [ext_resource type="Script" uid="uid://bc0qlk1bpglin" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_8r73w"]
 [ext_resource type="Script" uid="uid://ck8a6v2jj7rhj" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_1hnlc"]
+[ext_resource type="PackedScene" uid="uid://bi2ljde3os7o5" path="res://models/platformer/tree.glb" id="7_1hnlc"]
+[ext_resource type="PackedScene" uid="uid://dy017k58p20sk" path="res://objects/cloud.tscn" id="8_50h1w"]
 
 [sub_resource type="Resource" id="Resource_50h1w"]
 script = ExtResource("4_1hnlc")
@@ -16,7 +18,7 @@ ease = 2
 [node name="MainMenu" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.965955, 0.00742669, 0.258604, 0, 0.999588, -0.0287066, -0.25871, 0.0277293, 0.965557, 0.120942, 0.575569, 4.18529)
+transform = Transform3D(0.971975, -0.00758261, -0.234963, -2.32831e-10, 0.99948, -0.0322547, 0.235085, 0.0313508, 0.971469, -1.90643, 0.575569, 3.74769)
 fov = 93.6
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
@@ -26,10 +28,10 @@ script = ExtResource("1_ng0o5")
 metadata/_custom_type_script = "uid://bk0i6gcxalt3w"
 
 [node name="Environment" type="WorldEnvironment" parent="."]
-environment = ExtResource("1_2o76q")
+environment = ExtResource("2_1hnlc")
 
 [node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("look_at_target")]
-transform = Transform3D(0.965955, 0.00742669, 0.258604, 0, 0.999588, -0.0287066, -0.25871, 0.0277293, 0.965557, 0.120942, 0.575569, 4.18529)
+transform = Transform3D(0.971975, -0.00758261, -0.234963, -2.32831e-10, 0.99948, -0.0322548, 0.235085, 0.0313508, 0.971469, -1.90643, 0.575569, 3.74769)
 script = ExtResource("3_8r73w")
 look_at_mode = 2
 look_at_target = NodePath("../World")
@@ -39,18 +41,50 @@ metadata/_custom_type_script = "uid://bc0qlk1bpglin"
 
 [node name="World" type="Node3D" parent="."]
 
-[node name="platform-grass-large-round" parent="World" instance=ExtResource("2_6bivr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.653058, 0)
-
-[node name="Player" parent="World" instance=ExtResource("3_2o76q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.68468, -0.190555, 1.42584)
+[node name="Player" parent="World" node_paths=PackedStringArray("view") instance=ExtResource("3_2o76q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0776706, -0.190555, 0.957328)
+view = NodePath("../../PhantomCamera3D")
 unlock_x = false
 unlock_z = false
 unlock_jump = false
+regular_animation = "sit"
 
 [node name="Player2" parent="World" instance=ExtResource("3_2o76q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.147829, -0.190555, 1.35119)
+visible = false
 unlock_x = false
 unlock_z = false
 unlock_jump = false
 player_2 = true
+
+[node name="platform-grass-large-round" parent="World" instance=ExtResource("2_6bivr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.653058, 0)
+
+[node name="tree2" parent="World" instance=ExtResource("7_1hnlc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.574648, -0.153058, -0.053082)
+
+[node name="cube8" parent="World" instance=ExtResource("8_50h1w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.54877, 1.10741, -1.68263)
+
+[node name="cube9" parent="World" instance=ExtResource("8_50h1w")]
+transform = Transform3D(1.27593, -0.401864, 0.422933, 0.471408, 1.30937, -0.178025, -0.343721, 0.304009, 1.32582, 6.33465, 1.37146, -3.20983)
+
+[node name="cube10" parent="World" instance=ExtResource("8_50h1w")]
+transform = Transform3D(1.32811, 0.370441, 0.259369, -0.293866, 1.3186, -0.37854, -0.34372, 0.30401, 1.32582, -4.8389, 2.03819, -4.13472)
+
+[node name="cube11" parent="World" instance=ExtResource("8_50h1w")]
+transform = Transform3D(0.476646, 0.924607, 0.941422, -0.929853, 0.945559, -0.457882, -0.93624, -0.468385, 0.934042, 1.56948, 2.03819, -8.43577)
+
+[node name="cube12" parent="World" instance=ExtResource("8_50h1w")]
+transform = Transform3D(-1.02876, -0.695523, 0.652886, -0.929853, 0.945557, -0.457881, -0.213027, -0.768461, -1.15432, 1.83518, 2.79508, -6.20197)
+
+[node name="cube13" parent="World" instance=ExtResource("8_50h1w")]
+transform = Transform3D(1.56209, -1.37982, 1.71508, 1.97375, 1.80907, -0.342241, -0.974547, 1.4522, 2.05595, -8.5682, 2.03819, -4.43956)
+
+[node name="cube14" parent="World" instance=ExtResource("8_50h1w")]
+transform = Transform3D(1.56209, -1.37982, 1.71508, 1.97375, 1.80907, -0.342241, -0.974547, 1.4522, 2.05595, -3.11502, 2.03819, -9.87995)
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.422618, -0.694272, 0.582563, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 0, 0, 0)
+shadow_enabled = true
+shadow_opacity = 0.75
