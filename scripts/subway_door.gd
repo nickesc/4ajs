@@ -28,7 +28,7 @@ func _close_gate(body: Node3D):
         animation.play("close")
 
 func _on_subway_entered(body: Node3D) -> void:
-    if not body.is_in_group("P2"):
+    if not body.is_in_group("P2") and body.is_in_group("Player"):
         transitioning = true
         timer.start(action_delay)
 
