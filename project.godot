@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="4ajs"
+config/name="Arielle's Big Day"
 config/version="0.0.2"
 config/tags=PackedStringArray("starterkit")
 run/main_scene="uid://cqmves5lu370k"
