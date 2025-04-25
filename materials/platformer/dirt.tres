@@ -2,5 +2,5 @@
 
 [resource]
 resource_name = "bricks(Clone)"
-albedo_color = Color(1, 0.392, 0.306, 1)
+albedo_color = Color(0.513726, 0.262745, 0.2, 1)
 metallic = 0.35

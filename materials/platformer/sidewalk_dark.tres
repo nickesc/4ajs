@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dlxxe718134xc"]
+
+[resource]
+resource_name = "stoneDark(Clone)"
+albedo_color = Color(0.351504, 0.456674, 0.608193, 1)
+metallic = 0.5
