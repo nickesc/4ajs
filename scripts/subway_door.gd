@@ -9,12 +9,13 @@ var transitioning: bool = false
 
 @export var action_delay: float = 1
 @export_file('*.tscn') var transition_to: String
+@export var functional: bool = true
 
 @onready var animation: AnimationPlayer = $AnimationPlayer
 @onready var timer: Timer = $Area3D2/Timer
 
 func _open_gate(body: Node3D):
-    if body.is_in_group("Player"):
+    if body.is_in_group("Player") and functional:
         animation.play("open")
         if body.is_in_group("P2") and not player_2_end:
                 player_2_end = true
@@ -24,15 +25,16 @@ func _open_gate(body: Node3D):
                 end_entered.emit(false)
     
 func _close_gate(body: Node3D):
-    if body.is_in_group("Player"):
+    if body.is_in_group("Player") and functional:
         animation.play("close")
 
 func _on_subway_entered(body: Node3D) -> void:
-    if not body.is_in_group("P2") and body.is_in_group("Player"):
+    if not body.is_in_group("P2") and body.is_in_group("Player") and functional:
         transitioning = true
         timer.start(action_delay)
 
 
-func _on_subway_timeout() -> void:    
-    var next_scene = load(transition_to)
-    get_tree().change_scene_to_packed(next_scene)
+func _on_subway_timeout() -> void:
+    if functional:
+        var next_scene = load(transition_to)
+        get_tree().change_scene_to_packed(next_scene)

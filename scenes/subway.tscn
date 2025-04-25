@@ -1,0 +1,177 @@
+[gd_scene load_steps=20 format=3 uid="uid://bsa3nr76gcdns"]
+
+[ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_s3r8o"]
+[ext_resource type="Script" uid="uid://c5fsiecjo27n" path="res://scripts/view.gd" id="3_lysdy"]
+[ext_resource type="PackedScene" uid="uid://fr7ig3ntwdde" path="res://objects/clark/clark.tscn" id="4_o27ma"]
+[ext_resource type="PackedScene" uid="uid://d1vi8b5vothk1" path="res://objects/clark/subway_door_decor.tscn" id="5_s3r8o"]
+[ext_resource type="Script" uid="uid://cp1ic67oqpvir" path="res://scripts/hud.gd" id="5_x3dmn"]
+[ext_resource type="Texture2D" uid="uid://cd7oyc56ehkx1" path="res://sprites/coin.png" id="6_7s8k2"]
+[ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="7_hw6ln"]
+[ext_resource type="Script" uid="uid://bk0i6gcxalt3w" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_s3r8o"]
+[ext_resource type="Script" uid="uid://bc0qlk1bpglin" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="9_okeig"]
+[ext_resource type="Script" uid="uid://ck8a6v2jj7rhj" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="10_x3dmn"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lg8b7"]
+sky_horizon_color = Color(0.67451, 0.682353, 0.698039, 1)
+sky_curve = 0.0175
+ground_bottom_color = Color(1, 1, 1, 1)
+ground_curve = 0.171484
+
+[sub_resource type="Sky" id="Sky_7bk1c"]
+sky_material = SubResource("ProceduralSkyMaterial_lg8b7")
+
+[sub_resource type="Environment" id="Environment_o27ma"]
+background_mode = 1
+background_color = Color(0.0792697, 0.090596, 0.115572, 1)
+sky = SubResource("Sky_7bk1c")
+ambient_light_source = 2
+ambient_light_color = Color(0.662745, 0.694118, 0.772549, 1)
+ambient_light_energy = 1.15
+tonemap_mode = 2
+ssao_enabled = true
+ssao_radius = 0.45
+ssao_intensity = 1.0
+ssao_power = 15.0
+glow_enabled = true
+glow_levels/2 = 0.6
+glow_levels/3 = 0.6
+glow_levels/5 = 0.0
+glow_intensity = 2.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o27ma"]
+size = Vector3(3.77609, 0.05, 1.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s3r8o"]
+size = Vector3(0.0773926, 2.07678, 7.25397)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lysdy"]
+size = Vector3(0.0773926, 3.05511, 20.0425)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_okeig"]
+size = Vector3(0.0773926, 3.05511, 7.02668)
+
+[sub_resource type="LabelSettings" id="LabelSettings_38ys3"]
+font = ExtResource("7_hw6ln")
+font_size = 48
+shadow_color = Color(0, 0, 0, 0.376471)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="Resource" id="Resource_7s8k2"]
+script = ExtResource("10_x3dmn")
+duration = 1.0
+transition = 0
+ease = 2
+
+[node name="Main" type="Node3D"]
+
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_o27ma")
+
+[node name="View" type="Node3D" parent="." node_paths=PackedStringArray("camera", "target")]
+transform = Transform3D(-0.870545, 0.207966, -0.445984, 0, 0.906308, 0.422618, 0.49209, 0.367908, -0.788981, -0.489685, 5.18372, -7.75793)
+script = ExtResource("3_lysdy")
+camera = NodePath("../Camera")
+target = NodePath("../Player")
+rotation_speed = 160
+
+[node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("2_s3r8o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.837802, 4.08242, -9.03639)
+view = NodePath("../View")
+unlock_double_jump = false
+
+[node name="Player 2" parent="." node_paths=PackedStringArray("view") instance=ExtResource("2_s3r8o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.233977, 4.78166, -10.0337)
+view = NodePath("../View")
+unlock_double_jump = false
+player_2 = true
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="clark" parent="World" instance=ExtResource("4_o27ma")]
+
+[node name="wall-door-rotate2" parent="World" instance=ExtResource("5_s3r8o")]
+transform = Transform3D(2.125, 0, 0, 0, 2, 0, 0, 0, 1, -0.501461, 3.01, -11.071)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.63285, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/StaticBody3D"]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, -0.365281, 1.65413, -3.00719)
+shape = SubResource("BoxShape3D_o27ma")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="World"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52882, 3.97046, -7.53468)
+shape = SubResource("BoxShape3D_s3r8o")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="World"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/StaticBody3D3"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.46058, 1.47285, -6.49723)
+shape = SubResource("BoxShape3D_lysdy")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="World"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/StaticBody3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3769, 1.47285, -2.96545)
+shape = SubResource("BoxShape3D_okeig")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="World/StaticBody3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.35941, 1.47285, -2.96545)
+shape = SubResource("BoxShape3D_okeig")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.422618, -0.694272, 0.582563, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 0, 0, 0)
+shadow_enabled = true
+shadow_opacity = 0.75
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("5_x3dmn")
+
+[node name="Icon" type="TextureRect" parent="HUD"]
+offset_left = 57.0
+offset_top = 67.0
+offset_right = 313.0
+offset_bottom = 323.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_7s8k2")
+
+[node name="x" type="Label" parent="HUD"]
+offset_left = 112.0
+offset_top = 64.0
+offset_right = 144.0
+offset_bottom = 123.0
+text = "×"
+label_settings = SubResource("LabelSettings_38ys3")
+
+[node name="Coins" type="Label" parent="HUD"]
+offset_left = 144.0
+offset_top = 64.0
+offset_right = 368.0
+offset_bottom = 123.0
+text = "0"
+label_settings = SubResource("LabelSettings_38ys3")
+
+[node name="Camera" type="Camera3D" parent="."]
+physics_interpolation_mode = 1
+transform = Transform3D(-0.328361, 0.0307824, -0.94405, 9.31322e-10, 0.999469, 0.0325894, 0.944552, 0.0107011, -0.328187, -10.6636, 4.78166, -13.0558)
+current = true
+fov = 40.0
+
+[node name="PhantomCameraHost" type="Node" parent="Camera"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("8_s3r8o")
+metadata/_custom_type_script = "uid://bk0i6gcxalt3w"
+
+[node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("look_at_targets")]
+transform = Transform3D(-0.328362, 0.0307824, -0.94405, 9.31323e-10, 0.999469, 0.0325894, 0.944552, 0.0107011, -0.328187, -10.6636, 4.78166, -13.0558)
+script = ExtResource("9_okeig")
+look_at_mode = 3
+look_at_targets = [NodePath("../Player"), NodePath("../Player 2")]
+tween_resource = SubResource("Resource_7s8k2")
+metadata/_custom_type_script = "uid://bc0qlk1bpglin"
+
+[connection signal="coin_collected" from="Player" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="Player 2" to="HUD" method="_on_coin_collected"]

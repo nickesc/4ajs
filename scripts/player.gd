@@ -11,6 +11,7 @@ signal coin_collected
 @export var unlock_x = true
 @export var unlock_z = true
 @export var unlock_jump = true
+@export var unlock_double_jump = true
 @export var player_2 = false
 @export_enum("idle", "sit", "attack-kick-left") var regular_animation: String = "idle"
 
@@ -158,7 +159,7 @@ func handle_controls(delta):
             jumped = Input.is_action_just_pressed("jump_p2")
             
         if jumped:
-            if jump_single or jump_double:
+            if jump_single or (jump_double and unlock_double_jump):
                 jump()
 
 # Handle gravity

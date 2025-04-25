@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1vi8b5vothk1"]
+
+[ext_resource type="PackedScene" uid="uid://bv0cuojtf0007" path="res://models/platformer/wall-door-rotate.glb" id="1_04k4l"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rp7be"]
+points = PackedVector3Array(0, 1, 0.749961, 0, 0.149961, 0.8, 0, 1, 0.24998, -1, 1, 0.749961, 0, 0, 0.8, -1, 0.149961, 0.8, 0, 0.149961, 0.2, -1, 1, 0.24998, 0, 0, 0.2, -1, 0, 0.8, -1, 0.149961, 0.2, -1, 0, 0.2)
+
+[node name="wall-door-rotate2" instance=ExtResource("1_04k4l")]
+
+[node name="wall-door-rotate" parent="." index="0"]
+transparency = 0.5
+
+[node name="Group" parent="wall-door-rotate" index="0"]
+transparency = 0.5
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wall-door-rotate/Group" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall-door-rotate/Group/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_rp7be")
+
+[node name="door-left" parent="wall-door-rotate" index="1"]
+transparency = 0.5
+
+[node name="door-right" parent="wall-door-rotate" index="2"]
+transparency = 0.5
