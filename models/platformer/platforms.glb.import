@@ -38,17 +38,13 @@ _subresources={
 "use_external/enabled": true,
 "use_external/path": "uid://dlxxe718134xc"
 },
-"bricks(Clone)": {
-"use_external/enabled": true,
-"use_external/path": "res://models/platformer/Textures/bricks(Clone).tres"
-},
-"bricksDark(Clone)": {
-"use_external/enabled": true,
-"use_external/path": "uid://ca1mria8umepm"
-},
 "stoneDark(Clone)": {
 "use_external/enabled": true,
-"use_external/path": "res://materials/platformer/stoneDark(Clone).tres"
+"use_external/path": "uid://dlxxe718134xc"
+},
+"stoneLight(Clone)": {
+"use_external/enabled": true,
+"use_external/path": "uid://doupf6k0ipxor"
 }
 }
 }

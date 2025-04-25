@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6b3w3q2i7uvx"]
+
+[ext_resource type="PackedScene" uid="uid://ccscwmcftokx5" path="res://models/platformer/fence-door-rotate.glb" id="1_3ps66"]
+[ext_resource type="Script" uid="uid://bcsia58b0bh1f" path="res://scripts/subway_gate.gd" id="2_qqip5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qqip5"]
+size = Vector3(1, 2, 2)
+
+[node name="SubwayGate" instance=ExtResource("1_3ps66")]
+script = ExtResource("2_qqip5")
+
+[node name="door-left" parent="fence-door-rotate" index="0"]
+transform = Transform3D(1, 0, -3.48787e-16, 0, 1, 0, 3.48787e-16, 0, 1, -0.3, 0.129, -7.21911e-16)
+
+[node name="door-right" parent="fence-door-rotate" index="1"]
+transform = Transform3D(1, 0, 3.48787e-16, 0, 1, 0, -3.48787e-16, 0, 1, 0.3, 0.129, -7.21911e-16)
+
+[node name="Area3D" type="Area3D" parent="." index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.467285, 0.00421143)
+shape = SubResource("BoxShape3D_qqip5")
+
+[connection signal="body_entered" from="Area3D" to="." method="_open_gate"]
+[connection signal="body_exited" from="Area3D" to="." method="_close_gate"]

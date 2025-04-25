@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d0w4lsnd004yv"]
+
+[resource]
+resource_name = "door"
+albedo_color = Color(0.398292, 0.407171, 0.441631, 1)
+metallic = 1.0

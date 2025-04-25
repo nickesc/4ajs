@@ -49,6 +49,10 @@ _subresources={
 "stoneDark(Clone)": {
 "use_external/enabled": true,
 "use_external/path": "uid://darb6bbo33l75"
+},
+"stoneLight(Clone)": {
+"use_external/enabled": true,
+"use_external/path": "uid://doupf6k0ipxor"
 }
 }
 }

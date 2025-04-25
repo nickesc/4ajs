@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://btpven8aokt67"]
+
+[ext_resource type="PackedScene" uid="uid://bv0cuojtf0007" path="res://models/platformer/wall-door-rotate.glb" id="1_jijux"]
+[ext_resource type="Script" uid="uid://bt471mrfrfjgl" path="res://scripts/subway_door.gd" id="2_jijux"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x7uvc"]
+size = Vector3(1, 2, 1.12451)
+
+[node name="subwayDoor" instance=ExtResource("1_jijux")]
+script = ExtResource("2_jijux")
+
+[node name="Area3D" type="Area3D" parent="." index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.467285, 0.441956)
+shape = SubResource("BoxShape3D_x7uvc")
+
+[node name="Area3D2" type="Area3D" parent="." index="3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.467285, -1.0032)
+shape = SubResource("BoxShape3D_x7uvc")
+
+[node name="Timer" type="Timer" parent="Area3D2" index="1"]
+
+[connection signal="body_entered" from="Area3D" to="." method="_open_gate"]
+[connection signal="body_exited" from="Area3D" to="." method="_close_gate"]
+[connection signal="body_entered" from="Area3D2" to="." method="_on_subway_entered"]
+[connection signal="timeout" from="Area3D2/Timer" to="." method="_on_subway_timeout"]
