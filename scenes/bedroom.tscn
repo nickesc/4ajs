@@ -2,16 +2,16 @@
 
 [ext_resource type="Script" uid="uid://ci5flxvcrd2ca" path="res://scripts/camera_controller.gd" id="1_cs7aj"]
 [ext_resource type="Environment" uid="uid://cn54j8eqfhivp" path="res://scenes/bedroom-environment.tres" id="1_faqlx"]
-[ext_resource type="Script" uid="uid://bk0i6gcxalt3w" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_k5fq4"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_k5fq4"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_lp6yp"]
 [ext_resource type="Script" uid="uid://c5fsiecjo27n" path="res://scripts/view.gd" id="3_r6dl3"]
 [ext_resource type="PackedScene" uid="uid://811v4agpo5ue" path="res://objects/bedroom/bed_double.tscn" id="8_n5dov"]
 [ext_resource type="PackedScene" uid="uid://cmh6kn4hy1qj" path="res://objects/bedroom/desk.tscn" id="9_rg2nx"]
 [ext_resource type="PackedScene" uid="uid://ckbqrqxdb4ope" path="res://objects/bedroom/cabinet_bed_drawer.tscn" id="10_8t8s3"]
 [ext_resource type="PackedScene" uid="uid://d0xtw0s7y2etw" path="res://objects/bedroom/bookcase_closed_wide.tscn" id="11_n0sr1"]
-[ext_resource type="Script" uid="uid://bc0qlk1bpglin" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="12_4wfg3"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="12_4wfg3"]
 [ext_resource type="PackedScene" uid="uid://cs4veu8415y3y" path="res://objects/bedroom/bookcase_open_low.tscn" id="12_bwnyf"]
-[ext_resource type="Script" uid="uid://ck8a6v2jj7rhj" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="13_mk2nf"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="13_mk2nf"]
 [ext_resource type="PackedScene" uid="uid://bi7tehyk4qu08" path="res://objects/bedroom/table_round.tscn" id="13_x516s"]
 [ext_resource type="PackedScene" uid="uid://hhvk6dlrh3jb" path="res://objects/bedroom/books.tscn" id="13_yv0u1"]
 [ext_resource type="PackedScene" uid="uid://c2etldl5snj74" path="res://objects/bedroom/bathtub.tscn" id="14_bd3ru"]
@@ -95,7 +95,7 @@ fov = 40.0
 process_priority = 300
 process_physics_priority = 300
 script = ExtResource("1_k5fq4")
-metadata/_custom_type_script = "uid://bk0i6gcxalt3w"
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Bed PCam" type="Node3D" parent="." node_paths=PackedStringArray("look_at_target")]
 transform = Transform3D(0.512019, -0.343909, 0.787122, 0, 0.916351, 0.400372, -0.858974, -0.204998, 0.469189, 8.8616, 4.1155, 0.73339)
@@ -105,7 +105,7 @@ look_at_mode = 2
 look_at_target = NodePath("../CameraController/bedNode")
 tween_resource = SubResource("Resource_cixf6")
 look_at_offset = Vector3(3, 1.5, 1)
-metadata/_custom_type_script = "uid://bc0qlk1bpglin"
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="Bath PCam" type="Node3D" parent="." node_paths=PackedStringArray("look_at_target")]
 transform = Transform3D(-0.644525, -0.515296, 1.37079, 0, 1.49769, 0.562992, -1.46444, 0.226791, -0.603308, 6.39881, 2.42855, -8.4581)
@@ -114,7 +114,7 @@ look_at_mode = 2
 look_at_target = NodePath("../CameraController/bathroomNode")
 tween_resource = SubResource("Resource_43jao")
 look_at_offset = Vector3(0, 0, 2)
-metadata/_custom_type_script = "uid://bc0qlk1bpglin"
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="Family PCam" type="Node3D" parent="." node_paths=PackedStringArray("look_at_target")]
 transform = Transform3D(0.851877, -0.411775, 1.29025, -2.38419e-08, 1.52426, 0.486455, -1.35437, -0.259, 0.811546, 11.7343, 3.39408, -5.3367)
@@ -122,7 +122,7 @@ script = ExtResource("12_4wfg3")
 look_at_mode = 2
 look_at_target = NodePath("../CameraController/familyNode")
 tween_resource = SubResource("Resource_43jao")
-metadata/_custom_type_script = "uid://bc0qlk1bpglin"
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="Hallway PCam" type="Node3D" parent="." node_paths=PackedStringArray("look_at_target", "look_at_targets")]
 transform = Transform3D(-1.09874, -0.106536, 1.1582, 5.96048e-09, 1.59328, 0.146555, -1.16309, 0.100641, -1.09411, 17.4122, 2.42855, -19.4206)
@@ -132,7 +132,7 @@ look_at_target = NodePath("../Player")
 look_at_targets = []
 tween_resource = SubResource("Resource_43jao")
 look_at_offset = Vector3(0, 1, 0)
-metadata/_custom_type_script = "uid://bc0qlk1bpglin"
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 metadata/_edit_pinned_properties_ = [&"look_at_targets"]
 
 [node name="P2 PCam" type="Node3D" parent="." node_paths=PackedStringArray("look_at_target")]
@@ -141,7 +141,7 @@ script = ExtResource("12_4wfg3")
 look_at_mode = 2
 look_at_target = NodePath("../Player")
 tween_resource = SubResource("Resource_43jao")
-metadata/_custom_type_script = "uid://bc0qlk1bpglin"
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="Environment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_faqlx")

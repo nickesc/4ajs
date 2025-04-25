@@ -7,9 +7,9 @@
 [ext_resource type="Script" uid="uid://cp1ic67oqpvir" path="res://scripts/hud.gd" id="5_x3dmn"]
 [ext_resource type="Texture2D" uid="uid://cd7oyc56ehkx1" path="res://sprites/coin.png" id="6_7s8k2"]
 [ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="7_hw6ln"]
-[ext_resource type="Script" uid="uid://bk0i6gcxalt3w" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_s3r8o"]
-[ext_resource type="Script" uid="uid://bc0qlk1bpglin" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="9_okeig"]
-[ext_resource type="Script" uid="uid://ck8a6v2jj7rhj" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="10_x3dmn"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_s3r8o"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="9_okeig"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="10_x3dmn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lg8b7"]
 sky_horizon_color = Color(0.67451, 0.682353, 0.698039, 1)
@@ -76,12 +76,12 @@ rotation_speed = 160
 
 [node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("2_s3r8o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.837802, 4.08242, -9.03639)
-view = NodePath("../View")
+view = NodePath("../PhantomCamera3D")
 unlock_double_jump = false
 
 [node name="Player 2" parent="." node_paths=PackedStringArray("view") instance=ExtResource("2_s3r8o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.233977, 4.78166, -10.0337)
-view = NodePath("../View")
+view = NodePath("../PhantomCamera3D")
 unlock_double_jump = false
 player_2 = true
 
@@ -155,7 +155,7 @@ label_settings = SubResource("LabelSettings_38ys3")
 
 [node name="Camera" type="Camera3D" parent="."]
 physics_interpolation_mode = 1
-transform = Transform3D(-0.328361, 0.0307824, -0.94405, 9.31322e-10, 0.999469, 0.0325894, 0.944552, 0.0107011, -0.328187, -10.6636, 4.78166, -13.0558)
+transform = Transform3D(-0.378614, 0.0608307, -0.923554, 3.72529e-09, 0.997838, 0.0657235, 0.925555, 0.0248838, -0.377795, -10.6636, 4.78166, -13.0558)
 current = true
 fov = 40.0
 
@@ -163,15 +163,15 @@ fov = 40.0
 process_priority = 300
 process_physics_priority = 300
 script = ExtResource("8_s3r8o")
-metadata/_custom_type_script = "uid://bk0i6gcxalt3w"
 
-[node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("look_at_targets")]
-transform = Transform3D(-0.328362, 0.0307824, -0.94405, 9.31323e-10, 0.999469, 0.0325894, 0.944552, 0.0107011, -0.328187, -10.6636, 4.78166, -13.0558)
+[node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("look_at_target", "look_at_targets")]
+transform = Transform3D(-0.378614, 0.0608307, -0.923553, 3.72529e-09, 0.997838, 0.0657235, 0.925555, 0.0248838, -0.377795, -10.6636, 4.78166, -13.0558)
 script = ExtResource("9_okeig")
-look_at_mode = 3
+look_at_mode = 2
+look_at_target = NodePath("../Player")
 look_at_targets = [NodePath("../Player"), NodePath("../Player 2")]
 tween_resource = SubResource("Resource_7s8k2")
-metadata/_custom_type_script = "uid://bc0qlk1bpglin"
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [connection signal="coin_collected" from="Player" to="HUD" method="_on_coin_collected"]
 [connection signal="coin_collected" from="Player 2" to="HUD" method="_on_coin_collected"]

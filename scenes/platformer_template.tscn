@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://cgadioxafekia"]
 
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="1_xbamb"]
-[ext_resource type="Script" uid="uid://bk0i6gcxalt3w" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_qx2yd"]
-[ext_resource type="Script" uid="uid://bc0qlk1bpglin" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_x121m"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_qx2yd"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_x121m"]
 [ext_resource type="Script" uid="uid://ck8a6v2jj7rhj" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_t13f5"]
 [ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="6_f3rdh"]
 [ext_resource type="PackedScene" uid="uid://84rx62v6cb2y" path="res://objects/flag.tscn" id="7_ifd0k"]
@@ -45,7 +45,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 3.95, 5)
 process_priority = 300
 process_physics_priority = 300
 script = ExtResource("3_qx2yd")
-metadata/_custom_type_script = "uid://bk0i6gcxalt3w"
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 3.95, 5)
@@ -59,7 +59,7 @@ follow_distance = 5.0
 dead_zone_width = 0.3
 dead_zone_height = 0.2
 spring_length = 5.0
-metadata/_custom_type_script = "uid://bc0qlk1bpglin"
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)

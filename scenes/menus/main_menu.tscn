@@ -1,12 +1,12 @@
 [gd_scene load_steps=16 format=3 uid="uid://cqmves5lu370k"]
 
-[ext_resource type="Script" uid="uid://bk0i6gcxalt3w" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_ng0o5"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_ng0o5"]
 [ext_resource type="Environment" uid="uid://bfq7dy3hvuv7r" path="res://scenes/menu-environment.tres" id="2_1hnlc"]
 [ext_resource type="Script" uid="uid://cev68yrqenliq" path="res://scripts/menu_ui.gd" id="2_uxao6"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="3_2o76q"]
-[ext_resource type="Script" uid="uid://bc0qlk1bpglin" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_8r73w"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_8r73w"]
 [ext_resource type="StyleBox" uid="uid://dccunsuv5okc5" path="res://themes/green_button_normal.tres" id="3_bre17"]
-[ext_resource type="Script" uid="uid://ck8a6v2jj7rhj" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_1hnlc"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_1hnlc"]
 [ext_resource type="StyleBox" uid="uid://dbdlcxl1fm303" path="res://themes/green_button_pressed.tres" id="4_88kup"]
 [ext_resource type="StyleBox" uid="uid://dtk5e74jj0jn0" path="res://themes/red_button_normal.tres" id="5_bh4e2"]
 [ext_resource type="StyleBox" uid="uid://b4sf8lpl5lkb" path="res://themes/red_button_pressed.tres" id="6_3w8rc"]
@@ -93,26 +93,26 @@ text = "Quit"
 [node name="StartDelay" type="Timer" parent="Menu/MenuUIContainer"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.9986, 0.0101766, -0.0519095, 4.65661e-10, 0.98132, 0.192383, 0.0528977, -0.192113, 0.979946, -1.42763, 0.575569, 3.74769)
+transform = Transform3D(0.9986, 0.0101764, -0.0519088, 0, 0.98132, 0.192383, 0.0528969, -0.192113, 0.979946, -1.42763, 0.575569, 3.74769)
 fov = 93.6
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
 process_priority = 300
 process_physics_priority = 300
 script = ExtResource("1_ng0o5")
-metadata/_custom_type_script = "uid://bk0i6gcxalt3w"
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Environment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_1hnlc")
 
 [node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("look_at_target")]
-transform = Transform3D(0.9986, 0.0101766, -0.0519095, 4.65661e-10, 0.98132, 0.192382, 0.0528977, -0.192113, 0.979945, -1.42763, 0.575569, 3.74769)
+transform = Transform3D(0.9986, 0.0101764, -0.0519087, 0, 0.98132, 0.192382, 0.0528969, -0.192113, 0.979945, -1.42763, 0.575569, 3.74769)
 script = ExtResource("3_8r73w")
 look_at_mode = 2
 look_at_target = NodePath("../Platter")
 tween_resource = SubResource("Resource_50h1w")
 look_at_offset = Vector3(-1, 0.5, 0)
-metadata/_custom_type_script = "uid://bc0qlk1bpglin"
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("3_2o76q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.151874, 0.658237, -0.18496)
