@@ -12,6 +12,7 @@ signal coin_collected
 @export var unlock_z = true
 @export var unlock_jump = true
 @export var unlock_double_jump = true
+@export var unlock_reset = true
 @export var player_2 = false
 @export_enum("idle", "sit", "attack-kick-left") var regular_animation: String = "idle"
 
@@ -161,6 +162,13 @@ func handle_controls(delta):
         if jumped:
             if jump_single or (jump_double and unlock_double_jump):
                 jump()
+                
+    if (unlock_reset):
+        if Input.is_action_just_pressed("reset"):
+            reset_scene()
+        if Input.is_action_just_pressed("reset_p2"):
+            position = initial_position
+        
 
 # Handle gravity
 
@@ -225,3 +233,7 @@ func _on_hearts_exited(area: Node3D) -> void:
 func _on_heart_timer_timeout() -> void:
     if testing_emit_hearts:
         start_emitting_hearts()
+        
+        
+func reset_scene():
+    get_tree().reload_current_scene()
