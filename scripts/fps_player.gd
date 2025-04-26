@@ -15,6 +15,8 @@ signal killed_by_damage(is_player_2: bool)
 @export_subgroup("Weapons")
 @export var weapons: Array[Weapon] = []
 
+@export var peaceful: bool = false
+
 var weapon: Weapon
 var weapon_index := 0
 
@@ -85,6 +87,9 @@ func _ready():
 
     weapon = weapons[weapon_index] # Weapon must never be nil
     initiate_change_weapon(weapon_index)
+    
+    if peaceful:
+        set_peaceful()
 
 func _physics_process(delta):
 
@@ -201,7 +206,8 @@ func handle_controls(_delta):
 
     action_zoom()
     action_unzoom()
-    action_shoot()
+    if not peaceful:
+        action_shoot()
 
     # Jumping
 
@@ -226,7 +232,8 @@ func handle_controls(_delta):
 
     # Weapon switching
 
-    action_weapon_toggle()
+    if not peaceful:
+        action_weapon_toggle()
 
 # Handle gravity
 
@@ -464,3 +471,10 @@ func collect_coin():
     coins += 1
 
     coin_collected.emit(coins)
+
+
+func set_peaceful():
+    peaceful = true
+    muzzle.visible = false
+    container.visible = false
+    crosshair.visible = false
