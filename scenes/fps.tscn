@@ -53,7 +53,6 @@ outline_color = Color(0, 0, 0, 0.470588)
 script = ExtResource("1_a6map")
 player = NodePath("../VBoxContainer/SubViewportContainer/SubViewport/FPSPlayer")
 player_2 = NodePath("../VBoxContainer/SubViewportContainer2/SubViewport/FPSPlayer 2")
-game_time = 120
 
 [node name="ScoreContainer" type="HBoxContainer" parent="ScoreHUD"]
 anchors_preset = 5
@@ -120,14 +119,14 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="VBoxContainer/SubViewportContainer"]
 handle_input_locally = false
 audio_listener_enable_3d = true
-size = Vector2i(2, 2)
+size = Vector2i(1920, 540)
 render_target_update_mode = 4
 
 [node name="FPSPlayer" parent="VBoxContainer/SubViewportContainer/SubViewport" node_paths=PackedStringArray("root_node", "spawn_points", "crosshair") instance=ExtResource("1_xpi2j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.16495, 1.4621, -2.04169)
 root_node = NodePath("..")
 rotation_target = Vector3(0, 1.591, 0)
-spawn_points = [NodePath("../SpawnPoints/Node3D"), NodePath("../SpawnPoints/Node3D2"), NodePath("../SpawnPoints/Node3D3"), NodePath("../SpawnPoints/Node3D4")]
+spawn_points = [NodePath("../SpawnPoints/Node3D"), NodePath("../SpawnPoints/Node3D2"), NodePath("../SpawnPoints/Node3D3"), NodePath("../SpawnPoints/Node3D4"), NodePath("../SpawnPoints/Node3D5"), NodePath("../SpawnPoints/Node3D6"), NodePath("../SpawnPoints/Node3D7")]
 crosshair = NodePath("../HUD/Crosshair")
 
 [node name="HUD" type="CanvasLayer" parent="VBoxContainer/SubViewportContainer/SubViewport"]
@@ -210,24 +209,6 @@ script = ExtResource("7_pw7qi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.501083, 0)
 shape = SubResource("BoxShape3D_pw7qi")
 
-[node name="Node3D6" type="Area3D" parent="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.850498, -1.04302, 3.44478)
-collision_layer = 0
-script = ExtResource("7_pw7qi")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.501083, 0)
-shape = SubResource("BoxShape3D_pw7qi")
-
-[node name="Node3D5" type="Area3D" parent="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.15783, -1.94527, 7.97109)
-collision_layer = 0
-script = ExtResource("7_pw7qi")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.501083, 0)
-shape = SubResource("BoxShape3D_pw7qi")
-
 [node name="Node3D2" type="Area3D" parent="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.558842, -0.0510831, -0.544944)
 collision_layer = 0
@@ -252,6 +233,24 @@ collision_layer = 0
 script = ExtResource("7_pw7qi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.501083, 0)
+shape = SubResource("BoxShape3D_pw7qi")
+
+[node name="Node3D5" type="Area3D" parent="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.15783, -1.94527, 7.97109)
+collision_layer = 0
+script = ExtResource("7_pw7qi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.501083, 0)
+shape = SubResource("BoxShape3D_pw7qi")
+
+[node name="Node3D6" type="Area3D" parent="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.850498, -1.04302, 3.44478)
+collision_layer = 0
+script = ExtResource("7_pw7qi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.501083, 0)
 shape = SubResource("BoxShape3D_pw7qi")
 
@@ -499,7 +498,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="VBoxContainer/SubViewportContainer2"]
 handle_input_locally = false
 audio_listener_enable_3d = true
-size = Vector2i(2, 2)
+size = Vector2i(1920, 540)
 render_target_update_mode = 4
 
 [node name="FPSPlayer 2" parent="VBoxContainer/SubViewportContainer2/SubViewport" node_paths=PackedStringArray("root_node", "spawn_points", "crosshair") instance=ExtResource("1_xpi2j")]
@@ -507,7 +506,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.87237, 1.45, -2.0009)
 player_2 = true
 root_node = NodePath("..")
 rotation_target = Vector3(0, 10.956, 0)
-spawn_points = [NodePath("../../../SubViewportContainer/SubViewport/SpawnPoints/Node3D"), NodePath("../../../SubViewportContainer/SubViewport/SpawnPoints/Node3D2"), NodePath("../../../SubViewportContainer/SubViewport/SpawnPoints/Node3D3"), NodePath("../../../SubViewportContainer/SubViewport/SpawnPoints/Node3D4")]
+spawn_points = [NodePath("../../../SubViewportContainer/SubViewport/SpawnPoints/Node3D"), NodePath("../../../SubViewportContainer/SubViewport/SpawnPoints/Node3D2"), NodePath("../../../SubViewportContainer/SubViewport/SpawnPoints/Node3D3"), NodePath("../../../SubViewportContainer/SubViewport/SpawnPoints/Node3D4"), NodePath("../../../SubViewportContainer/SubViewport/SpawnPoints/Node3D5"), NodePath("../../../SubViewportContainer/SubViewport/SpawnPoints/Node3D6"), NodePath("../../../SubViewportContainer/SubViewport/SpawnPoints/Node3D7")]
 crosshair = NodePath("../HUD/Crosshair")
 
 [node name="HUD" type="CanvasLayer" parent="VBoxContainer/SubViewportContainer2/SubViewport"]
@@ -582,16 +581,16 @@ script = ExtResource("16_kufo6")
 [connection signal="killed_by_damage" from="VBoxContainer/SubViewportContainer/SubViewport/FPSPlayer" to="ScoreHUD" method="_on_killed_by_damage"]
 [connection signal="body_entered" from="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D" to="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D" method="_on_body_entered"]
 [connection signal="body_exited" from="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D" to="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D" method="_on_body_exited"]
-[connection signal="body_entered" from="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D6" to="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D6" method="_on_body_entered"]
-[connection signal="body_exited" from="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D6" to="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D6" method="_on_body_exited"]
-[connection signal="body_entered" from="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D5" to="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D5" method="_on_body_entered"]
-[connection signal="body_exited" from="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D5" to="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D5" method="_on_body_exited"]
 [connection signal="body_entered" from="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D2" to="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D2" method="_on_body_entered"]
 [connection signal="body_exited" from="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D2" to="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D2" method="_on_body_exited"]
 [connection signal="body_entered" from="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D3" to="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D3" method="_on_body_entered"]
 [connection signal="body_exited" from="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D3" to="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D3" method="_on_body_exited"]
 [connection signal="body_entered" from="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D4" to="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D4" method="_on_body_entered"]
 [connection signal="body_exited" from="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D4" to="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D4" method="_on_body_exited"]
+[connection signal="body_entered" from="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D5" to="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D5" method="_on_body_entered"]
+[connection signal="body_exited" from="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D5" to="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D5" method="_on_body_exited"]
+[connection signal="body_entered" from="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D6" to="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D6" method="_on_body_entered"]
+[connection signal="body_exited" from="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D6" to="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D6" method="_on_body_exited"]
 [connection signal="body_entered" from="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D7" to="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D7" method="_on_body_entered"]
 [connection signal="body_exited" from="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D7" to="VBoxContainer/SubViewportContainer/SubViewport/SpawnPoints/Node3D7" method="_on_body_exited"]
 [connection signal="coin_collected" from="VBoxContainer/SubViewportContainer2/SubViewport/FPSPlayer 2" to="VBoxContainer/SubViewportContainer2/SubViewport/HUD" method="_on_coin_collected"]

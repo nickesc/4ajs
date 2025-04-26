@@ -11,10 +11,10 @@ signal killed_by_damage(is_player_2: bool)
 @export var rotation_target: Vector3 = Vector3(0,-1,0)
 @export_enum("idle", "holding-right", "static") var regular_animation: String = "idle"
 @export var spawn_points: Array[Node3D]
+@export var unlock_reset = true
 
 @export_subgroup("Weapons")
 @export var weapons: Array[Weapon] = []
-
 @export var peaceful: bool = false
 
 var weapon: Weapon
@@ -234,6 +234,12 @@ func handle_controls(_delta):
 
     if not peaceful:
         action_weapon_toggle()
+    
+    if (unlock_reset):
+        if Input.is_action_just_pressed("reset") and not player_2:
+            reset_scene()
+        elif Input.is_action_just_pressed("reset_p2") and player_2:
+            respawn()
 
 # Handle gravity
 
@@ -439,23 +445,32 @@ func damage(amount):
         killed_by_damage.emit(player_2)
         kill() # Reset when out of health
 
+func get_avaialable_spawn_point() -> Node3D:
+    var respawn_point = spawn_points.pick_random()
+    
+    if not respawn_point.is_available(player_2):
+        respawn_point = get_avaialable_spawn_point()
+    
+    return respawn_point
+
 func respawn():
     var respawn_position: Vector3 = og_position
     var respawn_rotation: Vector3 = og_rotation
     
     if spawn_points:
-        var respawn_point = spawn_points.pick_random()
+        var spawn_point = get_avaialable_spawn_point()
         
-        while not respawn_point.is_available(player_2):
-            respawn_point = spawn_points.pick_random()
-        respawn_position = respawn_point.get_global_position()
-        respawn_rotation = respawn_point.get_global_rotation()
+        respawn_position = spawn_point.get_global_position()
+        respawn_rotation = spawn_point.get_global_rotation()
     
-    position = respawn_position
-    rotation = respawn_rotation
+    reset_pos(respawn_position, respawn_rotation)
     
     health = 100
     health_updated.emit(health)
+
+func reset_pos(pos: Vector3, rot: Vector3):
+    position = pos
+    rotation = rot
 
 func kill():
     respawn()
@@ -472,6 +487,8 @@ func collect_coin():
 
     coin_collected.emit(coins)
 
+func reset_scene():
+    get_tree().reload_current_scene()
 
 func set_peaceful():
     peaceful = true
