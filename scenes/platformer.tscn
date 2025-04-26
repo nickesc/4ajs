@@ -131,7 +131,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 2.08882, 0, -1, 0, -4.37114e-08, 
 
 [node name="subwayDoor" parent="World/platforms" instance=ExtResource("16_vi78m")]
 transform = Transform3D(-4.80825e-08, 0, -1, 0, 2, 0, 1.1, 0, -4.37114e-08, 105.277, -3, 0)
-transition_to = "uid://biqvbf15aow1f"
+transition_to = "uid://bsa3nr76gcdns"
 
 [node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("2_85uu4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2.9, 0)
