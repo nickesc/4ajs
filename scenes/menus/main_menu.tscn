@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cqmves5lu370k"]
+[gd_scene load_steps=15 format=3 uid="uid://cqmves5lu370k"]
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_ng0o5"]
 [ext_resource type="Environment" uid="uid://bfq7dy3hvuv7r" path="res://scenes/menu-environment.tres" id="2_1hnlc"]
@@ -13,12 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://dy017k58p20sk" path="res://objects/cloud.tscn" id="8_50h1w"]
 [ext_resource type="Theme" uid="uid://wvbnk4qn4yfe" path="res://themes/ui_theme.tres" id="9_50h1w"]
 [ext_resource type="PackedScene" uid="uid://c362i70qeiha3" path="res://objects/menu_platter.tscn" id="13_bh4e2"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_3w8rc"]
-font_size = 250
-shadow_size = 4
-shadow_color = Color(0, 0, 0, 0.666667)
-shadow_offset = Vector2(4, 4)
 
 [sub_resource type="Resource" id="Resource_50h1w"]
 script = ExtResource("4_1hnlc")
@@ -41,18 +35,6 @@ offset_right = 1337.0
 offset_bottom = 396.0
 grow_vertical = 2
 script = ExtResource("2_uxao6")
-
-[node name="Label" type="Label" parent="Menu/MenuUIContainer"]
-visible = false
-layout_mode = 2
-theme = ExtResource("9_50h1w")
-text = "Arielle's
-Big Day"
-label_settings = SubResource("LabelSettings_3w8rc")
-horizontal_alignment = 1
-
-[node name="Logo" type="TextureRect" parent="Menu/MenuUIContainer"]
-layout_mode = 2
 
 [node name="Separator" type="Control" parent="Menu/MenuUIContainer"]
 custom_minimum_size = Vector2(0, 50)
