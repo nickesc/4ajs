@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://bs7lf6epkmtfj"]
+
+[ext_resource type="PackedScene" uid="uid://d4jrt7vr5n0wv" path="res://models/clark/train-electric-subway-a.glb" id="1_w2vjg"]
+[ext_resource type="Script" uid="uid://bs3uvkvp80jh4" path="res://scripts/train.gd" id="2_0tuur"]
+[ext_resource type="PackedScene" uid="uid://q7dtv6rvvhxw" path="res://models/clark/train-electric-subway-b.glb" id="2_u2xgf"]
+[ext_resource type="PackedScene" uid="uid://bswfx48ldoq2a" path="res://models/clark/train-electric-subway-c.glb" id="3_0tuur"]
+[ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="5_0tuur"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w2vjg"]
+
+[sub_resource type="TextMesh" id="TextMesh_u2xgf"]
+text = "Enter Here
+"
+font = ExtResource("5_0tuur")
+
+[node name="train" instance=ExtResource("1_w2vjg")]
+script = ExtResource("2_0tuur")
+
+[node name="train-electric-subway-a" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0860157, 0, 0)
+
+[node name="train-electric-subway-b2" parent="." index="1" instance=ExtResource("2_u2xgf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.6261)
+
+[node name="train-electric-subway-b3" parent="." index="2" instance=ExtResource("2_u2xgf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10.5144)
+
+[node name="train-electric-subway-b4" parent="." index="3" instance=ExtResource("2_u2xgf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00137615, -2.38419e-07, -7.87426)
+
+[node name="train-electric-subway-c2" parent="." index="4" instance=ExtResource("3_0tuur")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.25574)
+
+[node name="Area3D" type="Area3D" parent="train-electric-subway-c2" index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="train-electric-subway-c2/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.825867, 0.89133, -0.00250006)
+shape = SubResource("BoxShape3D_w2vjg")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="train-electric-subway-c2/Area3D" index="1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.865856, 1.01752, 0)
+emitting = false
+amount = 1
+mesh = SubResource("TextMesh_u2xgf")
+gravity = Vector3(0, -0.25, 0)
+
+[connection signal="body_entered" from="train-electric-subway-c2/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="train-electric-subway-c2/Area3D" to="." method="_on_area_3d_body_exited"]

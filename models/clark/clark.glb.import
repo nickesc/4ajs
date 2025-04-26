@@ -32,6 +32,41 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"_defaultMat(Clone)": {
+"use_external/enabled": true,
+"use_external/path": "res://materials/clark/_defaultMat(Clone).tres"
+},
+"bricks(Clone)": {
+"use_external/enabled": true,
+"use_external/path": "res://materials/clark/bricks(Clone).tres"
+},
+"metal(Clone)": {
+"use_external/enabled": true,
+"use_external/path": "res://materials/clark/metal(Clone).tres"
+},
+"metalLight(Clone)": {
+"use_external/enabled": true,
+"use_external/path": "res://materials/clark/metalLight(Clone).tres"
+},
+"stone(Clone)": {
+"use_external/enabled": true,
+"use_external/path": "res://materials/clark/stone(Clone).tres"
+},
+"stoneDark(Clone)": {
+"use_external/enabled": true,
+"use_external/path": "res://materials/clark/stoneDark(Clone).tres"
+},
+"stoneLight(Clone)": {
+"use_external/enabled": true,
+"use_external/path": "res://materials/clark/stoneLight(Clone).tres"
+},
+"wood(Clone)": {
+"use_external/enabled": true,
+"use_external/path": "res://materials/clark/wood(Clone).tres"
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

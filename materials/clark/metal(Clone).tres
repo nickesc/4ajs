@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dviub0elnvla6"]
+
+[resource]
+resource_name = "metal(Clone)"
+albedo_color = Color(0.201527, 0.201527, 0.201527, 1)
+metallic = 0.35
+roughness = 0.75

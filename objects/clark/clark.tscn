@@ -1,6 +1,11 @@
-[gd_scene load_steps=223 format=3 uid="uid://fr7ig3ntwdde"]
+[gd_scene load_steps=228 format=3 uid="uid://fr7ig3ntwdde"]
 
 [ext_resource type="PackedScene" uid="uid://kumvr842wk0b" path="res://models/clark/clark.glb" id="1_xps65"]
+[ext_resource type="Material" uid="uid://drb04em0cdlil" path="res://materials/clark/_defaultMat(Clone).tres" id="2_2axgn"]
+[ext_resource type="Material" uid="uid://b5bh8d48bdhdb" path="res://materials/clark/green_metal.tres" id="2_qk0fu"]
+[ext_resource type="Material" uid="uid://citoujyr55ke3" path="res://materials/clark/yellow_fence.tres" id="3_83m33"]
+[ext_resource type="Material" uid="uid://b73brv4mebsr3" path="res://materials/clark/bricks(Clone).tres" id="3_pr1td"]
+[ext_resource type="Material" uid="uid://bpmj1r1ybrmw0" path="res://materials/clark/wood(Clone).tres" id="3_vjqxf"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xps65"]
 points = PackedVector3Array(0.5625, 1, 0.499988, 0.5625, 1.60297e-31, 0.499988, 0.499951, 1, 0.4375, 0.499951, 1, 0.5625, 0.499951, 1.60297e-31, 0.5625, 0.499951, 1.60297e-31, 0.4375, -0.500061, 1, 0.4375, -0.500061, 1, 0.5625, -0.500061, 1.60297e-31, 0.5625, -0.500061, 1.60297e-31, 0.4375, -0.5625, 1, 0.499988, -0.5625, 1.60297e-31, 0.499988)
@@ -717,10 +722,18 @@ shape = SubResource("ConvexPolygonShape3D_6v7ik")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="wall_baseWideHigh3/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_16u58")
 
+[node name="stairs" parent="." index="10"]
+surface_material_override/0 = ExtResource("2_2axgn")
+surface_material_override/1 = ExtResource("3_pr1td")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="stairs" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="stairs/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_03rya")
+
+[node name="stairs2" parent="." index="11"]
+surface_material_override/0 = ExtResource("2_2axgn")
+surface_material_override/1 = ExtResource("3_pr1td")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="stairs2" index="0"]
 
@@ -767,10 +780,20 @@ shape = SubResource("ConvexPolygonShape3D_irrc0")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="porch_floorCenter/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_7he45")
 
+[node name="floor_side" parent="." index="20"]
+transform = Transform3D(0, 4.21468e-08, -20.0044, 4.21511e-08, 1, 8.43122e-07, 1.0001, -4.21468e-08, -3.55349e-14, -7.49881, 0.00351357, -1.99842)
+surface_material_override/0 = ExtResource("3_83m33")
+surface_material_override/1 = ExtResource("3_vjqxf")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="floor_side" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor_side/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_sw1rp")
+
+[node name="floor_side2" parent="." index="21"]
+transform = Transform3D(0, 4.21468e-08, 20.0038, 4.21511e-08, 1, -8.43097e-07, -1.0001, 4.21468e-08, -3.55339e-14, -7.49881, 0.00351357, -3.99842)
+surface_material_override/0 = ExtResource("3_83m33")
+surface_material_override/1 = ExtResource("3_vjqxf")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="floor_side2" index="0"]
 
@@ -851,6 +874,11 @@ shape = SubResource("ConvexPolygonShape3D_4qfjq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="wall_slopeRoundInverse8/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_tf7nc")
+
+[node name="floor" parent="." index="37"]
+transform = Transform3D(0, 4.21468e-08, -20.004, 4.21511e-08, 1, 8.43106e-07, 1.0001, -4.21468e-08, -3.55342e-14, -7.49891, 0.00351357, -2.99842)
+surface_material_override/0 = ExtResource("3_83m33")
+surface_material_override/1 = ExtResource("3_vjqxf")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="floor" index="0"]
 
@@ -1702,70 +1730,126 @@ shape = SubResource("ConvexPolygonShape3D_xrnnf")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="wall_baseWideHigh58/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_yf46w")
 
+[node name="column" parent="." index="207"]
+surface_material_override/0 = ExtResource("2_qk0fu")
+surface_material_override/1 = ExtResource("2_qk0fu")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="column" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="column/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_hxhrg")
+
+[node name="column2" parent="." index="208"]
+surface_material_override/0 = ExtResource("2_qk0fu")
+surface_material_override/1 = ExtResource("2_qk0fu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="column2" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="column2/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_kviia")
 
+[node name="column3" parent="." index="209"]
+surface_material_override/0 = ExtResource("2_qk0fu")
+surface_material_override/1 = ExtResource("2_qk0fu")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="column3" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="column3/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_t8vaq")
+
+[node name="column4" parent="." index="210"]
+surface_material_override/0 = ExtResource("2_qk0fu")
+surface_material_override/1 = ExtResource("2_qk0fu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="column4" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="column4/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_2yjma")
 
+[node name="fence_modernRoundedLow" parent="." index="211"]
+surface_material_override/0 = ExtResource("3_83m33")
+surface_material_override/1 = ExtResource("3_83m33")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="fence_modernRoundedLow" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="fence_modernRoundedLow/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_qdj2p")
+
+[node name="fence_modernRoundedLow2" parent="." index="212"]
+surface_material_override/0 = ExtResource("3_83m33")
+surface_material_override/1 = ExtResource("3_83m33")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="fence_modernRoundedLow2" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="fence_modernRoundedLow2/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_6mk6n")
 
+[node name="fence_modernRoundedLow3" parent="." index="213"]
+surface_material_override/0 = ExtResource("3_83m33")
+surface_material_override/1 = ExtResource("3_83m33")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="fence_modernRoundedLow3" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="fence_modernRoundedLow3/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_3b5uw")
+
+[node name="fence_modernRoundedLow4" parent="." index="214"]
+surface_material_override/0 = ExtResource("3_83m33")
+surface_material_override/1 = ExtResource("3_83m33")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="fence_modernRoundedLow4" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="fence_modernRoundedLow4/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_wy0b1")
 
+[node name="column5" parent="." index="215"]
+surface_material_override/0 = ExtResource("2_qk0fu")
+surface_material_override/1 = ExtResource("2_qk0fu")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="column5" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="column5/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_rut3b")
+
+[node name="column6" parent="." index="216"]
+surface_material_override/0 = ExtResource("2_qk0fu")
+surface_material_override/1 = ExtResource("2_qk0fu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="column6" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="column6/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_5hvws")
 
+[node name="fence_modernRoundedLow5" parent="." index="217"]
+surface_material_override/0 = ExtResource("3_83m33")
+surface_material_override/1 = ExtResource("3_83m33")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="fence_modernRoundedLow5" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="fence_modernRoundedLow5/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_7hao0")
+
+[node name="fence_modernRoundedLow6" parent="." index="218"]
+surface_material_override/0 = ExtResource("3_83m33")
+surface_material_override/1 = ExtResource("3_83m33")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="fence_modernRoundedLow6" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="fence_modernRoundedLow6/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_8s3x4")
 
+[node name="column7" parent="." index="219"]
+surface_material_override/0 = ExtResource("2_qk0fu")
+surface_material_override/1 = ExtResource("2_qk0fu")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="column7" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="column7/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_x26ab")
+
+[node name="column8" parent="." index="220"]
+surface_material_override/0 = ExtResource("2_qk0fu")
+surface_material_override/1 = ExtResource("2_qk0fu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="column8" index="0"]
 

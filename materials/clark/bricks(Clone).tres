@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b73brv4mebsr3"]
+
+[resource]
+resource_name = "bricks(Clone)"
+albedo_color = Color(0.0705882, 0.0666667, 0.101961, 1)
+metallic = 0.35

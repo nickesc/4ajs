@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bpmj1r1ybrmw0"]
+
+[resource]
+resource_name = "wood(Clone)"
+albedo_color = Color(0.108277, 0.0275646, 0.0105926, 1)
+metallic = 0.35
