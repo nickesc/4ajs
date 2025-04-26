@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://do6r3r3j8ac8x"]
+[gd_scene load_steps=52 format=3 uid="uid://do6r3r3j8ac8x"]
 
 [ext_resource type="Script" uid="uid://ci5flxvcrd2ca" path="res://scripts/camera_controller.gd" id="1_cs7aj"]
 [ext_resource type="Environment" uid="uid://cn54j8eqfhivp" path="res://scenes/bedroom-environment.tres" id="1_faqlx"]
@@ -60,6 +60,9 @@ duration = 1.0
 transition = 0
 ease = 2
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_6bpri"]
+size = Vector3(0.565918, 3.23657, 1.76117)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_08d0o"]
 
 [node name="Bedroom" type="Node3D"]
@@ -87,7 +90,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.89688, 0, -18.6092)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.732, 0, -10.999)
 
 [node name="Camera" type="Camera3D" parent="."]
-transform = Transform3D(0.512019, -0.34391, 0.787123, 0, 0.916352, 0.400373, -0.858974, -0.204998, 0.46919, 8.8616, 4.1155, 0.73339)
+transform = Transform3D(0.512019, -0.34391, 0.787123, 1.49012e-08, 0.916352, 0.400373, -0.858974, -0.204998, 0.46919, 8.8616, 4.1155, 0.73339)
 current = true
 fov = 40.0
 
@@ -117,7 +120,7 @@ look_at_offset = Vector3(0, 0, 2)
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="Family PCam" type="Node3D" parent="." node_paths=PackedStringArray("look_at_target")]
-transform = Transform3D(0.851877, -0.411775, 1.29025, -2.38419e-08, 1.52426, 0.486455, -1.35437, -0.259, 0.811546, 11.7343, 3.39408, -5.3367)
+transform = Transform3D(0.851877, -0.411775, 1.29025, 0, 1.52426, 0.486455, -1.35437, -0.259, 0.811546, 11.7343, 3.39408, -5.3367)
 script = ExtResource("12_4wfg3")
 look_at_mode = 2
 look_at_target = NodePath("../CameraController/familyNode")
@@ -136,7 +139,7 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 metadata/_edit_pinned_properties_ = [&"look_at_targets"]
 
 [node name="P2 PCam" type="Node3D" parent="." node_paths=PackedStringArray("look_at_target")]
-transform = Transform3D(-1.32127, -0.087938, 0.898061, 5.96047e-09, 1.59239, 0.155926, -0.902356, 0.128763, -1.31498, 11.0075, 1.39963, -14.7907)
+transform = Transform3D(-1.32127, -0.087938, 0.89806, 0, 1.59239, 0.155925, -0.902356, 0.128763, -1.31498, 11.0075, 1.39963, -14.7907)
 script = ExtResource("12_4wfg3")
 look_at_mode = 2
 look_at_target = NodePath("../Player")
@@ -321,6 +324,13 @@ transform = Transform3D(-1.2641e-07, 0.34099, -0.304544, 1.20472e-08, 3.57797, 0
 
 [node name="bathCart" parent="World" instance=ExtResource("38_2vgw0")]
 transform = Transform3D(-6.61627e-08, 0, -1.18802, 0, 0.770047, 0, 1.51363, 0, -5.19301e-08, 1.22952, -2.08616e-07, 27.1578)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.54119, -1.53482e-06, 12.1269)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.217041, 1.11829, 0.718903)
+shape = SubResource("BoxShape3D_6bpri")
 
 [node name="doorbell" type="Area3D" parent="." node_paths=PackedStringArray("ring")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.56071, 0, -14.2263)
