@@ -4,6 +4,13 @@ https://kenney.nl/assets/furniture-kit
 https://kenney.nl/assets/nature-kit
 https://kenney.nl/assets/platformer-kit
 
+
+https://kenney.nl/assets/modular-buildings
+https://kenney.nl/assets/city-kit-suburban
+https://kenney.nl/assets/train-kit
+https://kenney.nl/assets/mini-market
+https://kenney.nl/assets/city-kit-commercial
+
 Audio
 https://pixabay.com/sound-effects/doorbell-223669/
 
