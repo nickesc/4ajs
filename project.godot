@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Arielle's Big Day"
-config/version="0.5.1"
+config/version="0.5.2"
 config/tags=PackedStringArray("starterkit")
 run/main_scene="uid://cqmves5lu370k"
 config/features=PackedStringArray("4.4", "Forward Plus")
