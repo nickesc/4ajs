@@ -57,25 +57,37 @@ In order to activate the second player, 2 controllers ***must*** be connected.
 
 ### Mouse & Keyboard
 
-#### Third-Person:
-Button | Action
-----|----
-<kbd>WASD</kbd> | Move
-<kbd>Space</kbd> | Jump
-<kbd>E</kbd> | Interact
-<kbd>R</kbd> | Reset
-
-#### First-Person:
-
-Button | Action
-----|----
-<kbd>WASD</kbd> | Move
-<kbd>Space</kbd> | Jump
-<kbd>Mouse</kbd> | Look
-<kbd>LMB</kbd> | Shoot
-<kbd>RMB</kbd> | Zoom
-<kbd>E</kbd> | Change weapon
-<kbd>R</kbd> | Reset
+<table>
+  <tr>
+    <td valign="top">
+<p><b>Third-Person</b></p>
+<table>
+  <tbody>
+    <tr><th>Button</th> <th>Action</th></tr>
+    <tr><td><kbd>WASD</kbd></td> <td>Move</td></tr>
+    <tr><td><kbd>Space</kbd></td> <td>Jump</td></tr>
+    <tr><td><kbd>E</kbd></td> <td>Interact</td></tr>
+    <tr><td><kbd>R</kbd></td> <td>Reset</td></tr>
+  </tbody>
+</table>
+    </td>
+    <td valign="top">
+<p><b>First-Person</b></p>
+<table>
+  <tbody>
+    <tr><th>Button</th> <th>Action</th></tr>
+    <tr><td><kbd>WASD</kbd></td> <td>Move</td></tr>
+    <tr><td><kbd>Space</kbd></td> <td>Jump</td></tr>
+    <tr><td><kbd>Mouse</kbd></td> <td>Look</td></tr>
+    <tr><td><kbd>LMB</kbd></td> <td>Shoot</td></tr>
+    <tr><td><kbd>RMB</kbd></td> <td>Zoom</td></tr>
+    <tr><td><kbd>E</kbd></td> <td>Change weapon</td></tr>
+    <tr><td><kbd>R</kbd></td> <td>Reset</td></tr>
+  </tbody>
+</table>
+    </td>
+  </tr>
+</table>
 
 ### Controller
 
@@ -92,8 +104,14 @@ Button | Action
 
 ### Scenes
 
-<div align="center"> ![Apartment Screenshot](docs/bedroom_screenshot.png) <br> <code>Apartment Scene</code> </div> | <div align="center"> ![Platformer Screenshot](docs/platformer_screenshot.png) <br> <code>Platformer Scene</code> </div> 
-----|----
+<table>
+  <tr>
+    <td><div align="center"> <img alt="Apartment Screenshot" src="docs/bedroom_screenshot.png"> <br> <code>Apartment Scene</code> </div></td>
+    <td><div align="center"> <img alt="Platformer Screenshot" src="docs/platformer_screenshot.png"> <br> <code>Platformer Scene</code> </div></td>
+  </tr>
+  <tr>
+    <td><div align="center"> <img alt="Subway Screenshot" src="docs/subway_screenshot.png"> <br> <code>Subway Scene</code> </div></td>
+    <td><div align="center"> <img alt="Shooter Screenshot" src="docs/fps_screenshot.png"> <br> <code>Shooter Scene</code> </div></td>
+  </tr>
 
-<div align="center"> ![Subway Screenshot](docs/subway_screenshot.png) <br> <code>Subway Scene</code> </div>  | <div align="center"> ![Shooter Screenshot](docs/fps_screenshot.png) <br> <code>Shooter Scene</code> </div>
----|----
+</table>
